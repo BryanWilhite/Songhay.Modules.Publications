@@ -1,0 +1,35 @@
+{
+    "ClientId": "book-tube",
+    "DocumentId": 0,
+    "Title": "BookTube",
+    "Fragments": [
+        {
+            "ClientId": "author-level-up",
+            "FragmentId": 0,
+            "ModificationDate": "2022-07-10T05:30:09Z",
+            "NextFragments": [],
+            "PrevFragments": []
+          },
+          {
+            "ClientId": "bookish-realm",
+            "FragmentId": 0,
+            "ModificationDate": "2022-07-28T03:01:57Z",
+            "NextFragments": [],
+            "PrevFragments": []
+          },
+          {
+            "ClientId": "brandon-sanderson",
+            "FragmentId": 0,
+            "ModificationDate": "2022-07-27T15:00:10Z",
+            "NextFragments": [],
+            "PrevFragments": []
+          },
+          {
+            "ClientId": "brown-girl-reading",
+            "FragmentId": 0,
+            "ModificationDate": "2022-07-30T06:15:53Z",
+            "NextFragments": [],
+            "PrevFragments": []
+          }
+      ]
+}

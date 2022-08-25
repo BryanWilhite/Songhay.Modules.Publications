@@ -1,0 +1,31 @@
+{
+  "segmentId": 4318,
+  "segmentName": "Lisa Diane Wedgeworth: goddess series",
+  "parentSegmentId": 4304,
+  "isActive": true,
+  "documents": [
+    {
+      "documentId": 8661,
+      "title": "Lisa Diane Wedgeworth: goddess series",
+      "fileName": "p_wedgeworth0.html",
+      "path": "./",
+      "templateId": 9058,
+      "segmentId": 4318,
+      "isRoot": true,
+      "isActive": true,
+      "tag": "2011-07-Upgrade",
+      "modificationDate": "2011-07-10T19:58:49.403"
+    },
+    {
+      "documentId": 8782,
+      "title": "Lisa Diane Wedgeworth: goddess series",
+      "fileName": "goddess.pdf",
+      "path": "/pdf/",
+      "segmentId": 4318,
+      "isRoot": false,
+      "isActive": true,
+      "tag": "2011-07-Upgrade",
+      "modificationDate": "2011-07-11T19:35:41.61"
+    }
+  ]
+}

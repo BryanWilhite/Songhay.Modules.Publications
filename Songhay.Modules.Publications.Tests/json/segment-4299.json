@@ -1,0 +1,53 @@
+{
+  "segmentId": 4299,
+  "segmentName": "space visitors",
+  "sortOrdinal": 13,
+  "isActive": true,
+  "segments": [
+    {
+      "segmentId": 4308,
+      "segmentName": "root: space visitors",
+      "sortOrdinal": 10,
+      "parentSegmentId": 4299,
+      "isActive": true,
+      "segments": [],
+      "documents": []
+    },
+    {
+      "segmentId": 4310,
+      "segmentName": "The Funky Knowledge Base",
+      "sortOrdinal": 13,
+      "parentSegmentId": 4299,
+      "isActive": true,
+      "segments": [],
+      "documents": []
+    },
+    {
+      "segmentId": 4314,
+      "segmentName": "miscellaneous",
+      "sortOrdinal": 11,
+      "parentSegmentId": 4299,
+      "isActive": true,
+      "segments": [],
+      "documents": []
+    },
+    {
+      "segmentId": 4396,
+      "segmentName": "the kinté threads",
+      "sortOrdinal": 14,
+      "parentSegmentId": 4299,
+      "isActive": true,
+      "segments": [],
+      "documents": []
+    },
+    {
+      "segmentId": 4455,
+      "segmentName": "the rasx() context [Blog]",
+      "parentSegmentId": 4299,
+      "isActive": true,
+      "segments": [],
+      "documents": []
+    }
+  ],
+  "documents": []
+}
