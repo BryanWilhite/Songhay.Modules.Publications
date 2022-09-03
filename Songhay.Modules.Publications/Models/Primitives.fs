@@ -124,12 +124,11 @@ type Name =
     static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
         let elementName =
             match itemType with
-            | Segment -> None
+            | Segment -> $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
             | Document -> $"File{nameof Name}" |> toCamelCaseOrDefault useCamelCase
             | Fragment -> $"{nameof Fragment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
 
         match elementName with
-        | None when itemType = Segment -> (Name None) |> Ok
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name -> element |> Name.fromInputElementName name
 
