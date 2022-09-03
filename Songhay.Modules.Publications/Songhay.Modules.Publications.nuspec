@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Songhay.Modules.Publications</id>
-    <version>6.0.0</version>
+    <version>6.0.1</version>
     <description>shared Publication types and functions for F# clients 🕸🖼</description>
     <authors>Bryan D. Wilhite</authors>
     <title>Songhay Modules, Publications</title>
@@ -12,7 +12,7 @@
     <license type="file">LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>shared Publication types and functions for F# clients 🕸🖼</summary>
-    <releaseNotes>[none]</releaseNotes>
+    <releaseNotes>https://github.com/BryanWilhite/Songhay.Modules.Publications/issues/1</releaseNotes>
     <copyright>(c) 2022 Bryan D. Wilhite</copyright>
     <tags>FSharp;Songhay;Modules;Publications;RSS;Atom</tags>
     <repository type="git" url="https://github.com/BryanWilhite/Songhay.Modules.Publications"></repository>
