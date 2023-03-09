@@ -17,73 +17,76 @@ open Songhay.Modules.Publications.Models
 module DisplayItemModelUtility =
 
     ///<summary>
-    /// Returns <see cref="DisplayText" /> from the <see cref="JsonElement" />
+    /// Returns <see cref="DisplayText" /> from the <see cref="JsonDocumentOrElement" />
     /// based on the specified element name.
     /// </summary>
-    let displayTextResult elementName (jsonElement: JsonElement) =
+    let displayTextResult elementName (documentOrElement: JsonDocumentOrElement) =
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            jsonElement |> tryGetProperty name |> Result.map (fun el -> Some (el.GetString() |> DisplayText))
+            documentOrElement
+            |> tryGetProperty name
+            |> Result.map toJsonElement
+            |> toResultFromStringElement (fun el -> Some (el.GetString() |> DisplayText))
 
     ///<summary>
-    /// Returns <see cref="DisplayText" /> from the <see cref="JsonElement" />
+    /// Returns <see cref="DisplayText" /> from the <see cref="JsonDocumentOrElement" />
     /// based on conventions around the <see cref="PublicationItem" /> Segment.
     /// </summary>
-    let defaultSegmentDisplayTextGetter (useCamelCase: bool) (jsonElement: JsonElement) =
+    let defaultSegmentDisplayTextGetter (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName = $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
-        (elementName, jsonElement) ||> displayTextResult
+        (elementName, documentOrElement) ||> displayTextResult
 
     ///<summary>
-    /// Returns <see cref="DisplayText" /> from the <see cref="JsonElement" />
+    /// Returns <see cref="DisplayText" /> from the <see cref="JsonDocumentOrElement" />
     /// based on conventions around the <see cref="PublicationItem" /> Document.
     /// </summary>
-    let defaultDocumentDisplayTextGetter (useCamelCase: bool) (jsonElement: JsonElement) =
+    let defaultDocumentDisplayTextGetter (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName = $"{nameof Title}" |> toCamelCaseOrDefault useCamelCase
-        (elementName, jsonElement) ||> displayTextResult
+        (elementName, documentOrElement) ||> displayTextResult
 
     ///<summary>
-    /// Returns <see cref="DisplayText" /> from the <see cref="JsonElement" />
+    /// Returns <see cref="DisplayText" /> from the <see cref="JsonDocumentOrElement" />
     /// based on the specified element name for the <see cref="PublicationItem" /> Fragment.
     /// </summary>
-    let defaultFragmentDisplayTextGetter fragmentElementName (useCamelCase: bool) (jsonElement: JsonElement) =
+    let defaultFragmentDisplayTextGetter fragmentElementName (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
             match fragmentElementName with
-            | Some name -> ((name |> toCamelCaseOrDefault useCamelCase), jsonElement) ||> displayTextResult
+            | Some name -> ((name |> toCamelCaseOrDefault useCamelCase), documentOrElement) ||> displayTextResult
             | _ -> Ok None
 
     ///<summary>
-    /// Returns <see cref="DisplayText" /> from the <see cref="JsonElement" />
+    /// Returns <see cref="DisplayText" /> from the <see cref="JsonDocumentOrElement" />
     /// based on conventions around the specified <see cref="PublicationItem" />.
     /// </summary>
     let defaultDisplayTextGetter
         (fragmentElementName: string option)
         (itemType: PublicationItem)
         (useCamelCase: bool)
-        (jsonElement: JsonElement) =
+        (documentOrElement: JsonDocumentOrElement) =
         match itemType with
-        | Segment -> (useCamelCase, jsonElement) ||> defaultSegmentDisplayTextGetter
-        | Document -> (useCamelCase, jsonElement) ||> defaultDocumentDisplayTextGetter
-        | Fragment -> (fragmentElementName, useCamelCase, jsonElement) |||> defaultFragmentDisplayTextGetter
+        | Segment -> (useCamelCase, documentOrElement) ||> defaultSegmentDisplayTextGetter
+        | Document -> (useCamelCase, documentOrElement) ||> defaultDocumentDisplayTextGetter
+        | Fragment -> (fragmentElementName, useCamelCase, documentOrElement) |||> defaultFragmentDisplayTextGetter
 
     ///<summary>
-    /// Returns <see cref="DisplayItemModel" /> from the <see cref="JsonElement" />
+    /// Returns <see cref="DisplayItemModel" /> from the <see cref="JsonDocumentOrElement" />
     /// and ‘getter’ lower-order functions based
     /// on conventions around the specified <see cref="PublicationItem" />.
     /// </summary>
     let tryGetDisplayItemModel
-        (displayTextGetter: PublicationItem -> bool -> JsonElement -> Result<DisplayText option, JsonException>)
-        (resourceIndicatorGetter: (PublicationItem -> bool -> JsonElement -> Result<Uri option, JsonException>) option)
+        (displayTextGetter: PublicationItem -> bool -> JsonDocumentOrElement -> Result<DisplayText option, JsonException>)
+        (resourceIndicatorGetter: (PublicationItem -> bool -> JsonDocumentOrElement -> Result<Uri option, JsonException>) option)
         (itemType: PublicationItem)
         (useCamelCase: bool)
-        (element: JsonElement)
+        (documentOrElement: JsonDocumentOrElement)
         : Result<DisplayItemModel, JsonException> =
 
-        let idResult = (useCamelCase, element) ||> Id.fromInput itemType
-        let nameResult = (useCamelCase, element) ||> Name.fromInput itemType
-        let displayTextResult =  (useCamelCase, element) ||> displayTextGetter itemType
+        let idResult = (useCamelCase, documentOrElement) ||> Id.fromInput itemType
+        let nameResult = (useCamelCase, documentOrElement) ||> Name.fromInput itemType
+        let displayTextResult =  (useCamelCase, documentOrElement) ||> displayTextGetter itemType
         let resourceIndicatorResult =
             match resourceIndicatorGetter with
-            | Some getter -> ((useCamelCase, element) ||> getter itemType)
+            | Some getter -> ((useCamelCase, documentOrElement) ||> getter itemType)
             | _ -> Ok None
 
         [
@@ -97,7 +100,7 @@ module DisplayItemModelUtility =
               (
                    fun _ ->
                         Ok {
-                            id = (idResult |> Result.valueOr raise).Value
+                            id = (idResult |> Result.valueOr raise)
                             itemName = (nameResult |> Result.valueOr raise).toItemName
                             displayText = (displayTextResult |> Result.valueOr raise)
                             resourceIndicator = (resourceIndicatorResult |> Result.valueOr raise)

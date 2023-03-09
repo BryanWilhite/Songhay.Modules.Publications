@@ -47,10 +47,10 @@ type Id =
     | Id of Identifier
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" />
+    /// Converts the specified <see cref="JsonDocumentOrElement" />
     /// into <see cref="Id" /> based on the type of <see cref="PublicationItem" />.
     /// </summary>
-    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName =
             match itemType with
             | Segment -> $"{nameof Segment}{nameof Id}" |> toCamelCaseOrDefault useCamelCase
@@ -59,23 +59,7 @@ type Id =
 
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
-        | Some name -> element |> Id.fromInputElementName name
-
-    ///<summary>
-    /// Converts the specified <see cref="JsonElement" />
-    /// into <see cref="Id" /> based on the expected JSON element name.
-    /// </summary>
-    static member fromInputElementName elementName (element: JsonElement) =
-        element
-        |> tryGetProperty elementName
-        |> Result.bind
-            (
-                fun el ->
-                    match el.ValueKind with
-                    | JsonValueKind.String -> el.GetString() |> fun idString -> Identifier.fromString(idString) |> Id |> Ok
-                    | JsonValueKind.Number -> el.GetInt32() |> fun id -> Identifier.fromInt32(id) |> Id |> Ok
-                    | _ -> JsonException("Only alphanumeric or integer identifiers are supported.") |> Error
-            )
+        | Some name -> documentOrElement |> Identifier.fromInputElementName name
 
     ///<summary>
     /// Unwraps the underlying <see cref="Identifier" /> value.
@@ -94,16 +78,17 @@ type Title =
     | Title of string
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" /> into <see cref="Title" />.
+    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="Title" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName = (nameof Title) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            element
+            documentOrElement
             |> tryGetProperty name
-            |> Result.map (fun el -> Title (el.GetString()))
+            |> Result.map toJsonElement
+            |> toResultFromStringElement (fun el -> Title (el.GetString()))
 
 ///<summary>
 /// Defines a primitive naming concept
@@ -118,10 +103,10 @@ type Name =
     | Name of string option
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" />
+    /// Converts the specified <see cref="JsonDocumentOrElement" />
     /// into <see cref="Name" /> based on the type of <see cref="PublicationItem" />.
     /// </summary>
-    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName =
             match itemType with
             | Segment -> $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
@@ -130,14 +115,17 @@ type Name =
 
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
-        | Some name -> element |> Name.fromInputElementName name
+        | Some name -> documentOrElement |> Name.fromInputElementName name
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" />
+    /// Converts the specified <see cref="JsonDocumentOrElement" />
     /// into <see cref="Name" /> based on the expected JSON element name.
     /// </summary>
-    static member fromInputElementName elementName (element: JsonElement) =
-        element |> tryGetProperty elementName |> Result.map (fun el -> Name (el.GetString() |> Some))
+    static member fromInputElementName elementName (documentOrElement: JsonDocumentOrElement) =
+        documentOrElement
+        |> tryGetProperty elementName
+        |> Result.map toJsonElement
+        |> toResultFromStringElement (fun el -> Name (el.GetString() |> Some))
 
     ///<summary>
     /// Unwraps the underlying <see cref="string" /> value.
@@ -161,16 +149,17 @@ type Path =
     | Path of string
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" /> into <see cref="Path" />.
+    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="Path" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName = (nameof Path) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            element
+            documentOrElement
             |> tryGetProperty name
-            |> Result.map (fun el -> Path (el.GetString()))
+            |> Result.map toJsonElement
+            |> toResultFromStringElement (fun el -> Path (el.GetString()))
 
 ///<summary>
 /// Defines a primitive value,
@@ -184,16 +173,17 @@ type FileName =
     | FileName of string
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" /> into <see cref="FileName" />.
+    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="FileName" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName = (nameof FileName) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            element
+            documentOrElement
             |> tryGetProperty name
-            |> Result.map (fun el -> FileName (el.GetString()))
+            |> Result.map toJsonElement
+            |> toResultFromStringElement (fun el -> FileName (el.GetString()))
 
 ///<summary>
 /// Defines a primitive value,
@@ -207,13 +197,14 @@ type IsActive =
     | IsActive of bool
 
     ///<summary>
-    /// Converts the specified <see cref="JsonElement" /> into <see cref="IsActive" />.
+    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="IsActive" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (element: JsonElement) =
+    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
         let elementName = (nameof IsActive) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            element
+            documentOrElement
             |> tryGetProperty name
-            |> Result.map (fun el -> IsActive (el.GetBoolean()))
+            |> Result.map toJsonElement
+            |> toResultFromStringElement (fun el -> IsActive (el.GetBoolean()))

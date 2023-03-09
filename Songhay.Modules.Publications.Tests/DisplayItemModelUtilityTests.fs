@@ -2,20 +2,17 @@ namespace Songhay.Modules.Publications.Tests
 
 module DisplayItemModelUtilityTests =
 
-    open System
     open System.IO
     open System.Reflection
     open System.Text.Json
 
     open Xunit
 
-    open Xunit
     open FsUnit.Xunit
     open FsUnit.CustomMatchers
     open FsToolkit.ErrorHandling
 
     open Songhay.Modules.Models
-    open Songhay.Modules.JsonDocumentUtility
     open Songhay.Modules.ProgramFileUtility
     open Songhay.Modules.Publications.Models
     open Songhay.Modules.Publications.DisplayItemModelUtility
@@ -43,7 +40,7 @@ module DisplayItemModelUtilityTests =
         let fragmentElementNameOption = Option.ofObj(fragmentElementName)
         let displayTextGetter = defaultDisplayTextGetter fragmentElementNameOption
         let result =
-            (shouldUseCamelCase, jsonDocument.RootElement)
+            (shouldUseCamelCase, JDocument jsonDocument)
             ||> tryGetDisplayItemModel displayTextGetter None itemType
 
         result |> should be (ofCase <@ Result<DisplayItemModel, JsonException>.Ok @>)
