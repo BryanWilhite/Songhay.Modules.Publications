@@ -47,10 +47,10 @@ type Id =
     | Id of Identifier
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" />
+    /// Converts the specified <see cref="JsonElement" />
     /// into <see cref="Id" /> based on the type of <see cref="PublicationItem" />.
     /// </summary>
-    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
         let elementName =
             match itemType with
             | Segment -> $"{nameof Segment}{nameof Id}" |> toCamelCaseOrDefault useCamelCase
@@ -59,7 +59,7 @@ type Id =
 
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
-        | Some name -> documentOrElement |> Identifier.fromInputElementName name
+        | Some name -> element |> Identifier.fromInputElementName name
 
     ///<summary>
     /// Unwraps the underlying <see cref="Identifier" /> value.
@@ -78,16 +78,15 @@ type Title =
     | Title of string
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="Title" />.
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="Title" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof Title) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            documentOrElement
+            element
             |> tryGetProperty name
-            |> Result.map toJsonElement
             |> toResultFromStringElement (fun el -> Title (el.GetString()))
 
 ///<summary>
@@ -103,10 +102,10 @@ type Name =
     | Name of string option
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" />
+    /// Converts the specified <see cref="JsonElement" />
     /// into <see cref="Name" /> based on the type of <see cref="PublicationItem" />.
     /// </summary>
-    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
+    static member fromInput (itemType: PublicationItem) (useCamelCase: bool) (element: JsonElement) =
         let elementName =
             match itemType with
             | Segment -> $"{nameof Segment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
@@ -115,16 +114,15 @@ type Name =
 
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
-        | Some name -> documentOrElement |> Name.fromInputElementName name
+        | Some name -> element |> Name.fromInputElementName name
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" />
+    /// Converts the specified <see cref="JsonElement" />
     /// into <see cref="Name" /> based on the expected JSON element name.
     /// </summary>
-    static member fromInputElementName elementName (documentOrElement: JsonDocumentOrElement) =
-        documentOrElement
+    static member fromInputElementName elementName (element: JsonElement) =
+        element
         |> tryGetProperty elementName
-        |> Result.map toJsonElement
         |> toResultFromStringElement (fun el -> Name (el.GetString() |> Some))
 
     ///<summary>
@@ -149,16 +147,15 @@ type Path =
     | Path of string
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="Path" />.
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="Path" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof Path) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            documentOrElement
+            element
             |> tryGetProperty name
-            |> Result.map toJsonElement
             |> toResultFromStringElement (fun el -> Path (el.GetString()))
 
 ///<summary>
@@ -173,16 +170,15 @@ type FileName =
     | FileName of string
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="FileName" />.
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="FileName" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof FileName) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            documentOrElement
+            element
             |> tryGetProperty name
-            |> Result.map toJsonElement
             |> toResultFromStringElement (fun el -> FileName (el.GetString()))
 
 ///<summary>
@@ -197,14 +193,21 @@ type IsActive =
     | IsActive of bool
 
     ///<summary>
-    /// Converts the specified <see cref="JsonDocumentOrElement" /> into <see cref="IsActive" />.
+    /// Converts the specified <see cref="JsonElement" /> into <see cref="IsActive" />.
     /// </summary>
-    static member fromInput (useCamelCase: bool) (documentOrElement: JsonDocumentOrElement) =
+    static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof IsActive) |> toCamelCaseOrDefault useCamelCase
         match elementName with
         | None -> JsonException("The expected element-name input is not here") |> Error
         | Some name ->
-            documentOrElement
+            element
             |> tryGetProperty name
-            |> Result.map toJsonElement
-            |> toResultFromStringElement (fun el -> IsActive (el.GetBoolean()))
+            |> (
+                fun result ->
+                    match result with
+                    | Ok el when
+                        el.ValueKind = JsonValueKind.True ||
+                        el.ValueKind = JsonValueKind.False -> el.GetBoolean() |> IsActive |> Ok
+                    | Ok el -> JsonException($"The expected {nameof(JsonValueKind)} is not here: {el.ValueKind}") |> Error
+                    | Error ex -> Error ex
+            )

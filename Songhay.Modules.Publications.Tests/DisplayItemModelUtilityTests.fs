@@ -40,7 +40,7 @@ module DisplayItemModelUtilityTests =
         let fragmentElementNameOption = Option.ofObj(fragmentElementName)
         let displayTextGetter = defaultDisplayTextGetter fragmentElementNameOption
         let result =
-            (shouldUseCamelCase, JDocument jsonDocument)
+            (shouldUseCamelCase, jsonDocument.RootElement)
             ||> tryGetDisplayItemModel displayTextGetter None itemType
 
         result |> should be (ofCase <@ Result<DisplayItemModel, JsonException>.Ok @>)

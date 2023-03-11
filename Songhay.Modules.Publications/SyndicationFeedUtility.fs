@@ -44,13 +44,13 @@ module SyndicationFeedUtility =
     let SyndicationFeedPropertyName = "feeds"
 
     ///<summary>
-    /// Returns <c>true</c> when the specified <see cref="JsonDocumentOrElement" />
+    /// Returns <c>true</c> when the specified <see cref="JsonElement" />
     /// appears to be an RSS feed, converted from XML.
     /// </summary>
-    let isRssFeed (elementName: string) (documentOrElement: JsonDocumentOrElement) =
+    let isRssFeed (elementName: string) (element: JsonElement) =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
-        documentOrElement
+        element
         |> tryGetProperty SyndicationFeedPropertyName
         |> Result.bind (tryGetProperty elementNameNormalized)
         |> Result.bind (tryGetProperty RssFeedPropertyName)
@@ -59,40 +59,38 @@ module SyndicationFeedUtility =
 
     ///<summary>
     /// Tries to get the root element of the converted RSS or Atom feed
-    /// from the specified <see cref="JsonDocumentOrElement" />.
+    /// from the specified <see cref="JsonElement" />.
     /// </summary>
-    let tryGetFeedElement (elementName: string) (documentOrElement: JsonDocumentOrElement) =
+    let tryGetFeedElement (elementName: string) (element: JsonElement) =
         let elementNameNormalized = elementName.ToLowerInvariant()
 
         let getElement (feedPropertyName: string) =
-            documentOrElement |> tryGetProperty SyndicationFeedPropertyName
+            element |> tryGetProperty SyndicationFeedPropertyName
             |> Result.bind (tryGetProperty elementNameNormalized)
             |> Result.bind (tryGetProperty feedPropertyName)
 
-        match documentOrElement |> isRssFeed elementNameNormalized with
+        match element |> isRssFeed elementNameNormalized with
         | true -> (getElement RssFeedPropertyName) |> Result.map (fun rssElement -> true, rssElement)
         | _ -> (getElement AtomFeedPropertyName) |> Result.map (fun atomElement -> false, atomElement)
 
     ///<summary>
     /// Tries to get the RSS or Atom feed modification date
-    /// from the specified <see cref="JsonDocumentOrElement" />.
+    /// from the specified <see cref="JsonElement" />.
     /// </summary>
-    let tryGetFeedModificationDate (isRssFeed: bool) (documentOrElement: JsonDocumentOrElement) =
+    let tryGetFeedModificationDate (isRssFeed: bool) (element: JsonElement) =
         match isRssFeed with
         | false ->
-            documentOrElement
+            element
             |> tryGetProperty "updated"
-            |> Result.map toJsonElement
             |> toResultFromStringElement (fun updatedElement -> updatedElement.GetDateTime())
         | true ->
-            documentOrElement
+            element
             |> tryGetProperty "channel"
             |> Result.either
                 (
                     fun channelElement ->
                         channelElement
                         |> tryGetProperty "pubDate"
-                        |> Result.map toJsonElement
                         |> Result.either
                             (
                                 fun pubDateElement ->
@@ -106,7 +104,6 @@ module SyndicationFeedUtility =
                                 fun _ ->
                                     channelElement
                                     |> tryGetProperty "dc:date"
-                                    |> Result.map toJsonElement
                                     |> Result.either
                                         (
                                             fun pubDateElement ->
@@ -151,17 +148,15 @@ module SyndicationFeedUtility =
     let tryGetAtomSyndicationFeedItem (el: JsonElement) =
 
         let titleResult =
-            JElement el
+            el
             |> tryGetProperty "title"
             |> Result.bind (tryGetProperty "#text")
-            |> Result.map toJsonElement
             |> Result.map (fun textElement -> textElement.GetString())
 
         let linkResult =
-            JElement el
+            el
             |> tryGetProperty "link"
             |> Result.bind (tryGetProperty "@href")
-            |> Result.map toJsonElement
             |> Result.map (fun hrefElement -> hrefElement.GetString())
 
         (titleResult, linkResult) |> tryGetSyndicationFeedItem
@@ -172,9 +167,8 @@ module SyndicationFeedUtility =
     /// that should contain an Atom <c>entry</c> array.
     /// </summary>
     let tryGetAtomEntries (element: JsonElement) =
-        JElement element
+        element
         |> tryGetProperty "entry"
-        |> Result.map toJsonElement
         |> Result.map (fun el -> el.EnumerateArray() |> List.ofSeq)
 
     ///<summary>
@@ -182,18 +176,16 @@ module SyndicationFeedUtility =
     /// from the specified <see cref="JsonElement" />.
     /// </summary>
     let tryGetAtomChannelTitle (element: JsonElement) : Result<string, JsonException> =
-        match JElement element |> tryGetProperty "title" with
+        match element |> tryGetProperty "title" with
         | Error err -> Error err
-        | Ok documentOrElement ->
-            let titleElement = documentOrElement |> toJsonElement
-            match titleElement.ValueKind with
-            | JsonValueKind.String -> Ok(titleElement.GetString())
+        | Ok element ->
+            match element.ValueKind with
+            | JsonValueKind.String -> Ok(element.GetString())
             | JsonValueKind.Object ->
-                JElement titleElement
+                element
                 |> tryGetProperty "#text"
-                |> Result.map toJsonElement
                 |> toResultFromStringElement (fun textElement -> textElement.GetString())
-            | _ -> resultError (nameof titleElement)
+            | _ -> resultError (nameof element)
 
     ///<summary>
     /// Tries to call <see cref="tryGetSyndicationFeedItem" />
@@ -203,15 +195,13 @@ module SyndicationFeedUtility =
     let tryGetRssSyndicationFeedItem (el: JsonElement) =
 
         let titleResult =
-            JElement el
+            el
             |> tryGetProperty "title"
-            |> Result.map toJsonElement
             |> toResultFromStringElement (fun titleElement -> titleElement.GetString())
 
         let linkResult =
-            JElement el
+            el
             |> tryGetProperty "link"
-            |> Result.map toJsonElement
             |> toResultFromStringElement (fun linkElement -> linkElement.GetString())
 
         (titleResult, linkResult) |> tryGetSyndicationFeedItem
@@ -222,10 +212,9 @@ module SyndicationFeedUtility =
     /// that should contain an RSS <c>item</c> array.
     /// </summary>
     let tryGetRssChannelItems (element: JsonElement) =
-        JElement element
+        element
         |> tryGetProperty "channel"
         |> Result.bind (tryGetProperty "item")
-        |> Result.map toJsonElement
         |> toResultFromStringElement (fun el -> el.EnumerateArray() |> List.ofSeq)
 
     ///<summary>
@@ -233,7 +222,6 @@ module SyndicationFeedUtility =
     /// from the specified <see cref="JsonElement" />.
     /// </summary>
     let tryGetRssChannelTitle (element: JsonElement) =
-        JElement element |> tryGetProperty "channel"
+        element |> tryGetProperty "channel"
         |> Result.bind (tryGetProperty "title")
-        |> Result.map toJsonElement
         |> toResultFromStringElement (fun titleElement -> titleElement.GetString())
