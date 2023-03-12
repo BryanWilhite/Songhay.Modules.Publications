@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <PackageReference Include="FsToolkit.ErrorHandling" Version="4.4.0" />
-      <PackageReference Include="Songhay.Modules" Version="6.3.1" />
+      <PackageReference Include="Songhay.Modules" Version="6.3.2" />
     </ItemGroup>
 
 </Project>

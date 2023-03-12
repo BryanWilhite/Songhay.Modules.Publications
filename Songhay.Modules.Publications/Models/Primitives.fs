@@ -32,7 +32,7 @@ type PublicationItem =
         | "segment" -> Ok Segment
         | "document" -> Ok Document
         | "fragment" -> Ok Fragment
-        | _ -> Error (FormatException("The expected conventional string is not here."))
+        | _ -> Error <| FormatException "The expected conventional string is not here."
 
 ///<summary>
 /// Defines a primitive identifier
@@ -58,7 +58,7 @@ type Id =
             | Fragment -> $"{nameof Fragment}{nameof Id}" |> toCamelCaseOrDefault useCamelCase
 
         match elementName with
-        | None -> JsonException("The expected element-name input is not here") |> Error
+        | None -> Error <| JsonException "The expected element-name input is not here"
         | Some name -> element |> Identifier.fromInputElementName name
 
     ///<summary>
@@ -83,7 +83,7 @@ type Title =
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof Title) |> toCamelCaseOrDefault useCamelCase
         match elementName with
-        | None -> JsonException("The expected element-name input is not here") |> Error
+        | None -> Error <| JsonException "The expected element-name input is not here"
         | Some name ->
             element
             |> tryGetProperty name
@@ -113,7 +113,7 @@ type Name =
             | Fragment -> $"{nameof Fragment}{nameof Name}" |> toCamelCaseOrDefault useCamelCase
 
         match elementName with
-        | None -> JsonException("The expected element-name input is not here") |> Error
+        | None -> Error <| JsonException "The expected element-name input is not here"
         | Some name -> element |> Name.fromInputElementName name
 
     ///<summary>
@@ -152,7 +152,7 @@ type Path =
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof Path) |> toCamelCaseOrDefault useCamelCase
         match elementName with
-        | None -> JsonException("The expected element-name input is not here") |> Error
+        | None -> Error <| JsonException "The expected element-name input is not here"
         | Some name ->
             element
             |> tryGetProperty name
@@ -175,7 +175,7 @@ type FileName =
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof FileName) |> toCamelCaseOrDefault useCamelCase
         match elementName with
-        | None -> JsonException("The expected element-name input is not here") |> Error
+        | None -> Error <| JsonException "The expected element-name input is not here"
         | Some name ->
             element
             |> tryGetProperty name
@@ -198,16 +198,8 @@ type IsActive =
     static member fromInput (useCamelCase: bool) (element: JsonElement) =
         let elementName = (nameof IsActive) |> toCamelCaseOrDefault useCamelCase
         match elementName with
-        | None -> JsonException("The expected element-name input is not here") |> Error
+        | None -> Error <| JsonException "The expected element-name input is not here"
         | Some name ->
             element
             |> tryGetProperty name
-            |> (
-                fun result ->
-                    match result with
-                    | Ok el when
-                        el.ValueKind = JsonValueKind.True ||
-                        el.ValueKind = JsonValueKind.False -> el.GetBoolean() |> IsActive |> Ok
-                    | Ok el -> JsonException($"The expected {nameof(JsonValueKind)} is not here: {el.ValueKind}") |> Error
-                    | Error ex -> Error ex
-            )
+            |> toResultFromBooleanElement (fun el -> el.GetBoolean())
