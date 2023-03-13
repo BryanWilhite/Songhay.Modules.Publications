@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Songhay.Modules.Publications</id>
-    <version>6.0.2</version>
+    <version>6.0.3</version>
     <description>shared Publication types and functions for F# clients 🕸🖼</description>
     <authors>Bryan D. Wilhite</authors>
     <title>Songhay Modules, Publications</title>
@@ -19,7 +19,7 @@
     <repository type="git" url="https://github.com/BryanWilhite/Songhay.Modules.Publications"></repository>
     <dependencies>
       <group targetFramework=".NET6.0">
-        <dependency id="FsToolkit.ErrorHandling" version="2.13.0" />
+        <dependency id="FsToolkit.ErrorHandling" version="4.4.0" />
         <dependency id="Songhay.Modules" version="6.3.2" />
       </group>
     </dependencies>
