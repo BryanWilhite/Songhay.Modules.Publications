@@ -1,0 +1,963 @@
+{
+  "rss": {
+    "@xmlns:dc": "http://purl.org/dc/elements/1.1/",
+    "@xmlns:sy": "http://purl.org/rss/1.0/modules/syndication/",
+    "@xmlns:admin": "http://webns.net/mvcb/",
+    "@xmlns:rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "@xmlns:content": "http://purl.org/rss/1.0/modules/content/",
+    "@version": "2.0",
+    "channel": {
+      "title": "Pens from Bryan Wilhite",
+      "link": "https://codepen.io/rasx/",
+      "description": null,
+      "dc:language": "en",
+      "dc:creator": "nospam@codepen.io",
+      "dc:rights": "Copyright 2021",
+      "dc:date": "\n        2018-09-04T05:03:45-07:00\n      ",
+      "item": [
+        {
+          "title": "responsive strip of fixed inline blocks",
+          "link": "https://codepen.io/rasx/pen/mEVdBy",
+          "guid": "https://codepen.io/rasx/pen/mEVdBy",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/mEVdBy\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/mEVdBy/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/mEVdBy\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/mEVdBy\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/mEVdBy\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "responsive strip of fixed inline blocks",
+          "dc:date": "\n    2018-09-04T05:03:45-07:00\n  "
+        },
+        {
+          "title": "CSS: Drop-Down Menu",
+          "link": "https://codepen.io/rasx/pen/CGbio",
+          "guid": "https://codepen.io/rasx/pen/CGbio",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/CGbio\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/CGbio/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/CGbio\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/CGbio\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/CGbio\">See Details</a>\n    </p>\n    <p>\n      Basic menu item.\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "CSS: Drop-Down Menu",
+          "dc:date": "\n    2017-06-10T01:42:43-07:00\n  "
+        },
+        {
+          "title": "jQuery: input form watermark",
+          "link": "https://codepen.io/rasx/pen/GgRoxR",
+          "guid": "https://codepen.io/rasx/pen/GgRoxR",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GgRoxR/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GgRoxR\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/GgRoxR\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/GgRoxR\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "jQuery: input form watermark",
+          "dc:date": "\n    2017-06-10T00:55:42-07:00\n  "
+        },
+        {
+          "title": "CSS3: background-clip",
+          "link": "https://codepen.io/rasx/pen/Jkevd",
+          "guid": "https://codepen.io/rasx/pen/Jkevd",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/Jkevd/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/Jkevd\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/Jkevd\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/Jkevd\">See Details</a>\n    </p>\n    <p>\n      http://www.hongkiat.com/blog/css-masking/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "CSS3: background-clip",
+          "dc:date": "\n    2017-06-06T21:31:28-07:00\n  "
+        },
+        {
+          "title": "CodePen Logo in external SVG",
+          "link": "https://codepen.io/rasx/pen/GNVZvO",
+          "guid": "https://codepen.io/rasx/pen/GNVZvO",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/GNVZvO/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/GNVZvO\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/GNVZvO\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/GNVZvO\">See Details</a>\n    </p>\n    <p>\n      https://css-tricks.com/svg-use-external-source/\n\nhttps://css-tricks.com/svg-use-with-external-reference-take-2/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "CodePen Logo in external SVG",
+          "dc:date": "\n    2016-12-29T01:07:38-07:00\n  "
+        },
+        {
+          "title": "CodePen Logo in SVG",
+          "link": "https://codepen.io/rasx/pen/gLNdLr",
+          "guid": "https://codepen.io/rasx/pen/gLNdLr",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/gLNdLr/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/gLNdLr\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/gLNdLr\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/gLNdLr\">See Details</a>\n    </p>\n    <p>\n      https://sarasoueidan.com/blog/svg-coordinate-systems/\n\nhttps://blog.codepen.io/documentation/brand-assets/logos/\n\nhttps://www.idrsolutions.com/online-pdf-to-svg-converter/\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "CodePen Logo in SVG",
+          "dc:date": "\n    2016-12-28T23:25:43-07:00\n  "
+        },
+        {
+          "title": "Songhay Studio: Day Path Index Layout with Grouping",
+          "link": "https://codepen.io/rasx/pen/rVMJVW",
+          "guid": "https://codepen.io/rasx/pen/rVMJVW",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/rVMJVW\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/rVMJVW/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/rVMJVW\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/rVMJVW\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/rVMJVW\">See Details</a>\n    </p>\n    <p>\n      \n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "Songhay Studio: Day Path Index Layout with Grouping",
+          "dc:date": "\n    2016-08-19T20:52:10-07:00\n  "
+        },
+        {
+          "title": "Angular JS 1.x `providers`",
+          "link": "https://codepen.io/rasx/pen/qZeaGz",
+          "guid": "https://codepen.io/rasx/pen/qZeaGz",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/qZeaGz\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/qZeaGz/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/qZeaGz\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/qZeaGz\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/qZeaGz\">See Details</a>\n    </p>\n    <p>\n      http://www.learn-angular.org/#!/lessons/the-provider-recipe\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "Angular JS 1.x `providers`",
+          "dc:date": "\n    2016-05-27T23:09:43-07:00\n  "
+        },
+        {
+          "title": "Angular JS 1.4.x `decorators`",
+          "link": "https://codepen.io/rasx/pen/XdvYJy",
+          "guid": "https://codepen.io/rasx/pen/XdvYJy",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/XdvYJy\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/XdvYJy/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/XdvYJy\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/XdvYJy\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/XdvYJy\">See Details</a>\n    </p>\n    <p>\n      http://www.bennadel.com/blog/2870-using-module-decorator-in-angularjs-1-4.htm\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "Angular JS 1.4.x `decorators`",
+          "dc:date": "\n    2016-05-24T03:23:35-07:00\n  "
+        },
+        {
+          "title": "Songhay Studio: Day Path Index Layout",
+          "link": "https://codepen.io/rasx/pen/raVaxL",
+          "guid": "https://codepen.io/rasx/pen/raVaxL",
+          "dc:creator": "Bryan Wilhite",
+          "description": {
+            "#cdata-section": "\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/raVaxL\"><img width=\"1024\" height=\"600\" src=\"https://codepen.io/rasx/pen/raVaxL/image/large.png\"></a>\n    </p>\n    <p>\n      <a href=\"https://codepen.io/rasx/pen/raVaxL\">See the Code</a> -\n      <a href=\"https://codepen.io/rasx/full/raVaxL\">See it Full Page</a> -\n      <a href=\"https://codepen.io/rasx/details/raVaxL\">See Details</a>\n    </p>\n    <p>\n      sample for menu: http://www.tutorialrepublic.com/codelab.php?topic=bootstrap&amp;file=static-navbar\n    </p>\n    <p><small>This Pen uses: HTML, CSS, JavaScript, and </small></p>\n    "
+          },
+          "dc:subject": "Songhay Studio: Day Path Index Layout",
+          "dc:date": "\n    2016-04-10T02:50:45-07:00\n  "
+        }
+      ]
+    }
+  },
+  "feed": {
+    "@xmlns": "http://www.w3.org/2005/Atom",
+    "@xmlns:media": "http://search.yahoo.com/mrss/",
+    "@xml:lang": "en-US",
+    "id": "tag:github.com,2008:/BryanWilhite",
+    "link": [
+      {
+        "@type": "text/html",
+        "@rel": "alternate",
+        "@href": "https://github.com/BryanWilhite"
+      },
+      {
+        "@type": "application/atom+xml",
+        "@rel": "self",
+        "@href": "https://github.com/BryanWilhite.atom"
+      }
+    ],
+    "title": "BryanWilhite’s Activity",
+    "updated": "2021-06-06T06:21:07Z",
+    "entry": [
+      {
+        "id": "tag:github.com,2008:PushEvent/16659866421",
+        "published": "2021-06-06T06:21:07Z",
+        "updated": "2021-06-06T06:21:07Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/compare/a181bdf054...2dec42a878"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-06T06:21:07Z\" class=\"no-wrap\">Jun 6, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/SonghayCore/commit/2dec42a87819d87b2cd839be1f23e214b9e13e98\" rel=\"noreferrer\">2dec42a</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <span class=\"issue-keyword tooltipped tooltipped-se\" aria-label=\"This commit closes issue #123.\">resolves</span> <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"912055459\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BryanWilhite/SonghayCore/issues/123\" data-hovercard-type=\"issue\" data-hovercard-url=\"/BryanWilhite/SonghayCore/issues/123/hovercard\" href=\"https://github.com/BryanWilhite/SonghayCore/issues/123\" rel=\"noreferrer\">#123</a> <g-emoji class=\"g-emoji\" alias=\"umbrella\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2614.png\">☔</g-emoji>\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssuesEvent/16659866407",
+        "published": "2021-06-06T06:21:06Z",
+        "updated": "2021-06-06T06:21:06Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/issues/123"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite closed an issue in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_closed\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n          <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n            <relative-time datetime=\"2021-06-06T06:21:06Z\" class=\"no-wrap\">Jun 6, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3 wb-break-all\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M1.5 8a6.5 6.5 0 0110.65-5.003.75.75 0 00.959-1.153 8 8 0 102.592 8.33.75.75 0 10-1.444-.407A6.5 6.5 0 011.5 8zM8 12a1 1 0 100-2 1 1 0 000 2zm0-8a.75.75 0 01.75.75v3.5a.75.75 0 11-1.5 0v-3.5A.75.75 0 018 4zm4.78 4.28l3-3a.75.75 0 00-1.06-1.06l-2.47 2.47-.97-.97a.749.749 0 10-1.06 1.06l1.5 1.5a.75.75 0 001.06 0z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold color-text-primary\">\n          <a title=\"add default help text for all default `ProgramArgs` arguments\" class=\"color-text-primary\" aria-label=\"add default help text for all default `ProgramArgs` arguments\" href=\"/BryanWilhite/SonghayCore/issues/123\" rel=\"noreferrer\">add default help text for all default `ProgramArgs` arguments</a>\n        </span>\n        <span class=\"f4 color-text-tertiary ml-1\">#123</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>\n <code>--base-path</code>\n <code>--base-path-required</code>\n <code>--help</code>\n <code>--input-file</code>\n <code>--input-string</code>\n <code>--output-file</code>\n <code>--settings-file</code>\n\nmodify <code>ProgramArgsExtensions.ToHelpDispl…</code></p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16659464450",
+        "published": "2021-06-06T04:45:50Z",
+        "updated": "2021-06-06T04:45:50Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/LinqPad/compare/dec3aa48e9...b6a2c3a198"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/LinqPad"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/LinqPad/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/LinqPad\" rel=\"noreferrer\">BryanWilhite/LinqPad</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-06T04:45:50Z\" class=\"no-wrap\">Jun 6, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/LinqPad/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/LinqPad/commit/b6a2c3a19851e494aafa473444facf1c29d612aa\" rel=\"noreferrer\">b6a2c3a</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      Create Dictionary - aligning keys and values for console output.linq\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16658789480",
+        "published": "2021-06-06T01:38:49Z",
+        "updated": "2021-06-06T01:38:49Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/compare/9283f807e8...a181bdf054"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-06T01:38:49Z\" class=\"no-wrap\">Jun 6, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/SonghayCore/commit/a181bdf0541f9ac8645126dd73d93f927fee9d3e\" rel=\"noreferrer\">a181bdf</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <span class=\"issue-keyword tooltipped tooltipped-se\" aria-label=\"This commit closes issue #121.\">resolves</span> <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"892725647\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BryanWilhite/SonghayCore/issues/121\" data-hovercard-type=\"issue\" data-hovercard-url=\"/BryanWilhite/SonghayCore/issues/121/hovercard\" href=\"https://github.com/BryanWilhite/SonghayCore/issues/121\" rel=\"noreferrer\">#121</a> <g-emoji class=\"g-emoji\" alias=\"umbrella\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2614.png\">☔</g-emoji>\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssuesEvent/16658789467",
+        "published": "2021-06-06T01:38:48Z",
+        "updated": "2021-06-06T01:38:48Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/issues/121"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite closed an issue in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_closed\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n          <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n            <relative-time datetime=\"2021-06-06T01:38:48Z\" class=\"no-wrap\">Jun 6, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3 wb-break-all\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M1.5 8a6.5 6.5 0 0110.65-5.003.75.75 0 00.959-1.153 8 8 0 102.592 8.33.75.75 0 10-1.444-.407A6.5 6.5 0 011.5 8zM8 12a1 1 0 100-2 1 1 0 000 2zm0-8a.75.75 0 01.75.75v3.5a.75.75 0 11-1.5 0v-3.5A.75.75 0 018 4zm4.78 4.28l3-3a.75.75 0 00-1.06-1.06l-2.47 2.47-.97-.97a.749.749 0 10-1.06 1.06l1.5 1.5a.75.75 0 001.06 0z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold color-text-primary\">\n          <a title=\"add new `ProgramArgs` conventional arguments\" class=\"color-text-primary\" aria-label=\"add new `ProgramArgs` conventional arguments\" href=\"/BryanWilhite/SonghayCore/issues/121\" rel=\"noreferrer\">add new `ProgramArgs` conventional arguments</a>\n        </span>\n        <span class=\"f4 color-text-tertiary ml-1\">#121</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>proposed arguments:\n\n <code>public const string InputFile = \"--input-file\";</code> [b-roll is using <code>--json-file</code> which is too specific]\n <code>public const string Inpu…</code></p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssuesEvent/16652866401",
+        "published": "2021-06-05T01:42:01Z",
+        "updated": "2021-06-05T01:42:01Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/issues/123"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite opened an issue in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_opened\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            opened\n            an issue in\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n          <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n            <relative-time datetime=\"2021-06-05T01:42:01Z\" class=\"no-wrap\">Jun 5, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3 wb-break-all\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-opened open d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold color-text-primary\">\n          <a title=\"add default help text for all default `ProgramArgs` arguments\" class=\"color-text-primary\" aria-label=\"add default help text for all default `ProgramArgs` arguments\" href=\"/BryanWilhite/SonghayCore/issues/123\" rel=\"noreferrer\">add default help text for all default `ProgramArgs` arguments</a>\n        </span>\n        <span class=\"f4 color-text-tertiary ml-1\">#123</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>\n <code>--base-path</code>\n <code>--base-path-required</code>\n <code>--help</code>\n <code>--input-file</code>\n <code>--input-string</code>\n <code>--output-file</code>\n <code>--settings-file</code>\n</p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16652854170",
+        "published": "2021-06-05T01:38:28Z",
+        "updated": "2021-06-05T01:38:28Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/compare/ff02a55f08...9283f807e8"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-05T01:38:28Z\" class=\"no-wrap\">Jun 5, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/SonghayCore/commit/9283f807e82ee37bf9aaa37c2c22aded31411580\" rel=\"noreferrer\">9283f80</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"892725647\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BryanWilhite/SonghayCore/issues/121\" data-hovercard-type=\"issue\" data-hovercard-url=\"/BryanWilhite/SonghayCore/issues/121/hovercard\" href=\"https://github.com/BryanWilhite/SonghayCore/issues/121\" rel=\"noreferrer\">#121</a> <g-emoji class=\"g-emoji\" alias=\"hammer\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f528.png\">🔨</g-emoji>\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16652735957",
+        "published": "2021-06-05T01:06:25Z",
+        "updated": "2021-06-05T01:06:25Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/compare/9df974722f...ff02a55f08"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-05T01:06:25Z\" class=\"no-wrap\">Jun 5, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/SonghayCore/commit/ff02a55f08fb1fd33c33c5d7cde2a892a4a5d90f\" rel=\"noreferrer\">ff02a55</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <span class=\"issue-keyword tooltipped tooltipped-se\" aria-label=\"This commit closes issue #122.\">resolves</span> <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"910963564\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BryanWilhite/SonghayCore/issues/122\" data-hovercard-type=\"issue\" data-hovercard-url=\"/BryanWilhite/SonghayCore/issues/122/hovercard\" href=\"https://github.com/BryanWilhite/SonghayCore/issues/122\" rel=\"noreferrer\">#122</a> <g-emoji class=\"g-emoji\" alias=\"umbrella\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2614.png\">☔</g-emoji>\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssuesEvent/16652735941",
+        "published": "2021-06-05T01:06:25Z",
+        "updated": "2021-06-05T01:06:25Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/issues/122"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite closed an issue in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_closed\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            closed\n            an issue in\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n          <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n            <relative-time datetime=\"2021-06-05T01:06:25Z\" class=\"no-wrap\">Jun 5, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3 wb-break-all\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-closed closed d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M1.5 8a6.5 6.5 0 0110.65-5.003.75.75 0 00.959-1.153 8 8 0 102.592 8.33.75.75 0 10-1.444-.407A6.5 6.5 0 011.5 8zM8 12a1 1 0 100-2 1 1 0 000 2zm0-8a.75.75 0 01.75.75v3.5a.75.75 0 11-1.5 0v-3.5A.75.75 0 018 4zm4.78 4.28l3-3a.75.75 0 00-1.06-1.06l-2.47 2.47-.97-.97a.749.749 0 10-1.06 1.06l1.5 1.5a.75.75 0 001.06 0z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold color-text-primary\">\n          <a title=\"`IActivityWithOutput` should not be deprecated\" class=\"color-text-primary\" aria-label=\"`IActivityWithOutput` should not be deprecated\" href=\"/BryanWilhite/SonghayCore/issues/122\" rel=\"noreferrer\">`IActivityWithOutput` should not be deprecated</a>\n        </span>\n        <span class=\"f4 color-text-tertiary ml-1\">#122</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p><code>IActivityWithOutput</code> should not be deprecated; it is the <em>synchronous</em> alternative to <code>IActivityWithTaskOutput</code> 🤦🏿\n\n remove deprecation (and do not cons…</p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16652532180",
+        "published": "2021-06-05T00:18:36Z",
+        "updated": "2021-06-05T00:18:36Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/compare/3c228bff72...9df974722f"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-05T00:18:36Z\" class=\"no-wrap\">Jun 5, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/SonghayCore/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/SonghayCore/commit/9df974722ff1f00500e457301085e55e60b1b630\" rel=\"noreferrer\">9df9747</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"910963564\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BryanWilhite/SonghayCore/issues/122\" data-hovercard-type=\"issue\" data-hovercard-url=\"/BryanWilhite/SonghayCore/issues/122/hovercard\" href=\"https://github.com/BryanWilhite/SonghayCore/issues/122\" rel=\"noreferrer\">#122</a> <g-emoji class=\"g-emoji\" alias=\"tractor\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f69c.png\">🚜</g-emoji><g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji><g-emoji class=\"g-emoji\" alias=\"hammer\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f528.png\">🔨</g-emoji>\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637853818",
+        "published": "2021-06-04T02:51:17Z",
+        "updated": "2021-06-04T02:51:17Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/the-funky-knowledge-base/pull/21#issuecomment-854318832"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/the-funky-knowledge-base#21"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"⬆️ Bump lodash from 4.17.20 to 4.17.21\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/21#issuecomment-854318832\" rel=\"noreferrer\">BryanWilhite/the-funky-knowledge-base#21</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:51:17Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"⬆️ Bump lodash from 4.17.20 to 4.17.21\" class=\"Link--secondary\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/21#issuecomment-854318832\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:51:17Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637849649",
+        "published": "2021-06-04T02:50:48Z",
+        "updated": "2021-06-04T02:50:48Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/the-funky-knowledge-base/pull/22#issuecomment-854318666"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/the-funky-knowledge-base#22"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"⬆️ Bump hosted-git-info from 2.8.8 to 2.8.9\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/22#issuecomment-854318666\" rel=\"noreferrer\">BryanWilhite/the-funky-knowledge-base#22</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:50:48Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"⬆️ Bump hosted-git-info from 2.8.8 to 2.8.9\" class=\"Link--secondary\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/22#issuecomment-854318666\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:50:48Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637844404",
+        "published": "2021-06-04T02:50:10Z",
+        "updated": "2021-06-04T02:50:10Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/the-funky-knowledge-base/pull/20#issuecomment-854318459"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/the-funky-knowledge-base#20"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"⬆️ Bump handlebars from 4.7.6 to 4.7.7\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/20#issuecomment-854318459\" rel=\"noreferrer\">BryanWilhite/the-funky-knowledge-base#20</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:50:10Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"⬆️ Bump handlebars from 4.7.6 to 4.7.7\" class=\"Link--secondary\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/20#issuecomment-854318459\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:50:10Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637836604",
+        "published": "2021-06-04T02:49:14Z",
+        "updated": "2021-06-04T02:49:14Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/the-funky-knowledge-base/pull/19#issuecomment-854318165"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/the-funky-knowledge-base#19"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"⬆️ Bump ua-parser-js from 0.7.23 to 0.7.28\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/19#issuecomment-854318165\" rel=\"noreferrer\">BryanWilhite/the-funky-knowledge-base#19</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:49:14Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"⬆️ Bump ua-parser-js from 0.7.23 to 0.7.28\" class=\"Link--secondary\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/19#issuecomment-854318165\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:49:14Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637831415",
+        "published": "2021-06-04T02:48:38Z",
+        "updated": "2021-06-04T02:48:38Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/the-funky-knowledge-base/pull/18#issuecomment-854317973"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/the-funky-knowledge-base#18"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"⬆️ Bump pug-code-gen from 2.0.2 to 2.0.3\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/18#issuecomment-854317973\" rel=\"noreferrer\">BryanWilhite/the-funky-knowledge-base#18</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:48:38Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"⬆️ Bump pug-code-gen from 2.0.2 to 2.0.3\" class=\"Link--secondary\" href=\"/BryanWilhite/the-funky-knowledge-base/pull/18#issuecomment-854317973\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:48:38Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16637826661",
+        "published": "2021-06-04T02:48:06Z",
+        "updated": "2021-06-04T02:48:06Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/the-funky-knowledge-base/compare/819bd179a8...dc74658436"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/the-funky-knowledge-base"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/the-funky-knowledge-base/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/the-funky-knowledge-base\" rel=\"noreferrer\">BryanWilhite/the-funky-knowledge-base</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-04T02:48:06Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/the-funky-knowledge-base/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/the-funky-knowledge-base/commit/dc7465843673ca16ac474f4b06da78d3438fa077\" rel=\"noreferrer\">dc74658</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\">📦</g-emoji>↑\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16637741079",
+        "published": "2021-06-04T02:38:38Z",
+        "updated": "2021-06-04T02:38:38Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/jupyter-central/compare/da898c1c8d...65821b2f05"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/jupyter-central"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/jupyter-central/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/jupyter-central\" rel=\"noreferrer\">BryanWilhite/jupyter-central</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-04T02:38:38Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/jupyter-central/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/jupyter-central/commit/65821b2f050d640cdf032b9656b6ddf6d947a662\" rel=\"noreferrer\">65821b2</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      mermaid-js/ <g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\">📦</g-emoji>↑\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637696802",
+        "published": "2021-06-04T02:33:42Z",
+        "updated": "2021-06-04T02:33:42Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/nodejs/pull/36#issuecomment-854312662"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/nodejs#36"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"Bump y18n from 3.2.1 to 3.2.2 in /jquery-audio5\" href=\"/BryanWilhite/nodejs/pull/36#issuecomment-854312662\" rel=\"noreferrer\">BryanWilhite/nodejs#36</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:33:42Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"Bump y18n from 3.2.1 to 3.2.2 in /jquery-audio5\" class=\"Link--secondary\" href=\"/BryanWilhite/nodejs/pull/36#issuecomment-854312662\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:33:42Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637683772",
+        "published": "2021-06-04T02:32:18Z",
+        "updated": "2021-06-04T02:32:18Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/nodejs/pull/40#issuecomment-854312198"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/nodejs#40"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"Bump hosted-git-info from 2.8.8 to 2.8.9 in /jquery-audio5\" href=\"/BryanWilhite/nodejs/pull/40#issuecomment-854312198\" rel=\"noreferrer\">BryanWilhite/nodejs#40</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:32:18Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"Bump hosted-git-info from 2.8.8 to 2.8.9 in /jquery-audio5\" class=\"Link--secondary\" href=\"/BryanWilhite/nodejs/pull/40#issuecomment-854312198\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:32:18Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637643955",
+        "published": "2021-06-04T02:27:52Z",
+        "updated": "2021-06-04T02:27:52Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/Blog/pull/36#issuecomment-854310554"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/Blog#36"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"Bump ua-parser-js from 0.7.23 to 0.7.28 in /presentation\" href=\"/BryanWilhite/Blog/pull/36#issuecomment-854310554\" rel=\"noreferrer\">BryanWilhite/Blog#36</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:27:52Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"Bump ua-parser-js from 0.7.23 to 0.7.28 in /presentation\" class=\"Link--secondary\" href=\"/BryanWilhite/Blog/pull/36#issuecomment-854310554\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:27:52Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637638766",
+        "published": "2021-06-04T02:27:18Z",
+        "updated": "2021-06-04T02:27:18Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/Blog/pull/38#issuecomment-854310328"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/Blog#38"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"Bump lodash from 4.17.19 to 4.17.21 in /presentation\" href=\"/BryanWilhite/Blog/pull/38#issuecomment-854310328\" rel=\"noreferrer\">BryanWilhite/Blog#38</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:27:18Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"Bump lodash from 4.17.19 to 4.17.21 in /presentation\" class=\"Link--secondary\" href=\"/BryanWilhite/Blog/pull/38#issuecomment-854310328\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:27:18Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssueCommentEvent/16637520285",
+        "published": "2021-06-04T02:14:11Z",
+        "updated": "2021-06-04T02:14:11Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/Blog/pull/37#issuecomment-854305278"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite commented on pull request BryanWilhite/Blog#37"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_comment\" data-test-selector=\"visible-event\"><div class=\"body\">\n<!-- issue_comment -->\n<div class=\"d-flex border-bottom color-border-primary py-3\">\n    <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n          <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n          \n          commented on\n          pull request\n          <a class=\"Link--primary text-bold\" title=\"Bump handlebars from 4.7.6 to 4.7.7 in /presentation\" href=\"/BryanWilhite/Blog/pull/37#issuecomment-854305278\" rel=\"noreferrer\">BryanWilhite/Blog#37</a>\n          <span class=\"f6 color-text-tertiary ml-1\">\n            <relative-time datetime=\"2021-06-04T02:14:11Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    <div class=\"message markdown-body Box p-3 wb-break-all\">\n      <div class=\"f6 mb-1\">\n        <a title=\"Bump handlebars from 4.7.6 to 4.7.7 in /presentation\" class=\"Link--secondary\" href=\"/BryanWilhite/Blog/pull/37#issuecomment-854305278\" rel=\"noreferrer\"><img class=\"avatar mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"> <span class=\"Link--primary text-bold\">BryanWilhite</span> commented <relative-time datetime=\"2021-06-04T02:14:11Z\" class=\"no-wrap\">Jun 4, 2021</relative-time></a>\n      </div>\n        <p><a class=\"user-mention\" data-hovercard-type=\"organization\" data-hovercard-url=\"/orgs/dependabot/hovercard\" href=\"https://github.com/dependabot\" rel=\"noreferrer\">@dependabot</a> rebase</p>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16637175495",
+        "published": "2021-06-04T01:31:19Z",
+        "updated": "2021-06-04T01:31:19Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/LinqPad/compare/cd0ffe8057...dec3aa48e9"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/LinqPad"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/LinqPad/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/LinqPad\" rel=\"noreferrer\">BryanWilhite/LinqPad</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-04T01:31:19Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/LinqPad/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits pusher-is-only-committer\">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"BryanWilhite\">\n                    <a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"mr-1 avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=32&amp;v=4\" width=\"16\" height=\"16\" alt=\"@BryanWilhite\"></a>\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/LinqPad/commit/dec3aa48e93958423b1277f021d960f5a977d31c\" rel=\"noreferrer\">dec3aa4</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      Create C# - interfaces, generics and overloading.linq\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssuesEvent/16636815831",
+        "published": "2021-06-04T00:38:43Z",
+        "updated": "2021-06-04T00:38:43Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/SonghayCore/issues/122"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite opened an issue in BryanWilhite/SonghayCore"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_opened\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            opened\n            an issue in\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/SonghayCore\" rel=\"noreferrer\">BryanWilhite/SonghayCore</a>\n          <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n            <relative-time datetime=\"2021-06-04T00:38:43Z\" class=\"no-wrap\">Jun 4, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3 wb-break-all\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-opened open d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold color-text-primary\">\n          <a title=\"`IActivityWithOutput` should not be deprecated\" class=\"color-text-primary\" aria-label=\"`IActivityWithOutput` should not be deprecated\" href=\"/BryanWilhite/SonghayCore/issues/122\" rel=\"noreferrer\">`IActivityWithOutput` should not be deprecated</a>\n        </span>\n        <span class=\"f4 color-text-tertiary ml-1\">#122</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p><code>IActivityWithOutput</code> should not be deprecated; it is the <em>synchronous</em> alternative to <code>IActivityWithTaskOutput</code> 🤦🏿\n\n remove deprecation (and do not cons…</p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16621366432",
+        "published": "2021-06-03T01:52:34Z",
+        "updated": "2021-06-03T01:52:34Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/Songhay.Social/compare/55119fefc0...8d95469bf2"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Social"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Social/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/Songhay.Social\" rel=\"noreferrer\">BryanWilhite/Songhay.Social</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-03T01:52:34Z\" class=\"no-wrap\">Jun 3, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Social/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Social/commit/8d95469bf227a0c013594225b0f1db196787db1c\" rel=\"noreferrer\">8d95469</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"tractor\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f69c.png\">🚜</g-emoji><g-emoji class=\"g-emoji\" alias=\"sparkles\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/2728.png\">✨</g-emoji>\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16587587044",
+        "published": "2021-06-01T00:29:21Z",
+        "updated": "2021-06-01T00:29:21Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/nodejs/compare/1673565edf...463926e866"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/nodejs"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/nodejs/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/nodejs\" rel=\"noreferrer\">BryanWilhite/nodejs</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-01T00:29:21Z\" class=\"no-wrap\">Jun 1, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/nodejs/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/nodejs/commit/463926e866d31d1fde89e1bfa74a7a2e24bf5538\" rel=\"noreferrer\">463926e</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\">📦</g-emoji>↑ webpack-getting-started/webpack-demo-typescript\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16587552386",
+        "published": "2021-06-01T00:22:34Z",
+        "updated": "2021-06-01T00:22:34Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/nodejs/compare/6a41149231...1673565edf"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/nodejs"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/nodejs/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/nodejs\" rel=\"noreferrer\">BryanWilhite/nodejs</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-06-01T00:22:34Z\" class=\"no-wrap\">Jun 1, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/nodejs/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/nodejs/commit/1673565edf76f392f1a836c556ec3a2762c57dea\" rel=\"noreferrer\">1673565</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\">📦</g-emoji>↑ webpack-getting-started/webpack-demo\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16587431515",
+        "published": "2021-05-31T23:58:07Z",
+        "updated": "2021-05-31T23:58:07Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/nodejs/compare/67ae8e8e45...6a41149231"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/nodejs"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/nodejs/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/nodejs\" rel=\"noreferrer\">BryanWilhite/nodejs</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-05-31T23:58:07Z\" class=\"no-wrap\">May 31, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/nodejs/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/nodejs/commit/6a4114923169570d59482a2921cb49e5da200320\" rel=\"noreferrer\">6a41149</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\">📦</g-emoji>↑ jquery-audio5\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:IssuesEvent/16587259004",
+        "published": "2021-05-31T23:19:37Z",
+        "updated": "2021-05-31T23:19:37Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/Songhay.Social/issues/14"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite opened an issue in BryanWilhite/Songhay.Social"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"issues_opened\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- issues -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <div class=\"d-flex flex-items-baseline mb-2\">\n        <div>\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n            \n            opened\n            an issue in\n            <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/Songhay.Social\" rel=\"noreferrer\">BryanWilhite/Songhay.Social</a>\n          <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n            <relative-time datetime=\"2021-05-31T23:19:37Z\" class=\"no-wrap\">May 31, 2021</relative-time>\n          </span>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"Box p-3 wb-break-all\">\n      <svg height=\"16\" aria-label=\"Issue\" class=\"octicon octicon-issue-opened open d-inline-block mt-1 float-left\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z\"></path></svg>\n      <div class=\"ml-4\">\n        <span class=\"f4 lh-condensed text-bold color-text-primary\">\n          <a title=\"consider adding Polly retry policies\" class=\"color-text-primary\" aria-label=\"consider adding Polly retry policies\" href=\"/BryanWilhite/Songhay.Social/issues/14\" rel=\"noreferrer\">consider adding Polly retry policies</a>\n        </span>\n        <span class=\"f4 color-text-tertiary ml-1\">#14</span>\n          <div class=\"dashboard-break-word lh-condensed mb-2 mt-1\">\n            <p>the challenge with <a href=\"https://github.com/App-vNext/Polly\" rel=\"noreferrer\">Polly</a> retry policies are:\n\nthe research required to know how to trigger a retry\ntrying to use the <code>async</code> flavor of <code>HtmlAgilityPack</code> …</p>\n          </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      },
+      {
+        "id": "tag:github.com,2008:PushEvent/16587200205",
+        "published": "2021-05-31T23:06:39Z",
+        "updated": "2021-05-31T23:06:39Z",
+        "link": {
+          "@type": "text/html",
+          "@rel": "alternate",
+          "@href": "https://github.com/BryanWilhite/Songhay.Social/compare/6c4e75b5e1...55119fefc0"
+        },
+        "title": {
+          "@type": "html",
+          "#text": "BryanWilhite pushed to master in BryanWilhite/Songhay.Social"
+        },
+        "author": {
+          "name": "BryanWilhite",
+          "uri": "https://github.com/BryanWilhite"
+        },
+        "media:thumbnail": {
+          "@height": "30",
+          "@width": "30",
+          "@url": "https://avatars.githubusercontent.com/u/5226627?s=30&v=4"
+        },
+        "content": {
+          "@type": "html",
+          "#text": "<div class=\"push\" data-test-selector=\"visible-event\"><div class=\"body\"><!-- push -->\n<div class=\"d-flex border-bottom color-border-secondary py-3\">\n  <span class=\"mr-2\"><a class=\"d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\"><img class=\"avatar avatar-user\" src=\"https://avatars.githubusercontent.com/u/5226627?s=64&amp;v=4\" width=\"32\" height=\"32\" alt=\"@BryanWilhite\"></a></span>\n  <div class=\"d-flex flex-column width-full\">\n    <div>\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite\" rel=\"noreferrer\">BryanWilhite</a>\n      \n      pushed to\n\n        <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Social/tree/master\" rel=\"noreferrer\">master</a>\n        in\n\n      <a class=\"Link--primary no-underline text-bold wb-break-all d-inline-block\" href=\"/BryanWilhite/Songhay.Social\" rel=\"noreferrer\">BryanWilhite/Songhay.Social</a>\n      <span class=\"f6 color-text-tertiary no-wrap ml-1\">\n        <relative-time datetime=\"2021-05-31T23:06:39Z\" class=\"no-wrap\">May 31, 2021</relative-time>\n      </span>\n\n        <div class=\"Box p-3 mt-2\">\n          <span>1 commit to</span>\n          <a class=\"branch-name\" href=\"/BryanWilhite/Songhay.Social/tree/master\" rel=\"noreferrer\">master</a>\n\n          <div class=\"commits \">\n            <ul class=\"list-style-none\">\n                <li class=\"d-flex flex-items-baseline\">\n                  <span title=\"Bryan Wilhite\">\n                    <img class=\"mr-1 avatar-user\" width=\"16\" height=\"16\" alt=\"\" src=\"https://camo.githubusercontent.com/0d9804457f93c6cf4bf2e8d67cfd1a3f0418d366d0ea5730a299eeb5c8adf092/68747470733a2f2f302e67726176617461722e636f6d2f6176617461722f63303861363630373062666233316432636362373738653061653538623536623f643d68747470732533412532462532466769746875622e6769746875626173736574732e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430\" data-canonical-src=\"https://0.gravatar.com/avatar/c08a66070bfb31d2ccb778e0ae58b56b?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140\">\n                  </span>\n                  <code><a class=\"mr-1\" href=\"/BryanWilhite/Songhay.Social/commit/55119fefc07b8c27e14ebcfc07ff7959049954dd\" rel=\"noreferrer\">55119fe</a></code>\n                  <div class=\"dashboard-break-word lh-condensed\">\n                    <blockquote>\n                      <g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\">📦</g-emoji>↑\n                    </blockquote>\n                  </div>\n                </li>\n\n\n            </ul>\n          </div>\n        </div>\n    </div>\n  </div>\n</div>\n</div></div>"
+        }
+      }
+    ]
+  }
+}

@@ -3,6 +3,7 @@ namespace Songhay.Modules.Publications
 module SyndicationFeedUtility =
 
     open System
+    open System.Linq
     open System.Text.Json
 
     open FsToolkit.ErrorHandling
@@ -24,6 +25,15 @@ module SyndicationFeedUtility =
     let AtomFeedPropertyName = "feed"
 
     ///<summary>
+    /// Defines the expected root XML element of Atom feed items.
+    /// </summary>
+    /// <remarks>
+    /// XML namespace: http://www.w3.org/2005/Atom
+    /// </remarks>
+    [<Literal>]
+    let AtomFeedItemsPropertyName = "entry"
+
+    ///<summary>
     /// Defines the expected root XML element of an RSS feed.
     /// </summary>
     /// <remarks>
@@ -31,6 +41,15 @@ module SyndicationFeedUtility =
     /// </remarks>
     [<Literal>]
     let RssFeedPropertyName = "rss"
+
+    ///<summary>
+    /// Defines the expected root XML element of RSS feed items.
+    /// </summary>
+    /// <remarks>
+    /// specification: https://www.rssboard.org/rss-specification
+    /// </remarks>
+    [<Literal>]
+    let RssFeedItemsPropertyName = "channel"
 
     ///<summary>
     /// Defines the expected root JSON property name
@@ -45,33 +64,61 @@ module SyndicationFeedUtility =
 
     ///<summary>
     /// Returns <c>true</c> when the specified <see cref="JsonElement" />
-    /// appears to be an RSS feed, converted from XML.
+    /// appears to have Atom feed data, converted from XML.
     /// </summary>
-    let isRssFeed (elementName: string) (element: JsonElement) =
-        let elementNameNormalized = elementName.ToLowerInvariant()
-
+    let isAtomFeed (element: JsonElement) =
         element
-        |> tryGetProperty SyndicationFeedPropertyName
-        |> Result.bind (tryGetProperty elementNameNormalized)
-        |> Result.bind (tryGetProperty RssFeedPropertyName)
+        |> tryGetProperty AtomFeedItemsPropertyName
         |> Result.map (fun _ -> true)
         |> Result.valueOr (fun _ -> false)
 
     ///<summary>
-    /// Tries to get the root element of the converted RSS or Atom feed
-    /// from the specified <see cref="JsonElement" />.
+    /// Returns <c>true</c> when the specified <see cref="JsonElement" />
+    /// appears to have RSS feed data, converted from XML.
     /// </summary>
-    let tryGetFeedElement (elementName: string) (element: JsonElement) =
-        let elementNameNormalized = elementName.ToLowerInvariant()
+    let isRssFeed (element: JsonElement) =
+        element
+        |> tryGetProperty RssFeedItemsPropertyName
+        |> Result.map (fun _ -> true)
+        |> Result.valueOr (fun _ -> false)
 
-        let getElement (feedPropertyName: string) =
-            element |> tryGetProperty SyndicationFeedPropertyName
-            |> Result.bind (tryGetProperty elementNameNormalized)
-            |> Result.bind (tryGetProperty feedPropertyName)
+    ///<summary>
+    /// Tries to get the expected root<see cref="JsonElement" />
+    /// of the conventional <c>app.json</c> file of this Studio.
+    /// </summary>
+    let tryGetAppElement (element: JsonElement) =
+        element |> tryGetProperty SyndicationFeedPropertyName
 
-        match element |> isRssFeed elementNameNormalized with
-        | true -> (getElement RssFeedPropertyName) |> Result.map (fun rssElement -> true, rssElement)
-        | _ -> (getElement AtomFeedPropertyName) |> Result.map (fun atomElement -> false, atomElement)
+    ///<summary>
+    /// Tries to get the root element of the converted RSS or Atom feed
+    /// from the specified parent <see cref="JsonElement" />.
+    /// </summary>
+    let tryGetFeedElement (parentElement: JsonElement) =
+        let to1stPropertyName (el: JsonElement) =
+            match el.ValueKind with
+            | JsonValueKind.Object ->
+                try
+                    Some <| el.EnumerateObject().First().Name
+                with | _ -> None
+            | _ -> None
+
+        let toResult isExpectedFormat jsonResult =
+            match jsonResult with
+            | Ok el ->
+                match el |> isExpectedFormat with
+                | true -> Ok (false, el)
+                | _ -> Error <| JsonException "The expected result is not in the expected format."
+            | Error error -> Error error
+
+        let childElementName = parentElement |> to1stPropertyName
+        match childElementName with
+        | Some AtomFeedPropertyName ->
+            parentElement |> tryGetProperty AtomFeedPropertyName |> toResult isAtomFeed
+        | Some RssFeedPropertyName ->
+            parentElement |> tryGetProperty RssFeedPropertyName |> toResult isRssFeed
+        | _ when childElementName.IsNone ->
+            Error <| JsonException "The expected element name is not here."
+        | _ -> Error <| JsonException $"Element name {childElementName} is not expected."
 
     ///<summary>
     /// Tries to get the RSS or Atom feed modification date
@@ -85,7 +132,7 @@ module SyndicationFeedUtility =
             |> toResultFromStringElement (fun updatedElement -> updatedElement.GetDateTime())
         | true ->
             element
-            |> tryGetProperty "channel"
+            |> tryGetProperty RssFeedItemsPropertyName
             |> Result.either
                 (
                     fun channelElement ->
@@ -151,13 +198,13 @@ module SyndicationFeedUtility =
             el
             |> tryGetProperty "title"
             |> Result.bind (tryGetProperty "#text")
-            |> Result.map (fun textElement -> textElement.GetString())
+            |> toResultFromStringElement(fun textElement -> textElement.GetString())
 
         let linkResult =
             el
             |> tryGetProperty "link"
             |> Result.bind (tryGetProperty "@href")
-            |> Result.map (fun hrefElement -> hrefElement.GetString())
+            |> toResultFromStringElement(fun hrefElement -> hrefElement.GetString())
 
         (titleResult, linkResult) |> tryGetSyndicationFeedItem
 
@@ -168,8 +215,10 @@ module SyndicationFeedUtility =
     /// </summary>
     let tryGetAtomEntries (element: JsonElement) =
         element
-        |> tryGetProperty "entry"
-        |> Result.map (fun el -> el.EnumerateArray() |> List.ofSeq)
+        |> tryGetProperty AtomFeedItemsPropertyName
+        |> toResultFromJsonElement
+            (fun kind -> kind = JsonValueKind.Array)
+            (fun el -> el.EnumerateArray() |> List.ofSeq)
 
     ///<summary>
     /// Tries to get the Atom feed title
@@ -180,7 +229,7 @@ module SyndicationFeedUtility =
         | Error err -> Error err
         | Ok element ->
             match element.ValueKind with
-            | JsonValueKind.String -> Ok(element.GetString())
+            | JsonValueKind.String -> Ok <| element.GetString()
             | JsonValueKind.Object ->
                 element
                 |> tryGetProperty "#text"
@@ -213,15 +262,17 @@ module SyndicationFeedUtility =
     /// </summary>
     let tryGetRssChannelItems (element: JsonElement) =
         element
-        |> tryGetProperty "channel"
+        |> tryGetProperty RssFeedItemsPropertyName
         |> Result.bind (tryGetProperty "item")
-        |> toResultFromStringElement (fun el -> el.EnumerateArray() |> List.ofSeq)
+        |> toResultFromJsonElement
+            (fun kind -> kind = JsonValueKind.Array)
+            (fun el -> el.EnumerateArray() |> List.ofSeq)
 
     ///<summary>
     /// Tries to get the RSS feed title
     /// from the specified <see cref="JsonElement" />.
     /// </summary>
     let tryGetRssChannelTitle (element: JsonElement) =
-        element |> tryGetProperty "channel"
+        element |> tryGetProperty RssFeedItemsPropertyName
         |> Result.bind (tryGetProperty "title")
         |> toResultFromStringElement (fun titleElement -> titleElement.GetString())
