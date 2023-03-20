@@ -83,13 +83,6 @@ module SyndicationFeedUtility =
         |> Result.valueOr (fun _ -> false)
 
     ///<summary>
-    /// Tries to get the expected root<see cref="JsonElement" />
-    /// of the conventional <c>app.json</c> file of this Studio.
-    /// </summary>
-    let tryGetAppElement (element: JsonElement) =
-        element |> tryGetProperty SyndicationFeedPropertyName
-
-    ///<summary>
     /// Tries to get the root element of the converted RSS or Atom feed
     /// from the specified parent <see cref="JsonElement" />.
     /// </summary>
@@ -106,7 +99,7 @@ module SyndicationFeedUtility =
             match jsonResult with
             | Ok el ->
                 match el |> isExpectedFormat with
-                | true -> Ok (false, el)
+                | true -> Ok (el |> isRssFeed, el)
                 | _ -> Error <| JsonException "The expected result is not in the expected format."
             | Error error -> Error error
 
@@ -276,3 +269,10 @@ module SyndicationFeedUtility =
         element |> tryGetProperty RssFeedItemsPropertyName
         |> Result.bind (tryGetProperty "title")
         |> toResultFromStringElement (fun titleElement -> titleElement.GetString())
+
+    ///<summary>
+    /// Tries to get the expected root<see cref="JsonElement" />
+    /// of the conventional <c>app.json</c> file of this Studio.
+    /// </summary>
+    let tryGetSyndicationFeedsElement (element: JsonElement) =
+        element |> tryGetProperty SyndicationFeedPropertyName

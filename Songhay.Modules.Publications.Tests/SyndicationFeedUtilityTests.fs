@@ -163,3 +163,20 @@ module SyndicationFeedUtilityTests =
                     let result = el |> tryGetRssSyndicationFeedItem
                     result |> should be (ofCase <@ Result<SyndicationFeedItem, JsonException>.Ok @>)
             )
+
+    [<Fact>]
+    let ``tryGetSyndicationFeedsElement test``() =
+        let json = @$"{{ ""{RssFeedPropertyName}"": {rssRootElement.GetRawText()} }}"
+        let json = $@"{{ ""{SyndicationFeedPropertyName}"": {{ ""root"": {json} }} }}"
+
+        let result =
+            json
+            |> tryGetRootElement
+            |> Result.bind tryGetSyndicationFeedsElement
+        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
+
+        let result =
+            result
+            |> Result.bind (tryGetProperty "root")
+            |> Result.bind tryGetFeedElement
+        result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
