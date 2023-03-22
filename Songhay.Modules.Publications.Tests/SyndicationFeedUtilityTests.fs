@@ -142,7 +142,7 @@ module SyndicationFeedUtilityTests =
     let ``tryGetAtomSyndicationFeedItem test``() =
         let elements =
             atomRootElement
-            |> tryGetRssChannelItems
+            |> tryGetAtomEntries
             |> Result.valueOr raise
         elements |> List.iter
             (
