@@ -87,7 +87,7 @@ type Title =
         | Some name ->
             element
             |> tryGetProperty name
-            |> toResultFromStringElement (fun el -> Title (el.GetString()))
+            |> toResultFromStringElement (fun el -> Title <| el.GetString())
 
 ///<summary>
 /// Defines a primitive naming concept
@@ -156,7 +156,7 @@ type Path =
         | Some name ->
             element
             |> tryGetProperty name
-            |> toResultFromStringElement (fun el -> Path (el.GetString()))
+            |> toResultFromStringElement (fun el -> Path <| el.GetString())
 
 ///<summary>
 /// Defines a primitive value,
@@ -179,7 +179,7 @@ type FileName =
         | Some name ->
             element
             |> tryGetProperty name
-            |> toResultFromStringElement (fun el -> FileName (el.GetString()))
+            |> toResultFromStringElement (fun el -> FileName <| el.GetString())
 
 ///<summary>
 /// Defines a primitive value,

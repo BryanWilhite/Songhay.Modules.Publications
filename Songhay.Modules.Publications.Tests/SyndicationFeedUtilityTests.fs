@@ -2,6 +2,8 @@ namespace Songhay.Modules.Publications.Tests
 
 open System
 
+open FsToolkit.ErrorHandling.Operator.Result
+
 module SyndicationFeedUtilityTests =
 
     open System.IO
@@ -95,12 +97,12 @@ module SyndicationFeedUtilityTests =
 
     [<Fact>]
     let ``tryGetSyndicationFeedItem test``() =
-        let result = (Ok "title", Ok "urn:link") |> tryGetSyndicationFeedItem
+        let result = (Ok "title", Ok "urn:link") |> toSyndicationFeedItem
         result |> should be (ofCase <@ Result<SyndicationFeedItem, JsonException>.Ok @>)
 
     [<Fact>]
     let ``tryGetSyndicationFeedItem failure test``() =
-        let result = (Ok "title", Error <| JsonException "JSON problem") |> tryGetSyndicationFeedItem
+        let result = (Ok "title", Error <| JsonException "JSON problem") |> toSyndicationFeedItem
         result |> should be (ofCase <@ Result<SyndicationFeedItem, JsonException>.Error @>)
 
     [<Fact>]
@@ -153,16 +155,20 @@ module SyndicationFeedUtilityTests =
 
     [<Fact>]
     let ``tryGetRssSyndicationFeedItem test``() =
-        let elements =
-            rssRootElement
-            |> tryGetRssChannelItems
-            |> Result.valueOr raise
-        elements |> List.iter
-            (
-                 fun el ->
-                    let result = el |> tryGetRssSyndicationFeedItem
-                    result |> should be (ofCase <@ Result<SyndicationFeedItem, JsonException>.Ok @>)
-            )
+        result {
+
+            let! elements = rssRootElement |> tryGetRssChannelItems
+
+            elements |> List.iter
+                (
+                     fun el ->
+                        let result = el |> tryGetRssSyndicationFeedItem
+                        result |> should be (ofCase <@ Result<SyndicationFeedItem, JsonException>.Ok @>)
+                )
+
+            return ()
+        }
+        |> ignore
 
     [<Fact>]
     let ``tryGetSyndicationFeedsElement test``() =
@@ -172,11 +178,11 @@ module SyndicationFeedUtilityTests =
         let result =
             json
             |> tryGetRootElement
-            |> Result.bind tryGetSyndicationFeedsElement
+            >>= tryGetSyndicationFeedsElement
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let result =
             result
-            |> Result.bind (tryGetProperty "root")
-            |> Result.bind tryGetFeedElement
+            >>= (tryGetProperty "root")
+            >>= tryGetFeedElement
         result |> should be (ofCase <@ Result<bool * JsonElement, JsonException>.Ok @>)
