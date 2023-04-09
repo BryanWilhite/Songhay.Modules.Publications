@@ -9,8 +9,15 @@
 
     <ItemGroup>
         <Compile Include="DisplayItemModelUtilityTests.fs" />
+        <Compile Include="LegacyPresentationUtilityTests.fs" />
         <Compile Include="SyndicationFeedUtilityTests.fs" />
         <Compile Include="Program.fs" />
+        <Content Include="..\..\Songhay.Player.ProgressiveAudio\Songhay.Player.ProgressiveAudio.Tests\json\progressive-audio-default.json">
+          <Link>json\progressive-audio-default.json</Link>
+        </Content>
+        <Content Include="..\..\Songhay.Player.ProgressiveAudio\Songhay.Player.ProgressiveAudio.Tests\json\my-presentation.json">
+          <Link>json\my-presentation.json</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>

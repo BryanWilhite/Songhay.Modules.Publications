@@ -26,7 +26,7 @@ module DisplayItemModelUtility =
         | Some name ->
             element
             |> tryGetProperty name
-            |> toResultFromStringElement (fun el -> Some (el.GetString() |> DisplayText))
+            |> toResultFromStringElement (fun el -> Some (DisplayText <| el.GetString()))
 
     ///<summary>
     /// Returns <see cref="DisplayText" /> from the <see cref="JsonElement" />
@@ -80,28 +80,21 @@ module DisplayItemModelUtility =
         (element: JsonElement)
         : Result<DisplayItemModel, JsonException> =
 
-        let idResult = (useCamelCase, element) ||> Id.fromInput itemType
-        let nameResult = (useCamelCase, element) ||> Name.fromInput itemType
-        let displayTextResult =  (useCamelCase, element) ||> displayTextGetter itemType
-        let resourceIndicatorResult =
-            match resourceIndicatorGetter with
-            | Some getter -> ((useCamelCase, element) ||> getter itemType)
-            | _ -> Ok None
+        result {
 
-        [
-            idResult |> Result.map (fun _ -> true)
-            nameResult  |> Result.map (fun _ -> true)
-            displayTextResult  |> Result.map (fun _ -> true)
-            resourceIndicatorResult  |> Result.map (fun _ -> true)
-        ]
-        |> List.sequenceResultM
-        |> Result.map
-              (
-                   fun _ ->
-                        {
-                            id = (idResult |> Result.valueOr raise)
-                            itemName = (nameResult |> Result.valueOr raise).toItemName
-                            displayText = (displayTextResult |> Result.valueOr raise)
-                            resourceIndicator = (resourceIndicatorResult |> Result.valueOr raise)
-                        }
-               )
+            let! id = (useCamelCase, element) ||> Id.fromInput itemType
+            and! name = (useCamelCase, element) ||> Name.fromInput itemType
+            and! displayText =  (useCamelCase, element) ||> displayTextGetter itemType
+            and! resourceIndicator =
+                match resourceIndicatorGetter with
+                | Some getter -> ((useCamelCase, element) ||> getter itemType)
+                | _ -> Ok None
+
+            return
+                {
+                    id = id
+                    itemName = name.toItemName
+                    displayText = displayText
+                    resourceIndicator = resourceIndicator
+                }
+        }

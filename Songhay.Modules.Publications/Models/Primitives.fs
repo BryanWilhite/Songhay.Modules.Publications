@@ -1,4 +1,4 @@
-module Songhay.Modules.Publications.Models
+namespace Songhay.Modules.Publications.Models
 
 open System
 open System.Text.Json

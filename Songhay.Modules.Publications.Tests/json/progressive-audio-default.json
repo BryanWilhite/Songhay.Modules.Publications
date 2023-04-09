@@ -1,0 +1,117 @@
+{
+  "Presentation": {
+    "@ClientId": "2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1",
+    "@Category": "4303",
+    "@ModDate": "2005-12-10T22:19:14",
+    "@PubDate": "2005-12-10T22:19:14",
+    "@Uri": "./",
+    "@UriHeader": "-1",
+    "@UriFooter": "-1",
+    "@Template": "-1",
+    "@IntroUri": "p_audioplayer.html",
+    "LayoutMetadata": {
+      "@version": "1.0",
+      "@backgroundColor": "#CCFF00",
+      "@borderColor": "#006633",
+      "@title": "Songhay Audio Player",
+      "background": {
+        "@opacity": "90",
+        "@uri": "./default/jpg/background.jpg"
+      },
+      "credits": {
+        "@x": "350",
+        "@y": "350",
+        "@width": "360",
+        "@height": "240",
+        "@uri": "http://{0}/swf_audio/uiXml.php?cmd=credits&key=default"
+      },
+      "creditsButton": {
+        "@x": "761",
+        "@y": "540"
+      },
+      "player": {
+        "@x": "500",
+        "@y": "320"
+      },
+      "playlist": {
+        "@backgroundColor": "0xEAEAEA",
+        "@color": "0x000000",
+        "@x": "500",
+        "@y": "100",
+        "@width": "180",
+        "@height": "160",
+        "@opacity": "60",
+        "@uri": "http://{0}/swf_audio/uiXml.php?cmd=playlist&key=default"
+      },
+      "prose": {
+        "@backgroundColor": "0xEAEAEA",
+        "@color": "0x000000",
+        "@x": "10",
+        "@y": "100",
+        "@width": "450",
+        "@height": "320",
+        "@opacity": "60",
+        "@uri": "http://{0}/swf_audio/uiXml.php?cmd=prose&key=default"
+      },
+      "title": {
+        "@backgroundColor": "0x6C6C6C",
+        "@color": "0xFFFFFF",
+        "@x": "0",
+        "@y": "0",
+        "@width": "640",
+        "@height": "36",
+        "@opacity": "60",
+        "@marginBottom": "0",
+        "@marginTop": "16",
+        "@uri": "http://{0}/swf_audio/uiXml.php?cmd=title&key=default"
+      }
+    },
+    "Title": "Songhay Audio Presentation",
+    "Description": {
+      "@ClientId": "2005-12-14-22-05-19-IDAIBCBBIDAJBCBB-1",
+      "@Header": "-1",
+      "@Footer": "-1",
+      "#text": "<div>This InfoPath Form data is packaged with the audio presentation directory image and is transformed <em>on the fly</em> into play-list and prose data.</div><div> </div><div><strong>Note:</strong> The “Web Presentation Items” in this form become the play-list data. The description written here becomes prose data.</div><div> </div><div><a href=\"http://kintespace.com/kmail.html\" target=\"_blank\">rasx()</a></div>"
+    },
+    "Credits": {
+      "@ClientId": "2005-12-14-22-05-19-IDAJCCBBIDAKCCBB-1",
+      "@Header": "-1",
+      "@Footer": "-1",
+      "#text": "<div>Audio Tracks by . . . . . . . <strong>Mikey Dread</strong></div><div>ActionScript and PHP  by . . . . . . . <strong>Bryan Wilhite</strong></div><div>CSS, XML and XSLT by . . . . . . . <strong>Bryan Wilhite</strong></div>"
+    },
+    "Copyright": {
+      "@Name": "Songhay System",
+      "@Year": "2006",
+      "@Header": "-1",
+      "@Footer": "-1"
+    },
+    "ItemGroup": {
+      "Item": [
+        {
+          "@ClientId": "2005-12-10-22-19-14-IDAQBQDBIDARBQDB-1",
+          "@Uri": "./default/mp3/Mikey Dread - 05.mp3",
+          "@Header": "-1",
+          "@Footer": "-1",
+          "@Format": "Block",
+          "#text": "sound one"
+        },
+        {
+          "@ClientId": "2005-12-10-22-28-36-IDA1K1PBIDA2K1PB-1",
+          "@Uri": "./default/mp3/Mikey Dread - 06.mp3",
+          "@Header": "-1",
+          "@Footer": "-1",
+          "@Format": "Block",
+          "#text": "sound two"
+        },
+        {
+          "@ClientId": "2005-12-10-22-28-56-IDA000PBIDA100PB-1",
+          "@Uri": "./default/mp3/Mikey Dread - 07.mp3",
+          "@Header": "-1",
+          "@Footer": "-1",
+          "@Format": "Block",
+          "#text": "sound three"
+        }
+      ]
+    }
+  }
+}

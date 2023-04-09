@@ -6,8 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Models\CssPrimitives.fs" />
         <Compile Include="Models\Primitives.fs" />
+        <Compile Include="Models\PresentationPrimitives.fs" />
+        <Compile Include="Models\Presentation.fs" />
         <Compile Include="DisplayItemModelUtility.fs" />
+        <Compile Include="LegacyPresentationUtility.fs" />
         <Compile Include="SyndicationFeedUtility.fs" />
     </ItemGroup>
 

@@ -1,0 +1,137 @@
+{
+  "id": {
+    "Case": "Alphanumeric",
+    "Fields": [
+      "my-id"
+    ]
+  },
+  "title": "this is the title, man",
+  "cssVariables": [
+    {
+      "Case": "CssVariableAndValue",
+      "Fields": [
+        "--my-css-var-one",
+        "var-one-value"
+      ]
+    },
+    {
+      "Case": "CssVariableAndValue",
+      "Fields": [
+        "--my-css-var-two",
+        "var-two-value"
+      ]
+    },
+    {
+      "Case": "CssVariableAndValue",
+      "Fields": [
+        "--my-css-var-three",
+        "var-three-value"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "Case": "CopyRights",
+      "Fields": [
+        [
+          {
+            "year": 2023,
+            "name": "Bryan Wilhite"
+          },
+          {
+            "year": 2023,
+            "name": "Creflo Dollar"
+          }
+        ]
+      ]
+    },
+    {
+      "Case": "Credits",
+      "Fields": [
+        [
+          {
+            "role": "Cinematographer",
+            "name": "Kodak Black"
+          },
+          {
+            "role": "Catering",
+            "name": "Arlendo Calrissian"
+          },
+          {
+            "role": "Location Scout",
+            "name": "Ranger Rick"
+          }
+        ]
+      ]
+    },
+    {
+      "Case": "PresentationDescription",
+      "Fields": [
+        "this is a wonderful work of art"
+      ]
+    },
+    {
+      "Case": "Pages",
+      "Fields": [
+        [
+          "page, the one",
+          "second page",
+          "the end"
+        ]
+      ]
+    },
+    {
+      "Case": "Playlist",
+      "Fields": [
+        [
+          [
+            "track one",
+            "track-one.mp3"
+          ],
+          [
+            "track two",
+            "track-two.mp3"
+          ],
+          [
+            "track three",
+            "track-three.mp3"
+          ]
+        ]
+      ]
+    },
+    {
+      "Case": "Stream",
+      "Fields": [
+        [
+          {
+            "id": {
+              "Case": "Alphanumeric",
+              "Fields": [
+                "mpeg-dash-001"
+              ]
+            },
+            "thumbnailUri": "mpeg-dash-001.jpg"
+          },
+          {
+            "id": {
+              "Case": "Alphanumeric",
+              "Fields": [
+                "mpeg-dash-002"
+              ]
+            },
+            "thumbnailUri": "mpeg-dash-002.jpg"
+          },
+          {
+            "id": {
+              "Case": "Alphanumeric",
+              "Fields": [
+                "mpeg-dash-003"
+              ]
+            },
+            "thumbnailUri": "mpeg-dash-003.jpg"
+          }
+        ]
+      ]
+    }
+  ]
+}
