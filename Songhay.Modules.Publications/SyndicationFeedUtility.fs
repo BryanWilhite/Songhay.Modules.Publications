@@ -14,6 +14,9 @@ open Songhay.Modules.Models
 open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.ProgramTypeUtility
 
+/// <summary>
+/// Utility functions for <see cref="SyndicationFeed"/>
+/// </summary>
 module SyndicationFeedUtility =
 
     ///<summary>
