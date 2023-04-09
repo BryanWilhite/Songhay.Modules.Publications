@@ -86,7 +86,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let actual = result |> toPresentationCssVariablesResult
-        actual |> should be (ofCase <@ Result<CssVariableAndValues, JsonException>.Ok @>)
+        actual |> should be (ofCase <@ Result<CssVariableAndValue list, JsonException>.Ok @>)
         (actual |> Result.valueOr raise)
         |> List.find
             (

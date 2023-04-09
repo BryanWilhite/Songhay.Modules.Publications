@@ -111,14 +111,12 @@ module LegacyPresentationUtility =
             |> toResultFromJsonElement
                 (fun kind -> kind = JsonValueKind.Array)
                 (fun el -> el.EnumerateArray().ToArray())
-            >>= (
-                    fun a ->
-                        a
-                        |> List.ofSeq
-                        |> List.map toPlaylistItem
-                        |> List.sequenceResultM
-                        |> Result.map (fun l -> l |> Playlist)
-                )
+            >>= fun a ->
+                a
+                |> List.ofSeq
+                |> List.map toPlaylistItem
+                |> List.sequenceResultM
+                |> Result.map (fun l -> l |> Playlist)
 
     let tryGetPresentationElementResult (json: string) =
         json
@@ -148,13 +146,13 @@ module LegacyPresentationUtility =
         >>= (tryGetProperty "LayoutMetadata")
 
     let tryGetCopyrightNameResult presentationElementResult =
-            presentationElementResult
-            >>= (tryGetProperty <| nameof(Copyright))
-            >>= (tryGetProperty "@Name")
+        presentationElementResult
+        >>= (tryGetProperty <| nameof(Copyright))
+        >>= (tryGetProperty "@Name")
     let tryGetCopyrightYearResult presentationElementResult =
-            presentationElementResult
-            >>= (tryGetProperty <| nameof(Copyright))
-            >>= (tryGetProperty "@Year")
+        presentationElementResult
+        >>= (tryGetProperty <| nameof(Copyright))
+        >>= (tryGetProperty "@Year")
 
     let tryGetPlaylistRootResult presentationElementResult =
         presentationElementResult
