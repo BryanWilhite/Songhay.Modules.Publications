@@ -3,6 +3,7 @@ namespace Songhay.Modules.Publications.Tests
 open System.IO
 open System.Reflection
 open System.Text.Json
+open System.Text.Json.Serialization
 
 open FsToolkit.ErrorHandling
 open FsUnit.CustomMatchers
@@ -126,3 +127,14 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         let json = File.ReadAllText(audioJsonDocumentPath)
         let actual = json |> tryGetPresentation
         actual |> should be (ofCase <@ Result<Presentation, JsonException>.Ok @>)
+
+        let outputPath =
+            "json/progressive-audio-default-output.json" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        let options = JsonSerializerOptions()
+        options.Converters.Add(JsonFSharpConverter())
+
+        let json = JsonSerializer.Serialize(actual, options)
+        File.WriteAllText(outputPath, json)
