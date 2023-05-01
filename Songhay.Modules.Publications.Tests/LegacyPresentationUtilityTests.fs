@@ -17,6 +17,7 @@ open Songhay.Modules.Publications.Models
 open Songhay.Modules.ProgramFileUtility
 
 open Songhay.Modules.Bolero.LegacyPresentationUtility
+open System
 
 type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
@@ -138,3 +139,17 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         let json = JsonSerializer.Serialize(actual, options)
         File.WriteAllText(outputPath, json)
+
+        let outputPath =
+            "json/progressive-audio-default-output.scss" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        let scssArray =
+            actual
+            |> Result.valueOr raise
+            |> fun presentation ->
+                presentation.cssVariables
+                |> List.map (fun v -> v.toCssDeclaration)
+                |> Array.ofList
+        File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
