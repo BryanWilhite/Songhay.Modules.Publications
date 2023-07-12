@@ -15,8 +15,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FsToolkit.ErrorHandling" Version="4.5.0" />
-      <PackageReference Include="Songhay.Modules" Version="6.3.5" />
+      <PackageReference Include="FsToolkit.ErrorHandling" Version="4.8.0" />
+      <PackageReference Include="Songhay.Modules" Version="6.3.7" />
+      <PackageReference Remove="FSharp.Core" />
     </ItemGroup>
 
 </Project>
