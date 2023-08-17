@@ -20,6 +20,25 @@ open Songhay.Modules.Publications.Models
 /// </summary>
 module LegacyPresentationUtility =
 
+    [<Literal>]
+    let internal cssCustomPropertyPrefix = "rx-player-"
+
+    /// <summary>
+    /// Binds to a list of <see cref="CssVariableAndValue"/>
+    /// with the specified <c>background-image</c>
+    /// and <c>credits-button-background-image</c> values
+    /// to address backward compatibility with the legacy
+    /// b-roll progressive audio player layout.
+    /// </summary>
+    let cssCustomPropertiesForLegacyLayout bgImage creditsButtonBGImage =
+        [
+            (CssVariable $"{cssCustomPropertyPrefix}width", CssValue "800px")
+            (CssVariable $"{cssCustomPropertyPrefix}height", CssValue "600px")
+            (CssVariable $"{cssCustomPropertyPrefix}background-image", bgImage)
+            (CssVariable $"{cssCustomPropertyPrefix}credits-button-background-image", creditsButtonBGImage)
+        ]
+        |> List.map CssVariableAndValue
+
     /// <summary>
     /// Converts the specified <see cref="Result{_,_}"/> data
     /// to <see cref="PresentationPart.CopyRights"/>
@@ -48,7 +67,7 @@ module LegacyPresentationUtility =
     /// </summary>
     let toPresentationCreditsResult (elementResult: Result<JsonElement, JsonException>) =
 
-        let rx = Regex("<div>([^<>]+)<strong>([^<>]+)<\/strong><\/div>", RegexOptions.Compiled)
+        let rx = Regex("<div>([^<>]+)<strong>([^<>]+)</strong></div>", RegexOptions.Compiled)
         let matchesResult =
             elementResult
             |> toResultFromStringElement (fun el -> el.GetString())
@@ -109,7 +128,7 @@ module LegacyPresentationUtility =
         |> Result.map
             (
                 fun jsonProperties ->
-                    jsonProperties |> Array.iter (fun el -> ("rx-player-", el) ||> processProperty)
+                    jsonProperties |> Array.iter (fun el -> (cssCustomPropertyPrefix, el) ||> processProperty)
                     declarations |> List.ofSeq
             )
 
