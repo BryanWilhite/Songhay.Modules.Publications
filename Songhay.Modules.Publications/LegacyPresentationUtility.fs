@@ -1,4 +1,4 @@
-namespace Songhay.Modules.Bolero
+namespace Songhay.Modules.Publications
 
 open System
 open System.Data

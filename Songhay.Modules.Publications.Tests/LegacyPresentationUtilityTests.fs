@@ -16,7 +16,7 @@ open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.Publications.Models
 open Songhay.Modules.ProgramFileUtility
 
-open Songhay.Modules.Bolero.LegacyPresentationUtility
+open Songhay.Modules.Publications.LegacyPresentationUtility
 open System
 
 type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
