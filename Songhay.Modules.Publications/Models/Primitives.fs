@@ -89,6 +89,11 @@ type Title =
             |> tryGetProperty name
             |> toResultFromStringElement (fun el -> Title <| el.GetString())
 
+    ///<summary>
+    /// Unwraps the underlying <see cref="string" /> value.
+    /// </summary>
+    member this.Value = let (Title v) = this in v
+
 ///<summary>
 /// Defines a primitive naming concept
 /// shared among <see cref="PublicationItem" /> types.
@@ -181,6 +186,11 @@ type FileName =
             |> tryGetProperty name
             |> toResultFromStringElement (fun el -> FileName <| el.GetString())
 
+    ///<summary>
+    /// Unwraps the underlying <see cref="string" /> value.
+    /// </summary>
+    member this.Value = let (FileName v) = this in v
+
 ///<summary>
 /// Defines a primitive value,
 /// representing a <see cref="PublicationItem" /> Active status.
@@ -203,3 +213,8 @@ type IsActive =
             element
             |> tryGetProperty name
             |> toResultFromBooleanElement (fun el -> el.GetBoolean())
+
+    ///<summary>
+    /// Unwraps the underlying <see cref="string" /> value.
+    /// </summary>
+    member this.Value = let (IsActive v) = this in v
