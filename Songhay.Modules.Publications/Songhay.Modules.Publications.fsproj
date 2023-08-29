@@ -10,7 +10,6 @@
         <Compile Include="Models\PresentationPrimitives.fs" />
         <Compile Include="Models\Presentation.fs" />
         <Compile Include="DisplayItemModelUtility.fs" />
-        <Compile Include="LegacyPresentationUtility.fs" />
         <Compile Include="SyndicationFeedUtility.fs" />
     </ItemGroup>
 

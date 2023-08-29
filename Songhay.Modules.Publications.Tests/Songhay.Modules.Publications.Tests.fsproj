@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <Compile Include="DisplayItemModelUtilityTests.fs" />
+        <Compile Include="LegacyPresentationUtility.fs" />
         <Compile Include="LegacyPresentationUtilityTests.fs" />
         <Compile Include="SyndicationFeedUtilityTests.fs" />
         <Compile Include="Program.fs" />
