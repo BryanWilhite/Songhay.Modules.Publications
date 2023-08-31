@@ -1,6 +1,7 @@
 namespace Songhay.Modules.Publications.Tests
 
 open System.IO
+open System.Linq
 open System.Reflection
 open System.Text.Json
 open System.Text.Json.Serialization
@@ -35,6 +36,43 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
     let presentationElementResult =
         File.ReadAllText(audioJsonDocumentPath)
         |> tryGetPresentationElementResult
+
+    let presentationCreditsSet =
+        let directories =
+            result {
+                let root = projectDirectoryInfo.Parent.Parent.FullName
+                let! path = tryGetCombinedPath root "azure-storage-accounts/songhaystorage/player-audio/"
+
+                return Directory.EnumerateDirectories(path)
+            }
+            |> Result.valueOr raiseProgramFileError
+
+        let directoryName (dir: string) = dir.Split(Path.DirectorySeparatorChar).Last()
+
+        let credits (dir: string) =
+            result {
+                let fileName = dir |> directoryName
+                let! path = tryGetCombinedPath dir $"{fileName}_credits.json"
+
+                let options = JsonSerializerOptions()
+                options.Converters.Add(JsonFSharpConverter())
+
+                let json = File.ReadAllText(path)
+
+                return JsonSerializer.Deserialize<RoleCredit list>(json, options)
+            }
+
+        directories.ToDictionary(directoryName, credits)
+
+    [<Fact(Skip="run manually in the Songhay Studio environment")>]
+    let ``presentationCreditsSet test`` () =
+        presentationCreditsSet.ToArray()
+        |> Array.iter
+            (
+                fun pair ->
+                    outputHelper.WriteLine $"testing `{pair.Key}`..."
+                    pair.Value |> should be (ofCase <@ Result<RoleCredit list,ProgramFileError>.Ok @>)
+            )
 
     [<Theory>]
     [<InlineData("2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
