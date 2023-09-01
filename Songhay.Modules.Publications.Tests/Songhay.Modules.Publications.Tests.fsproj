@@ -29,6 +29,7 @@
         <Content Include="json\publication-document-frontmatter.json" />
         <Content Include="json\progressive-audio-default-output.scss" />
         <Content Include="json\my-presentation.json" />
+        <Content Include="json\presentation-credits-set-output.json" />
     </ItemGroup>
 
     <ItemGroup>

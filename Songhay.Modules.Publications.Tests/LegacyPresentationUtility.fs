@@ -239,7 +239,7 @@ module LegacyPresentationUtility =
     /// Tries to return a <see cref="Presentation"/>
     /// from a JSON <see cref="string"/>.
     /// </summary>
-    let tryGetPresentation (json: string) =
+    let tryGetPresentation (creditsResult: Result<RoleCredit list, JsonException>) (json: string) =
         let presentationElementResult = json |> tryGetPresentationElementResult
 
         result {
@@ -264,10 +264,7 @@ module LegacyPresentationUtility =
                 |> tryGetPresentationDescriptionResult
                 |> toResultFromStringElement (fun el -> el.GetString() |> PresentationDescription)
 
-            and! credits =
-                presentationElementResult
-                |> tryGetPresentationCreditsResult
-                |> toPresentationCreditsResult
+            and! creditList = creditsResult
 
             and! copyrights =
                 (
@@ -289,7 +286,7 @@ module LegacyPresentationUtility =
                     cssVariables = cssVariableAndValues
                     parts = [
                         description
-                        credits
+                        Credits creditList
                         copyrights
                         playlist
                     ]

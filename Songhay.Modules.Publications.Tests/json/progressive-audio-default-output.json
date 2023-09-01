@@ -1,1 +1,311 @@
-{"Case":"Ok","Fields":[{"id":{"Case":"Alphanumeric","Fields":["2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1"]},"title":"Songhay Audio Presentation","cssVariables":[{"Case":"CssVariableAndValue","Fields":["--rx-player-background-color","#CCFF00"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-border-color","#006633"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-background-opacity","90%"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-credits-x","350px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-credits-y","350px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-credits-width","360px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-credits-height","240px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-credits-button-x","761px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-credits-button-y","540px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-player-x","500px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-player-y","320px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-background-color","0xEAEAEA"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-color","0x000000"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-x","500px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-y","100px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-width","180px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-height","160px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-playlist-opacity","60%"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-background-color","0xEAEAEA"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-color","0x000000"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-x","10px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-y","100px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-width","450px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-height","320px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-prose-opacity","60%"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-background-color","0x6C6C6C"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-color","0xFFFFFF"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-x","0px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-y","0px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-width","640px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-height","36px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-opacity","60%"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-margin-bottom","0px"]},{"Case":"CssVariableAndValue","Fields":["--rx-player-title-margin-top","16px"]}],"parts":[{"Case":"PresentationDescription","Fields":["\u003Cdiv\u003EThis InfoPath Form data is packaged with the audio presentation directory image\u00A0and is transformed \u003Cem\u003Eon the fly\u003C/em\u003E into play-list and prose data.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E\u003Cdiv\u003E\u003Cstrong\u003ENote:\u003C/strong\u003E The \u201CWeb Presentation Items\u201D in this form become the play-list data. The description written here\u00A0becomes prose data.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E\u003Cdiv\u003E\u003Ca href=\u0022http://kintespace.com/kmail.html\u0022 target=\u0022_blank\u0022\u003Erasx()\u003C/a\u003E\u003C/div\u003E"]},{"Case":"Credits","Fields":[[{"role":"Audio Tracks","name":"Mikey Dread"},{"role":"ActionScript and PHP\u00A0","name":"Bryan Wilhite"},{"role":"CSS, XML and\u00A0XSLT","name":"Bryan Wilhite"}]]},{"Case":"CopyRights","Fields":[[{"year":2006,"name":"Songhay System"}]]},{"Case":"Playlist","Fields":[[["sound one","./default/mp3/Mikey Dread - 05.mp3"],["sound two","./default/mp3/Mikey Dread - 06.mp3"],["sound three","./default/mp3/Mikey Dread - 07.mp3"]]]}]}]}
+{
+  "Case": "Ok",
+  "Fields": [
+    {
+      "id": {
+        "Case": "Alphanumeric",
+        "Fields": [
+          "2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1"
+        ]
+      },
+      "title": "Songhay Audio Presentation",
+      "cssVariables": [
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-background-color",
+            "#CCFF00"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-border-color",
+            "#006633"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-background-opacity",
+            "90%"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-credits-x",
+            "350px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-credits-y",
+            "350px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-credits-width",
+            "360px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-credits-height",
+            "240px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-credits-button-x",
+            "761px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-credits-button-y",
+            "540px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-player-x",
+            "500px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-player-y",
+            "320px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-background-color",
+            "0xEAEAEA"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-color",
+            "0x000000"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-x",
+            "500px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-y",
+            "100px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-width",
+            "180px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-height",
+            "160px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-playlist-opacity",
+            "60%"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-background-color",
+            "0xEAEAEA"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-color",
+            "0x000000"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-x",
+            "10px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-y",
+            "100px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-width",
+            "450px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-height",
+            "320px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-prose-opacity",
+            "60%"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-background-color",
+            "0x6C6C6C"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-color",
+            "0xFFFFFF"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-x",
+            "0px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-y",
+            "0px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-width",
+            "640px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-height",
+            "36px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-opacity",
+            "60%"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-margin-bottom",
+            "0px"
+          ]
+        },
+        {
+          "Case": "CssVariableAndValue",
+          "Fields": [
+            "--rx-player-title-margin-top",
+            "16px"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "Case": "PresentationDescription",
+          "Fields": [
+            "\u003Cdiv\u003EThis InfoPath Form data is packaged with the audio presentation directory image\u00A0and is transformed \u003Cem\u003Eon the fly\u003C/em\u003E into play-list and prose data.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E\u003Cdiv\u003E\u003Cstrong\u003ENote:\u003C/strong\u003E The \u201CWeb Presentation Items\u201D in this form become the play-list data. The description written here\u00A0becomes prose data.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E\u003Cdiv\u003E\u003Ca href=\u0022http://kintespace.com/kmail.html\u0022 target=\u0022_blank\u0022\u003Erasx()\u003C/a\u003E\u003C/div\u003E"
+          ]
+        },
+        {
+          "Case": "Credits",
+          "Fields": [
+            [
+              {
+                "role": "Audio Tracks",
+                "name": "Mikey Dread"
+              },
+              {
+                "role": "ActionScript and PHP",
+                "name": "Bryan Wilhite"
+              },
+              {
+                "role": "CSS XML and\u00A0XSLT",
+                "name": "Bryan Wilhite"
+              }
+            ]
+          ]
+        },
+        {
+          "Case": "CopyRights",
+          "Fields": [
+            [
+              {
+                "year": 2006,
+                "name": "Songhay System"
+              }
+            ]
+          ]
+        },
+        {
+          "Case": "Playlist",
+          "Fields": [
+            [
+              [
+                "sound one",
+                "./default/mp3/Mikey Dread - 05.mp3"
+              ],
+              [
+                "sound two",
+                "./default/mp3/Mikey Dread - 06.mp3"
+              ],
+              [
+                "sound three",
+                "./default/mp3/Mikey Dread - 07.mp3"
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
