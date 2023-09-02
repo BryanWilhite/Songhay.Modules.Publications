@@ -41,24 +41,25 @@ module LegacyPresentationUtility =
 
     /// <summary>
     /// Converts the specified <see cref="Result{_,_}"/> data
-    /// to <see cref="PresentationPart.CopyRights"/>
+    /// to <see cref="PresentationPart.CopyRights"/>Result{JsonElement,JsonException} -> Result{(JsonElement * JsonElement) array,JsonException}
     /// </summary>
-    let toPresentationCopyrights
-        (nameElementResult: Result<JsonElement, JsonException>)
-        (yearElementResult: Result<JsonElement, JsonException>) =
-
+    let toPresentationCopyrights (arrayResult: Result<(JsonElement * JsonElement) array, JsonException>) =
         result {
-            let! name = nameElementResult |> toJsonStringValue
-            and! year = yearElementResult |> toJsonIntValueFromStringElement
+            let! elementArray = arrayResult
 
             return
-                [
-                    {
-                        name = name
-                        year = year
-                    }
-                ]
-                |> CopyRights
+                elementArray
+                |> List.ofArray
+                |> List.collect
+                    (
+                        fun (nameElement, yearElement) ->
+                            [
+                                {
+                                    name = nameElement.GetString()
+                                    year = yearElement.GetString() |> Int32.Parse
+                                }
+                            ]
+                    )
         }
 
     /// <summary>
@@ -191,14 +192,6 @@ module LegacyPresentationUtility =
         >>= (tryGetProperty <| nameof(Description))
         >>= (tryGetProperty "#text")
 
-    /// <summary>
-    /// Tries to return a <see cref="JsonElement"/>
-    /// representing the credits of a legacy Presentation document.
-    /// </summary>
-    let tryGetPresentationCreditsResult presentationElementResult =
-        presentationElementResult
-        >>= (tryGetProperty <| nameof(Credits))
-        >>= (tryGetProperty "#text")
 
     /// <summary>
     /// Tries to return a <see cref="JsonElement"/>
@@ -210,21 +203,31 @@ module LegacyPresentationUtility =
 
     /// <summary>
     /// Tries to return a <see cref="JsonElement"/>
-    /// representing the copyright name of a legacy Presentation document.
+    /// representing the copyrights of a legacy Presentation document.
     /// </summary>
-    let tryGetCopyrightNameResult presentationElementResult =
-        presentationElementResult
-        >>= (tryGetProperty <| nameof(Copyright))
-        >>= (tryGetProperty "@Name")
+    let tryGetCopyrightResult presentationElementResult =
+        let toTuple (copyright: JsonElement) =
+            result {
+                let! nameElement = copyright |> tryGetProperty "@Name"
+                let! yearElement = copyright |> tryGetProperty "@Year"
 
-    /// <summary>
-    /// Tries to return a <see cref="JsonElement"/>
-    /// representing the copyright year of a legacy Presentation document.
-    /// </summary>
-    let tryGetCopyrightYearResult presentationElementResult =
-        presentationElementResult
-        >>= (tryGetProperty <| nameof(Copyright))
-        >>= (tryGetProperty "@Year")
+                return (nameElement, yearElement)
+            } |> Result.valueOr raise
+
+        result {
+            let! copyrightElement =
+                presentationElementResult
+                >>= (tryGetProperty <| nameof(Copyright))
+
+            return
+                match copyrightElement.ValueKind with
+                | JsonValueKind.Array ->
+                    copyrightElement.EnumerateArray().ToArray()
+                    |> Array.ofSeq
+                    |> Array.map toTuple
+                | _ ->
+                    [| copyrightElement |> toTuple |]
+        }
 
     /// <summary>
     /// Tries to return a <see cref="JsonElement"/>
@@ -266,12 +269,10 @@ module LegacyPresentationUtility =
 
             and! creditList = creditsResult
 
-            and! copyrights =
-                (
-                    presentationElementResult |> tryGetCopyrightNameResult,
-                    presentationElementResult |> tryGetCopyrightYearResult
-                )
-                ||> toPresentationCopyrights
+            and! copyrightList =
+                presentationElementResult
+                |> tryGetCopyrightResult
+                |> toPresentationCopyrights
 
             and! playlist =
                 presentationElementResult
@@ -287,7 +288,7 @@ module LegacyPresentationUtility =
                     parts = [
                         description
                         Credits creditList
-                        copyrights
+                        CopyRights copyrightList
                         playlist
                     ]
                 }

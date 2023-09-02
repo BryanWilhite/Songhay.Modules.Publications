@@ -126,16 +126,6 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         (actual |> Result.valueOr raise).StringValue.Contains(expected) |> should be True
 
-    [<Fact>]
-    let ``Presentation.parts Credits test`` () =
-        let result = presentationElementResult |> tryGetPresentationCreditsResult
-        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
-
-        let actual = result |> toPresentationCreditsResult
-        actual |> should be (ofCase <@ Result<PresentationPart, JsonException>.Ok @>)
-
-        (actual |> Result.valueOr raise) |> should not' (be Empty)
-
     [<Theory>]
     [<InlineData("--rx-player-playlist-background-color", "0xEAEAEA")>]
     let ``Presentation.cssVariables test``(expectedVarName: string) (expectedValue: string) =
@@ -153,21 +143,6 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                     && cssVal.Value = expectedValue
             )
         |> (fun i -> i.toCssDeclaration |> outputHelper.WriteLine)
-
-    [<Theory>]
-    [<InlineData("©2006 Songhay System")>]
-    let ``Presentation.parts Copyrights test`` (expected: string) =
-        let nameElementResult = presentationElementResult |> tryGetCopyrightNameResult
-        nameElementResult |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
-
-        let yearElementResult = presentationElementResult |> tryGetCopyrightYearResult
-        yearElementResult |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
-
-        let actual = (nameElementResult, yearElementResult) ||> toPresentationCopyrights
-
-        actual |> should be (ofCase <@ Result<PresentationPart, JsonException>.Ok @>)
-
-        (actual |> Result.valueOr raise).StringValues[0] |> should equal expected
 
     [<Fact>]
     let ``Presentation.parts Playlist test`` () =
@@ -218,3 +193,52 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                 |> List.map (fun v -> v.toCssDeclaration)
                 |> Array.ofList
         File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
+
+    [<Fact>]
+    let ``write Presentation JSON test``() =
+
+        let options = JsonSerializerOptions()
+        options.WriteIndented <- true
+        options.Converters.Add(JsonFSharpConverter())
+
+        let inputPath =
+            "json/presentation-credits-set-output.json" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+        let creditsSet =
+            JsonSerializer
+                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPath), options)
+
+        let directories =
+            result {
+                let root = projectDirectoryInfo.Parent.Parent.FullName
+                let! path = tryGetCombinedPath root "azure-storage-accounts/songhaystorage/player-audio/"
+
+                return Directory.EnumerateDirectories(path)
+            }
+            |> Result.valueOr raiseProgramFileError
+
+        let directoryName (dir: string) = dir.Split(Path.DirectorySeparatorChar).Last()
+
+        directories
+        |> List.ofSeq
+        |> List.iter
+            (
+                fun directory ->
+                    let presentationKey = directory |> directoryName
+                    outputHelper.WriteLine $"processing `{presentationKey}`..."
+                    let inputPath =
+                        tryGetCombinedPath directory $"{presentationKey}.json"
+                        |> Result.valueOr raiseProgramFileError
+                    let presentationJson = File.ReadAllText(inputPath)
+                    let presentationResult = presentationJson |> tryGetPresentation (creditsSet[presentationKey] |> Result.mapError(fun ex -> JsonException $"{ex}"))
+                    presentationResult |> should be (ofCase <@ Result<Presentation, JsonException>.Ok @>)
+
+                    let presentation = presentationResult |> Result.valueOr raise
+                    let json = JsonSerializer.Serialize(presentation, options)
+                    let outputPath =
+                        tryGetCombinedPath directory $"{presentationKey}_presentation.json"
+                        |> Result.valueOr raiseProgramFileError
+
+                    File.WriteAllText(outputPath, json)
+            )
