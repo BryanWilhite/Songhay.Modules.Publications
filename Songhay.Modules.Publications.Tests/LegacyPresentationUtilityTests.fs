@@ -68,7 +68,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         directories.ToDictionary(directoryName, credits)
 
-    [<Fact(Skip="run manually in the Songhay Studio environment")>]
+    [<Fact>]
     let ``presentationCreditsSet test`` () =
         let boundSet = presentationCreditsSet
 
@@ -194,7 +194,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                 |> Array.ofList
         File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
 
-    [<Fact>]
+    [<Fact(Skip="run manually in the Songhay Studio environment")>]
     let ``write Presentation JSON test``() =
 
         let options = JsonSerializerOptions()

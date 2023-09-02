@@ -23,6 +23,7 @@ module LegacyPresentationUtility =
     [<Literal>]
     let internal cssCustomPropertyPrefix = "rx-player-"
 
+
     /// <summary>
     /// Binds to a list of <see cref="CssVariableAndValue"/>
     /// with the specified <c>background-image</c>
@@ -41,7 +42,7 @@ module LegacyPresentationUtility =
 
     /// <summary>
     /// Converts the specified <see cref="Result{_,_}"/> data
-    /// to <see cref="PresentationPart.CopyRights"/>Result{JsonElement,JsonException} -> Result{(JsonElement * JsonElement) array,JsonException}
+    /// to <see cref="PresentationPart.CopyRights"/>
     /// </summary>
     let toPresentationCopyrights (arrayResult: Result<(JsonElement * JsonElement) array, JsonException>) =
         result {
@@ -59,7 +60,7 @@ module LegacyPresentationUtility =
                                     year = yearElement.GetString() |> Int32.Parse
                                 }
                             ]
-                    )
+                    ) |> CopyRights
         }
 
     /// <summary>
@@ -115,6 +116,8 @@ module LegacyPresentationUtility =
                         | "@x" | "@y" | "@marginBottom" | "@marginTop"
                         | "@width" | "@height" -> $"{p.Value.GetString()}px"
                         | "@opacity" -> $"{p.Value.GetString()}%%"
+                        | _ when p.Name.ToLowerInvariant().Contains("color") ->
+                            p.Value.GetString().ToLowerInvariant().Replace("0x", "#")
                         | _ -> p.Value.GetString()
                         |> CssValue
                     let cssVar = $"{prefix}{p.Name.TrimStart('@')}" |> CssVariable.fromInput
@@ -269,7 +272,7 @@ module LegacyPresentationUtility =
 
             and! creditList = creditsResult
 
-            and! copyrightList =
+            and! copyrights =
                 presentationElementResult
                 |> tryGetCopyrightResult
                 |> toPresentationCopyrights
@@ -288,7 +291,7 @@ module LegacyPresentationUtility =
                     parts = [
                         description
                         Credits creditList
-                        CopyRights copyrightList
+                        copyrights
                         playlist
                     ]
                 }
