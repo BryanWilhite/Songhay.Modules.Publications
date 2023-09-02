@@ -19,4 +19,10 @@
       <PackageReference Remove="FSharp.Core" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="FSharp.SystemTextJson">
+        <HintPath>..\..\..\.nuget\packages\fsharp.systemtextjson\1.2.34\lib\netstandard2.0\FSharp.SystemTextJson.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

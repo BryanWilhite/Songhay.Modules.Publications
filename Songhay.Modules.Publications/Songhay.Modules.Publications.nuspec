@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>Songhay.Modules.Publications</id>
-        <version>6.3.0</version>
+        <version>6.3.1</version>
         <description>shared Publication types and functions for F# clients 🕸🖼</description>
         <authors>Bryan D. Wilhite</authors>
         <title>Songhay Modules, Publications</title>
