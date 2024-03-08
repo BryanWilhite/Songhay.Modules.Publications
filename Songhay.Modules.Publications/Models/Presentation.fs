@@ -16,8 +16,8 @@ type Presentation =
         id: Id
         ///<summary>The Presentation title.</summary>
         title: Title
-        ///<summary>The Presentation <see cref="CssVariableAndValue"/> collection.</summary>
-        cssVariables: CssVariableAndValue list
+        ///<summary>The Presentation <see cref="CssCustomPropertyAndValue"/> collection.</summary>
+        cssVariables: CssCustomPropertyAndValue list
         ///<summary>The Presentation <see cref="PresentationPart"/> collection.</summary>
         parts: PresentationPart list
     }

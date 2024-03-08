@@ -13,12 +13,6 @@
         <Compile Include="LegacyPresentationUtilityTests.fs" />
         <Compile Include="SyndicationFeedUtilityTests.fs" />
         <Compile Include="Program.fs" />
-        <Content Include="..\..\Songhay.Player.ProgressiveAudio\Songhay.Player.ProgressiveAudio.Tests\json\progressive-audio-default.json">
-          <Link>json\progressive-audio-default.json</Link>
-        </Content>
-        <Content Include="..\..\Songhay.Player.ProgressiveAudio\Songhay.Player.ProgressiveAudio.Tests\json\my-presentation.json">
-          <Link>json\my-presentation.json</Link>
-        </Content>
         <Content Include="json\segment-4299.json" />
         <Content Include="json\segment-without-documents.json" />
         <Content Include="json\progressive-audio-default-output.json" />
@@ -33,15 +27,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FSharp.SystemTextJson" Version="1.2.34" />
-        <PackageReference Include="FsUnit.xUnit" Version="5.4.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
-        <PackageReference Include="xunit" Version="2.5.0" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
+        <PackageReference Include="FSharp.SystemTextJson" Version="1.2.42" />
+        <PackageReference Include="FsUnit.xUnit" Version="6.0.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+        <PackageReference Include="xunit" Version="2.7.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="coverlet.collector" Version="6.0.0">
+        <PackageReference Include="coverlet.collector" Version="6.0.1">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>

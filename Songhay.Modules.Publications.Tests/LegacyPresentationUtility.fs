@@ -23,7 +23,6 @@ module LegacyPresentationUtility =
     [<Literal>]
     let internal cssCustomPropertyPrefix = "rx-player-"
 
-
     /// <summary>
     /// Binds to a list of <see cref="CssVariableAndValue"/>
     /// with the specified <c>background-image</c>
@@ -33,12 +32,12 @@ module LegacyPresentationUtility =
     /// </summary>
     let cssCustomPropertiesForLegacyLayout bgImage creditsButtonBGImage =
         [
-            (CssVariable $"{cssCustomPropertyPrefix}width", CssValue "800px")
-            (CssVariable $"{cssCustomPropertyPrefix}height", CssValue "600px")
-            (CssVariable $"{cssCustomPropertyPrefix}background-image", bgImage)
-            (CssVariable $"{cssCustomPropertyPrefix}credits-button-background-image", creditsButtonBGImage)
+            (CssCustomProperty $"{cssCustomPropertyPrefix}width", CssValue "800px")
+            (CssCustomProperty $"{cssCustomPropertyPrefix}height", CssValue "600px")
+            (CssCustomProperty $"{cssCustomPropertyPrefix}background-image", bgImage)
+            (CssCustomProperty $"{cssCustomPropertyPrefix}credits-button-background-image", creditsButtonBGImage)
         ]
-        |> List.map CssVariableAndValue
+        |> List.map CssCustomPropertyAndValue
 
     /// <summary>
     /// Converts the specified <see cref="Result{_,_}"/> data
@@ -100,7 +99,7 @@ module LegacyPresentationUtility =
     /// to <see cref="PresentationPart.Credits"/>
     /// </summary>
     let toPresentationCssVariablesResult (elementResult: Result<JsonElement, JsonException>) =
-        let declarations = List<CssVariableAndValue>()
+        let declarations = List<CssCustomPropertyAndValue>()
         let rec processProperty (prefix: string) (p: JsonProperty) =
             match p.Value.ValueKind with
             | JsonValueKind.Object ->
@@ -120,8 +119,8 @@ module LegacyPresentationUtility =
                             p.Value.GetString().ToLowerInvariant().Replace("0x", "#")
                         | _ -> p.Value.GetString()
                         |> CssValue
-                    let cssVar = $"{prefix}{p.Name.TrimStart('@')}" |> CssVariable.fromInput
-                    declarations.Add((cssVar, cssVal) |> CssVariableAndValue)
+                    let cssVar = $"{prefix}{p.Name.TrimStart('@')}" |> CssCustomProperty.fromInput
+                    declarations.Add((cssVar, cssVal) |> CssCustomPropertyAndValue)
                     ()
             | _ -> ()
 
