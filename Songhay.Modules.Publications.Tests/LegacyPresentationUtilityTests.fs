@@ -194,8 +194,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                 |> Array.ofList
         File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
 
-    [<Fact(Skip="run manually in the Songhay Studio environment")>]
-    let ``write Presentation JSON test``() =
+    [<Theory(Skip="run manually in the Songhay Studio environment")>]
+    [<InlineData("player-audio")>]
+    [<InlineData("player-video")>]
+    let ``write Presentation JSON test``(containerName: string) =
 
         let options = JsonSerializerOptions()
         options.WriteIndented <- true
@@ -212,7 +214,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         let directories =
             result {
                 let root = projectDirectoryInfo.Parent.Parent.FullName
-                let! path = tryGetCombinedPath root "azure-storage-accounts/songhaystorage/player-audio/"
+                let! path = tryGetCombinedPath root $"azure-storage-accounts/songhaystorage/{containerName}/"
 
                 return Directory.EnumerateDirectories(path)
             }
