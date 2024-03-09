@@ -127,7 +127,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         (actual |> Result.valueOr raise).StringValue.Contains(expected) |> should be True
 
     [<Theory>]
-    [<InlineData("--rx-player-playlist-background-color", "0xEAEAEA")>]
+    [<InlineData("--rx-player-playlist-background-color", "#eaeaea")>]
     let ``Presentation.cssVariables test``(expectedVarName: string) (expectedValue: string) =
         let result = presentationElementResult |> tryGetLayoutMetadataResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
