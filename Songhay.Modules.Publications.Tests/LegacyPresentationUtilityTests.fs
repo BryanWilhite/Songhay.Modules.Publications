@@ -80,7 +80,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         containerName
         |> getContainerDirectories
         |> List.ofSeq
-        |> List.filter (fun fileName -> [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains(fileName))
+        |> List.filter (fun path ->
+                let dir = path |> directoryName
+                [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
+            )
         |> List.sort
         |> List.iter
             (
