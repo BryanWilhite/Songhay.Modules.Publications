@@ -194,7 +194,6 @@ module LegacyPresentationUtility =
         >>= (tryGetProperty <| nameof(Description))
         >>= (tryGetProperty "#text")
 
-
     /// <summary>
     /// Tries to return a <see cref="JsonElement"/>
     /// representing the layout metadata of a legacy Presentation document.
