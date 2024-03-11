@@ -18,6 +18,7 @@
         <Content Include="json\my-presentation.json" />
         <Content Include="json\player-audio-presentation-credits-xhtml-set-output.json" />
         <Content Include="json\player-video-presentation-credits-xhtml-set-output.json" />
+        <Content Include="json\player-video-presentation-credits-xhtml-set-exceptions.xml" />
         <Content Include="json\presentation-4318.json" />
         <Content Include="json\presentation-credits-set-output.json" />
         <Content Include="json\progressive-audio-default-output.json" />

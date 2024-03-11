@@ -74,7 +74,7 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
     [<Theory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
-    let ``credits processing (1): write XHTML dictionary`` (containerName: string) =
+    member this.``credits processing (1): write XHTML dictionary`` (containerName: string) =
         let creditsData = Dictionary()
 
         containerName
@@ -135,7 +135,7 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
     [<Theory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
-    let ``credits processing (2): assert all root children are div elements``(containerName: string) =
+    member this.``credits processing (2): assert all root children are div elements``(containerName: string) =
 
         let inputPath =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -182,7 +182,7 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
     [<Theory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
-    let ``credits processing (3): assert locations of RoleCredit data``(containerName: string) =
+    member this.``credits processing (3): assert locations of RoleCredit data``(containerName: string) =
         let elementContainsBrElements (element: XElement) =
             element.Elements("br").Any()
 
@@ -357,9 +357,39 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
                 )
 
     [<Theory>]
+    [<InlineData("player-video", "blacktronic0,lintonkj0,mpire_dinner,popmusicvideo0,saundra_quarterman,theblues0")>]
+    member this.``credits processing (4): write RoleCredit exceptions for hand editing``(containerName: string) (exceptions: string) =
+
+        let inputPath =
+            $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        let json = File.ReadAllText(inputPath)
+        let dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json)
+        Assert.NotNull dictionary
+
+        let exceptionsArray = exceptions.Split(",")
+        let exceptionsDoc = XDocument.Parse($"<exceptions>{String.Empty}</exceptions>")
+        dictionary
+            .Where(fun pair -> exceptionsArray.Contains pair.Key)
+            |> List.ofSeq
+            |> List.iter (fun pair ->
+                let xEl = XElement.Parse pair.Value
+                xEl.Add(XAttribute(nameof(pair.Key).ToLowerInvariant(), pair.Key))
+                exceptionsDoc.Root.Add(xEl)
+            )
+
+        let outputPath =
+            $"json/{containerName}-presentation-credits-xhtml-set-exceptions.xml" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+        File.WriteAllText(outputPath, exceptionsDoc.ToString())
+
+    [<Theory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
-    let ``presentationCreditsSet test`` (containerName: string) =
+    member this.``presentationCreditsSet test`` (containerName: string) =
         let boundSet = containerName |> presentationCreditsSet
 
         boundSet.ToArray()
