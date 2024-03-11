@@ -1,11 +1,13 @@
 namespace Songhay.Modules.Publications.Tests
 
+open System
 open System.Collections.Generic
 open System.IO
 open System.Linq
 open System.Reflection
 open System.Text.Json
 open System.Text.Json.Serialization
+open System.Xml
 open System.Xml.Linq
 
 open FsToolkit.ErrorHandling
@@ -26,10 +28,12 @@ open Songhay.Modules.Publications.LegacyPresentationUtilityCreditsXhtml
 /// The historical discussion in https://github.com/BryanWilhite/jupyter-central/blob/master/funkykb/fsharp/json/songhay-presentation-credits-xml.ipynb
 /// has been extended to include `player-video` data as well as the `player-audio` data explored previously.
 ///
-/// Additionally, the `LegacyPresentationUtility` has been moved/archived to this test project,
+/// Additionally, the `LegacyPresentationUtility` has been moved/archived to this test type,
 /// making the `songhay-presentation-credits-xml.ipynb` notes obsolete.
 ///</remarks>
 type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper) =
+
+    let nl = Environment.NewLine
 
     let projectDirectoryInfo =
         Assembly.GetExecutingAssembly()
@@ -157,6 +161,200 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
             )
             |> Array.ofSeq
             |> Array.filter (fun x -> x.IsSome)
+
+    ///<remarks>
+    /// To locate <see cref="RoleCredit"/> data
+    /// We look for the form:
+    /// <code>
+    /// {credits}
+    ///      {div}
+    ///          …{strong}…{/strong}
+    ///      {/div}
+    ///     …
+    /// {/credits}
+    /// </code>
+    /// This <c>…{strong}…{/strong}</c> pattern is important as the assertions here are:
+    ///
+    /// - the text node before the first strong element maps to <see cref="RoleCredit.role"/>
+    /// - the text content of any strong element maps to <see cref="RoleCredit.name"/>
+    ///
+    ///</remarks>
+    [<Theory>]
+    [<InlineData("player-audio")>]
+    [<InlineData("player-video")>]
+    let ``credits processing (3): assert locations of RoleCredit data``(containerName: string) =
+        let elementContainsBrElements (element: XElement) =
+            element.Elements("br").Any()
+
+        let elementContainsStrongElements (element: XElement) =
+            element.Elements("strong").Any()
+
+        let elementFirstNodeIsBr (element: XElement) =
+            match element.FirstNode with
+            | :? XElement as el when el.Name.LocalName = "br" -> true
+            | _ -> false
+
+        let elementFirstNodeIsXText (element: XElement) =
+            element.FirstNode.NodeType = XmlNodeType.Text
+
+        let elementIsEmptyOrWhiteSpace (element: XElement) =
+            if element.Nodes().Count() = 1 then
+                match element.FirstNode with
+                | :? XText as txt when String.IsNullOrWhiteSpace(txt.Value) -> true
+                | _ -> false
+            else false
+
+        let getXText (n: XNode) =
+            match n with
+            | :? XText as txt when not(String.IsNullOrWhiteSpace(txt.Value)) -> txt
+            | :? XElement as el when el.Name.LocalName = "a" || el.Name.LocalName = "font" ->
+                match el.Nodes().FirstOrDefault() with
+                | :? XText as txt when not(String.IsNullOrWhiteSpace(txt.Value)) -> txt
+                | _ -> null
+            | _ -> null
+
+        let isCreditsWithManyChildDivs (credits: XElement) =
+            credits.Name.LocalName = "credits" && credits.Elements("div").Count() > 1
+
+        let isCreditsWithOneChildDiv (credits: XElement) =
+            credits.Name.LocalName = "credits" && credits.Elements("div").Count() = 1
+
+        let isXTextValid (txt: XText) =
+            not(txt = null)
+            && not(txt.Value.Trim() = "and")
+            && not(txt.Value.Trim() = "(")
+            && not(txt.Value.Trim() = ")")
+
+        let extractRoleXText (document: XDocument) =
+            match document.Root with
+            | credits when credits.Name.LocalName = "credits" ->
+
+                if credits |> isCreditsWithManyChildDivs &&
+                    credits.Elements("div").All(fun div ->
+                        div |> elementContainsBrElements || div |> elementIsEmptyOrWhiteSpace) then
+
+                    credits
+                        .Elements("div")
+                        .Nodes()
+                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                        .Select(getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else if credits |> isCreditsWithManyChildDivs &&
+                    credits.Elements("div").First() |> elementContainsBrElements &&
+                    credits.Elements("div").Last() |> elementContainsBrElements |> not &&
+                    credits.Elements("div").Last() |> elementContainsStrongElements then
+
+                    credits
+                        .Elements("div")
+                        .Nodes()
+                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                        .Select(getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else if credits |> isCreditsWithManyChildDivs &&
+                    credits.Elements("div").First() |> elementContainsBrElements then
+
+                    credits
+                        .Elements("div")
+                        .First()
+                        .Nodes()
+                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                        .Select(getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else if credits |> isCreditsWithManyChildDivs then
+                    credits
+                        .Elements("div")
+                        .Select(fun div ->
+                            if div |> elementFirstNodeIsXText then
+                                div.FirstNode |> getXText
+                            else null
+                        )
+                        .Where(isXTextValid).ToArray()
+
+                else if
+                    credits |> isCreditsWithOneChildDiv &&
+                    credits.Elements("div").First() |> elementContainsBrElements then
+
+                    credits
+                        .Elements("div")
+                        .First()
+                        .Nodes()
+                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                        .Select(getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else if credits |> elementFirstNodeIsXText then
+                    credits
+                        .Nodes()
+                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                        .Select(getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else Array.Empty()
+            | _ -> Array.Empty()
+
+        let inputPath =
+            $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        let json = File.ReadAllText(inputPath)
+        let dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json)
+        Assert.NotNull dictionary
+
+        let extractNameXText (document: XDocument) =
+            match document.Root with
+            | credits when credits.Name.LocalName = "credits" ->
+                if credits |> isCreditsWithManyChildDivs then
+                    credits
+                        .Elements("div")
+                        .SelectMany(fun div ->
+                            if div |> elementFirstNodeIsXText || div |> elementFirstNodeIsBr then
+                                div
+                                    .Descendants("strong")
+                                    .Where(fun strong -> strong.Nodes().Any())
+                                    .Select(fun strong -> strong.FirstNode |> getXText )
+                            else Array.Empty()
+                        ).Where(isXTextValid).ToArray()
+
+                else if
+                    credits |> isCreditsWithOneChildDiv &&
+                    credits.Elements("div").First() |> elementContainsBrElements then
+
+                    credits
+                        .Elements("div")
+                        .First()
+                        .Descendants("strong")
+                        .Where(fun strong -> strong.Nodes().Any())
+                        .Select(fun strong -> strong.FirstNode |> getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else if credits |> elementFirstNodeIsXText then
+                    credits
+                        .Descendants("strong")
+                        .Where(fun strong -> strong.Nodes().Any())
+                        .Select(fun strong -> strong.FirstNode |> getXText)
+                        .Where(isXTextValid).ToArray()
+
+                else Array.Empty()
+            | _ -> Array.Empty()
+
+        dictionary.Select(fun pair -> pair.Key, extractRoleXText(pair.Value |> XDocument.Parse), extractNameXText(pair.Value |> XDocument.Parse))
+            |> Array.ofSeq
+            |> Array.filter (fun (_, roles, _) -> roles.Any())
+            |> Array.map(
+                fun (key, roleArray, nameArray) ->
+                    let joinRoles = String.Join(nl,(roleArray |> Array.map(_.Value)))
+                    let joinNames = String.Join(nl,(nameArray |> Array.map(_.Value)))
+
+                    outputHelper.WriteLine $"{nl}---{nl}`{key}` {nameof RoleCredit}.role:"
+                    outputHelper.WriteLine joinRoles
+
+                    outputHelper.WriteLine $"{nl}`{key}` {nameof RoleCredit}.names:"
+                    outputHelper.WriteLine joinNames
+                )
 
     [<Theory>]
     [<InlineData("player-audio")>]
