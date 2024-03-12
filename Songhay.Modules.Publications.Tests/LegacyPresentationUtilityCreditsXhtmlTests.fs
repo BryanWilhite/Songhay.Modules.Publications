@@ -300,6 +300,7 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
 
+        outputHelper.WriteLine($"reading `{inputPath}`...")
         let json = File.ReadAllText(inputPath)
         let dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json)
         Assert.NotNull dictionary
@@ -385,6 +386,40 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
         File.WriteAllText(outputPath, exceptionsDoc.ToString())
+
+    [<Theory>]
+    [<InlineData("player-video")>]
+    member this.``credits processing (5): write hand edits back to XHTML dictionary``(containerName: string) =
+
+        let inputPathForDictionary =
+            $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        outputHelper.WriteLine($"reading `{inputPathForDictionary}`...")
+        let json = File.ReadAllText(inputPathForDictionary)
+        let dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json)
+        Assert.NotNull dictionary
+
+        let inputPathForExceptions =
+            $"json/{containerName}-presentation-credits-xhtml-set-exceptions.xml" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        outputHelper.WriteLine($"reading `{inputPathForExceptions}`...")
+        let exceptionsDoc = XDocument.Load(inputPathForExceptions)
+        exceptionsDoc.Root.Elements()
+        |> Array.ofSeq
+        |> Array.iter (
+                fun el ->
+                    let key = el.FirstAttribute.Value
+                    let xhtml = el.ToString()
+                    dictionary[key] <- xhtml
+            )
+
+        outputHelper.WriteLine($"writing `{inputPathForDictionary}`...")
+        let json = JsonSerializer.Serialize(dictionary, jsonSerializerOptions())
+        File.WriteAllText(inputPathForDictionary, json)
 
     [<Theory>]
     [<InlineData("player-audio")>]
