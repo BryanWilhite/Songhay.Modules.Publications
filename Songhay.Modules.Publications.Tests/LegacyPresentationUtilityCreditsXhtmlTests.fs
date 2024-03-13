@@ -70,6 +70,154 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
             }
 
         (containerName |> getContainerDirectories).ToDictionary(directoryName, credits)
+    let elementContainsBrElements (element: XElement) =
+        element.Elements("br").Any()
+
+    let elementContainsStrongElements (element: XElement) =
+        element.Elements("strong").Any()
+
+    let elementFirstNodeIsBr (element: XElement) =
+        match element.FirstNode with
+        | :? XElement as el when el.Name.LocalName = "br" -> true
+        | _ -> false
+
+    let elementFirstNodeIsXText (element: XElement) =
+        element.FirstNode.NodeType = XmlNodeType.Text
+
+    let elementIsEmptyOrWhiteSpace (element: XElement) =
+        if element.Nodes().Count() = 1 then
+            match element.FirstNode with
+            | :? XText as txt when String.IsNullOrWhiteSpace(txt.Value) -> true
+            | _ -> false
+        else false
+
+    let getXText (n: XNode) =
+        match n with
+        | :? XText as txt when not(String.IsNullOrWhiteSpace(txt.Value)) -> txt
+        | :? XElement as el when el.Name.LocalName = "a" || el.Name.LocalName = "font" ->
+            match el.Nodes().FirstOrDefault() with
+            | :? XText as txt when not(String.IsNullOrWhiteSpace(txt.Value)) -> txt
+            | _ -> null
+        | _ -> null
+
+    let isCreditsWithManyChildDivs (credits: XElement) =
+        credits.Name.LocalName = "credits" && credits.Elements("div").Count() > 1
+
+    let isCreditsWithOneChildDiv (credits: XElement) =
+        credits.Name.LocalName = "credits" && credits.Elements("div").Count() = 1
+
+    let isXTextValid (txt: XText) =
+        not(txt = null)
+        && not(txt.Value.Trim() = "and")
+        && not(txt.Value.Trim() = "(")
+        && not(txt.Value.Trim() = ")")
+
+    let extractRoleXText (document: XDocument) =
+        match document.Root with
+        | credits when credits.Name.LocalName = "credits" ->
+
+            if credits |> isCreditsWithManyChildDivs &&
+                credits.Elements("div").All(fun div ->
+                    div |> elementContainsBrElements || div |> elementIsEmptyOrWhiteSpace) then
+
+                credits
+                    .Elements("div")
+                    .Nodes()
+                    .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                    .Select(getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else if credits |> isCreditsWithManyChildDivs &&
+                credits.Elements("div").First() |> elementContainsBrElements &&
+                credits.Elements("div").Last() |> elementContainsBrElements |> not &&
+                credits.Elements("div").Last() |> elementContainsStrongElements then
+
+                credits
+                    .Elements("div")
+                    .Nodes()
+                    .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                    .Select(getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else if credits |> isCreditsWithManyChildDivs &&
+                credits.Elements("div").First() |> elementContainsBrElements then
+
+                credits
+                    .Elements("div")
+                    .First()
+                    .Nodes()
+                    .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                    .Select(getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else if credits |> isCreditsWithManyChildDivs then
+                credits
+                    .Elements("div")
+                    .Select(fun div ->
+                        if div |> elementFirstNodeIsXText then
+                            div.FirstNode |> getXText
+                        else null
+                    )
+                    .Where(isXTextValid).ToArray()
+
+            else if
+                credits |> isCreditsWithOneChildDiv &&
+                credits.Elements("div").First() |> elementContainsBrElements then
+
+                credits
+                    .Elements("div")
+                    .First()
+                    .Nodes()
+                    .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                    .Select(getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else if credits |> elementFirstNodeIsXText then
+                credits
+                    .Nodes()
+                    .Where(fun n -> n.NodeType = XmlNodeType.Text)
+                    .Select(getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else Array.Empty()
+        | _ -> Array.Empty()
+
+    let extractNameXText (document: XDocument) =
+        match document.Root with
+        | credits when credits.Name.LocalName = "credits" ->
+            if credits |> isCreditsWithManyChildDivs then
+                credits
+                    .Elements("div")
+                    .SelectMany(fun div ->
+                        if div |> elementFirstNodeIsXText || div |> elementFirstNodeIsBr then
+                            div
+                                .Descendants("strong")
+                                .Where(fun strong -> strong.Nodes().Any())
+                                .Select(fun strong -> strong.FirstNode |> getXText )
+                        else Array.Empty()
+                    ).Where(isXTextValid).ToArray()
+
+            else if
+                credits |> isCreditsWithOneChildDiv &&
+                credits.Elements("div").First() |> elementContainsBrElements then
+
+                credits
+                    .Elements("div")
+                    .First()
+                    .Descendants("strong")
+                    .Where(fun strong -> strong.Nodes().Any())
+                    .Select(fun strong -> strong.FirstNode |> getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else if credits |> elementFirstNodeIsXText then
+                credits
+                    .Descendants("strong")
+                    .Where(fun strong -> strong.Nodes().Any())
+                    .Select(fun strong -> strong.FirstNode |> getXText)
+                    .Where(isXTextValid).ToArray()
+
+            else Array.Empty()
+        | _ -> Array.Empty()
 
     [<Theory>]
     [<InlineData("player-audio")>]
@@ -183,117 +331,6 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
     member this.``credits processing (3): assert locations of RoleCredit data``(containerName: string) =
-        let elementContainsBrElements (element: XElement) =
-            element.Elements("br").Any()
-
-        let elementContainsStrongElements (element: XElement) =
-            element.Elements("strong").Any()
-
-        let elementFirstNodeIsBr (element: XElement) =
-            match element.FirstNode with
-            | :? XElement as el when el.Name.LocalName = "br" -> true
-            | _ -> false
-
-        let elementFirstNodeIsXText (element: XElement) =
-            element.FirstNode.NodeType = XmlNodeType.Text
-
-        let elementIsEmptyOrWhiteSpace (element: XElement) =
-            if element.Nodes().Count() = 1 then
-                match element.FirstNode with
-                | :? XText as txt when String.IsNullOrWhiteSpace(txt.Value) -> true
-                | _ -> false
-            else false
-
-        let getXText (n: XNode) =
-            match n with
-            | :? XText as txt when not(String.IsNullOrWhiteSpace(txt.Value)) -> txt
-            | :? XElement as el when el.Name.LocalName = "a" || el.Name.LocalName = "font" ->
-                match el.Nodes().FirstOrDefault() with
-                | :? XText as txt when not(String.IsNullOrWhiteSpace(txt.Value)) -> txt
-                | _ -> null
-            | _ -> null
-
-        let isCreditsWithManyChildDivs (credits: XElement) =
-            credits.Name.LocalName = "credits" && credits.Elements("div").Count() > 1
-
-        let isCreditsWithOneChildDiv (credits: XElement) =
-            credits.Name.LocalName = "credits" && credits.Elements("div").Count() = 1
-
-        let isXTextValid (txt: XText) =
-            not(txt = null)
-            && not(txt.Value.Trim() = "and")
-            && not(txt.Value.Trim() = "(")
-            && not(txt.Value.Trim() = ")")
-
-        let extractRoleXText (document: XDocument) =
-            match document.Root with
-            | credits when credits.Name.LocalName = "credits" ->
-
-                if credits |> isCreditsWithManyChildDivs &&
-                    credits.Elements("div").All(fun div ->
-                        div |> elementContainsBrElements || div |> elementIsEmptyOrWhiteSpace) then
-
-                    credits
-                        .Elements("div")
-                        .Nodes()
-                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
-                        .Select(getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else if credits |> isCreditsWithManyChildDivs &&
-                    credits.Elements("div").First() |> elementContainsBrElements &&
-                    credits.Elements("div").Last() |> elementContainsBrElements |> not &&
-                    credits.Elements("div").Last() |> elementContainsStrongElements then
-
-                    credits
-                        .Elements("div")
-                        .Nodes()
-                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
-                        .Select(getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else if credits |> isCreditsWithManyChildDivs &&
-                    credits.Elements("div").First() |> elementContainsBrElements then
-
-                    credits
-                        .Elements("div")
-                        .First()
-                        .Nodes()
-                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
-                        .Select(getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else if credits |> isCreditsWithManyChildDivs then
-                    credits
-                        .Elements("div")
-                        .Select(fun div ->
-                            if div |> elementFirstNodeIsXText then
-                                div.FirstNode |> getXText
-                            else null
-                        )
-                        .Where(isXTextValid).ToArray()
-
-                else if
-                    credits |> isCreditsWithOneChildDiv &&
-                    credits.Elements("div").First() |> elementContainsBrElements then
-
-                    credits
-                        .Elements("div")
-                        .First()
-                        .Nodes()
-                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
-                        .Select(getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else if credits |> elementFirstNodeIsXText then
-                    credits
-                        .Nodes()
-                        .Where(fun n -> n.NodeType = XmlNodeType.Text)
-                        .Select(getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else Array.Empty()
-            | _ -> Array.Empty()
 
         let inputPath =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -305,44 +342,11 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
         let dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json)
         Assert.NotNull dictionary
 
-        let extractNameXText (document: XDocument) =
-            match document.Root with
-            | credits when credits.Name.LocalName = "credits" ->
-                if credits |> isCreditsWithManyChildDivs then
-                    credits
-                        .Elements("div")
-                        .SelectMany(fun div ->
-                            if div |> elementFirstNodeIsXText || div |> elementFirstNodeIsBr then
-                                div
-                                    .Descendants("strong")
-                                    .Where(fun strong -> strong.Nodes().Any())
-                                    .Select(fun strong -> strong.FirstNode |> getXText )
-                            else Array.Empty()
-                        ).Where(isXTextValid).ToArray()
-
-                else if
-                    credits |> isCreditsWithOneChildDiv &&
-                    credits.Elements("div").First() |> elementContainsBrElements then
-
-                    credits
-                        .Elements("div")
-                        .First()
-                        .Descendants("strong")
-                        .Where(fun strong -> strong.Nodes().Any())
-                        .Select(fun strong -> strong.FirstNode |> getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else if credits |> elementFirstNodeIsXText then
-                    credits
-                        .Descendants("strong")
-                        .Where(fun strong -> strong.Nodes().Any())
-                        .Select(fun strong -> strong.FirstNode |> getXText)
-                        .Where(isXTextValid).ToArray()
-
-                else Array.Empty()
-            | _ -> Array.Empty()
-
-        dictionary.Select(fun pair -> pair.Key, extractRoleXText(pair.Value |> XDocument.Parse), extractNameXText(pair.Value |> XDocument.Parse))
+        dictionary.Select(
+            fun pair ->
+                let xDoc = pair.Value |> XDocument.Parse
+                pair.Key, extractRoleXText(xDoc), extractNameXText(xDoc)
+            )
             |> Array.ofSeq
             |> Array.filter (fun (_, roles, _) -> roles.Any())
             |> Array.map(
@@ -420,6 +424,100 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
         outputHelper.WriteLine($"writing `{inputPathForDictionary}`...")
         let json = JsonSerializer.Serialize(dictionary, jsonSerializerOptions())
         File.WriteAllText(inputPathForDictionary, json)
+
+    [<Theory>]
+    [<InlineData("player-video")>]
+    member this.``credits processing (6): write credits data to container mirror``(containerName: string) =
+
+        let toRoleCreditJson (key: string, roles: XText array, names: XText array) =
+            let rolesMapped =
+                match key with
+                | "arundhati_roy0" | "wm3" ->
+                    //the first two names share the same role
+                    roles |> Array.insertAt 1 (roles |> Array.head)
+                | "ward_churchill0" ->
+                    //the first name was captured in role data because `strong` tags are missing
+                    roles |> Array.mapi (fun i xText ->
+                            if i = 0 then
+                                xText.Value <- xText.Value.Replace("Maria Gilardin of ", String.Empty)
+                                xText
+                            else
+                                xText
+                        )
+                | _ -> roles
+
+            let namesMapped =
+                match key with
+                | "ward_churchill0" ->
+                    //the first name was captured in role data because `strong` tags are missing
+                    names |> Array.insertAt 1 (XText "Bryan Wilhite")
+                | _ -> names
+
+            let credits =
+                Array.zip rolesMapped namesMapped
+                |> Array.map
+                    (
+                        fun (role, name) ->
+                            let roleValue =
+                                role.Value
+                                    .Replace("by", String.Empty)
+                                    .Replace(".", String.Empty)
+                                    .Replace(",", String.Empty)
+                                    .Replace("(", String.Empty)
+                                    .Replace("“", String.Empty)
+                                    .TrimEnd()
+
+                            let nameValue =
+                                name.Value
+                                    .Replace(",", String.Empty)
+                                    .Replace("(", String.Empty)
+                                    .Replace("“", String.Empty)
+                                    .TrimEnd()
+
+                            $"{{ \"role\": \"{roleValue}\", \"name\": \"{nameValue}\" }}"
+                    )
+                |> Array.reduce (fun a s -> $"{a},{nl}{s}")
+            $"[{credits}]"
+
+        let creditsDataExport (data: Dictionary<string, string>) =
+            data
+                .Select(
+                    fun pair ->
+                        let xDoc = pair.Value |> XDocument.Parse
+                        pair.Key, extractRoleXText(xDoc), extractNameXText(xDoc)
+                )
+                .Where(fun (_, roles, _) -> roles.Any())
+                .ToDictionary((fun(key, _, _) -> key), toRoleCreditJson)
+
+        let inputPathForDictionary =
+            $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
+            |> tryGetCombinedPath projectDirectoryInfo.FullName
+            |> Result.valueOr raiseProgramFileError
+
+        outputHelper.WriteLine($"reading `{inputPathForDictionary}`...")
+        let json = File.ReadAllText(inputPathForDictionary)
+        let dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json)
+        Assert.NotNull dictionary
+
+        let exportDictionary = dictionary |> creditsDataExport
+
+        containerName
+        |> getContainerDirectories
+        |> List.ofSeq
+        |> List.filter (fun path ->
+                let dir = path |> directoryName
+                [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
+            )
+        |> List.iter (
+                fun root ->
+                    let fileName = root.Split(Path.DirectorySeparatorChar).Last()
+                    match tryGetCombinedPath root $"{fileName}_credits.json" with
+                    | Ok path ->
+                        let json = exportDictionary[fileName]
+                        File.WriteAllText(path, json)
+
+                    | _ -> ()
+            )
 
     [<Theory>]
     [<InlineData("player-audio")>]
