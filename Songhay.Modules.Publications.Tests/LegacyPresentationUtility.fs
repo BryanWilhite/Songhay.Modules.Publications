@@ -18,7 +18,7 @@ open Songhay.Modules.Publications.Models
 /// Utility functions for <see cref="Presentation" />
 /// to convert legacy JSON data.
 /// </summary>
-module LegacyPresentationUtilityCreditsXhtml =
+module LegacyPresentationUtility =
 
     [<Literal>]
     let internal cssCustomPropertyPrefix = "rx-player-"

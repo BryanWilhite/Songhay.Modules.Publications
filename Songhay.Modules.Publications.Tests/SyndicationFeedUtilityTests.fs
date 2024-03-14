@@ -1,31 +1,23 @@
 namespace Songhay.Modules.Publications.Tests
 
 open System
+open System.IO
+open System.Text.Json
+open Xunit
 
+open FsUnit.Xunit
+open FsUnit.CustomMatchers
+open FsToolkit.ErrorHandling
 open FsToolkit.ErrorHandling.Operator.Result
 
+open Songhay.Modules.Models
+open Songhay.Modules.ProgramFileUtility
+open Songhay.Modules.JsonDocumentUtility
+open Songhay.Modules.Publications.SyndicationFeedUtility
+
+open Songhay.Modules.Publications.Tests.PublicationsTestUtility
+
 module SyndicationFeedUtilityTests =
-
-    open System.IO
-    open System.Reflection
-    open System.Text.Json
-
-    open Xunit
-
-    open FsUnit.Xunit
-    open FsUnit.CustomMatchers
-    open FsToolkit.ErrorHandling
-
-    open Songhay.Modules.Models
-    open Songhay.Modules.ProgramFileUtility
-    open Songhay.Modules.JsonDocumentUtility
-    open Songhay.Modules.Publications.SyndicationFeedUtility
-
-    let projectDirectoryInfo =
-        Assembly.GetExecutingAssembly()
-        |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
-        |> Result.valueOr raiseProgramFileError
-        |> DirectoryInfo
 
     let jsonPath =
         $"./json/syndication-feed-test-data.json"

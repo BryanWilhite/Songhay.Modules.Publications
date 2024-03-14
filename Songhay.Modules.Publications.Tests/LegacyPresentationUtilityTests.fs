@@ -3,8 +3,6 @@ namespace Songhay.Modules.Publications.Tests
 open System
 open System.Collections.Generic
 open System.IO
-open System.Linq
-open System.Reflection
 open System.Text.Json
 open System.Text.Json.Serialization
 
@@ -19,15 +17,11 @@ open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.Publications.Models
 open Songhay.Modules.ProgramFileUtility
 
-open Songhay.Modules.Publications.LegacyPresentationUtilityCreditsXhtml
+open Songhay.Modules.Publications.LegacyPresentationUtility
+
+open Songhay.Modules.Publications.Tests.PublicationsTestUtility
 
 type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
-
-    let projectDirectoryInfo =
-        Assembly.GetExecutingAssembly()
-        |> ProgramAssemblyInfo.getPathFromAssembly "../../../"
-        |> Result.valueOr raiseProgramFileError
-        |> DirectoryInfo
 
     let audioJsonDocumentPath =
         "./json/progressive-audio-default.json"
@@ -37,17 +31,6 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
     let presentationElementResult =
         File.ReadAllText(audioJsonDocumentPath)
         |> tryGetPresentationElementResult
-
-    let directoryName (dir: string) = dir.Split(Path.DirectorySeparatorChar).Last()
-
-    let getContainerDirectories(containerName: string) =
-        result {
-            let root = projectDirectoryInfo.Parent.Parent.FullName
-            let! path = tryGetCombinedPath root $"azure-storage-accounts/songhaystorage/{containerName}/"
-
-            return Directory.EnumerateDirectories(path)
-        }
-        |> Result.valueOr raiseProgramFileError
 
     [<Theory>]
     [<InlineData("2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]

@@ -8,8 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="PublicationsTestUtility.fs" />
         <Compile Include="DisplayItemModelUtilityTests.fs" />
         <Compile Include="LegacyPresentationUtility.fs" />
+        <Compile Include="LegacyPresentationCreditsXhtmlUtility.fs" />
         <Compile Include="LegacyPresentationUtilityTests.fs" />
         <Compile Include="LegacyPresentationUtilityCreditsXhtmlTests.fs" />
         <Compile Include="SyndicationFeedUtilityTests.fs" />
