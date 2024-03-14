@@ -8,14 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="PublicationsTestUtility.fs" />
-        <Compile Include="DisplayItemModelUtilityTests.fs" />
-        <Compile Include="LegacyPresentationUtility.fs" />
-        <Compile Include="LegacyPresentationCreditsXhtmlUtility.fs" />
-        <Compile Include="LegacyPresentationUtilityTests.fs" />
-        <Compile Include="LegacyPresentationUtilityCreditsXhtmlTests.fs" />
-        <Compile Include="SyndicationFeedUtilityTests.fs" />
-        <Compile Include="Program.fs" />
         <Content Include="json\document-with-fragments.json" />
         <Content Include="json\my-presentation.json" />
         <Content Include="json\player-audio-presentation-credits-xhtml-set-output.json" />
@@ -31,6 +23,14 @@
         <Content Include="json\syndication-feed-test-data.json" />
         <Content Include="xml\player-video-presentation-credits-xhtml-set-exceptions-1.xml" />
         <Content Include="xml\player-video-presentation-credits-xhtml-set-exceptions-2.xml" />
+        <Compile Include="PublicationsTestUtility.fs" />
+        <Compile Include="DisplayItemModelUtilityTests.fs" />
+        <Compile Include="LegacyPresentationUtility.fs" />
+        <Compile Include="LegacyPresentationCreditsXhtmlUtility.fs" />
+        <Compile Include="LegacyPresentationUtilityTests.fs" />
+        <Compile Include="LegacyPresentationUtilityCreditsXhtmlTests.fs" />
+        <Compile Include="SyndicationFeedUtilityTests.fs" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
