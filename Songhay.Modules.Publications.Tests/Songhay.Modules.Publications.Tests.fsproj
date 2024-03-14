@@ -10,6 +10,7 @@
     <ItemGroup>
         <Content Include="json\document-with-fragments.json" />
         <Content Include="json\my-presentation.json" />
+        <Content Include="json\player-audio-presentation-credits-set-output.json" />
         <Content Include="json\player-audio-presentation-credits-xhtml-set-output.json" />
         <Content Include="json\player-video-presentation-credits-xhtml-set-output.json" />
         <Content Include="json\presentation-4318.json" />

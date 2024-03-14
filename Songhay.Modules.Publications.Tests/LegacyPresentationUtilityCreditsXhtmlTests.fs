@@ -121,7 +121,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
                     )
             )
             |> Array.ofSeq
-            |> Array.filter (fun x -> x.IsSome)
+            |> Array.filter (_.IsSome)
 
     ///<remarks>
     /// To locate <see cref="RoleCredit"/> data

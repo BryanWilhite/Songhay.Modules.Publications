@@ -28,7 +28,15 @@ module LegacyPresentationCreditsXhtmlUtility =
                 return JsonSerializer.Deserialize<RoleCredit list>(json, jsonSerializerOptions())
             }
 
-        (containerName |> getContainerDirectories).ToDictionary(directoryName, credits)
+        (
+            containerName
+            |> getContainerDirectories
+            |> List.ofSeq
+            |> List.filter (fun path ->
+                    let dir = path |> directoryName
+                    [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
+                )
+        ).ToDictionary(directoryName, credits)
     let elementContainsBrElements (element: XElement) =
         element.Elements("br").Any()
 
@@ -59,8 +67,8 @@ module LegacyPresentationCreditsXhtmlUtility =
             | _ -> null
         | _ -> null
 
-    let isCreditsWithManyChildDivs (credits: XElement) =
-        credits.Name.LocalName = "credits" && credits.Elements("div").Count() > 1
+    let isCreditsWithOneOrMoreChildDivs (credits: XElement) =
+        credits.Name.LocalName = "credits" && credits.Elements("div").Count() >= 1
 
     let isCreditsWithOneChildDiv (credits: XElement) =
         credits.Name.LocalName = "credits" && credits.Elements("div").Count() = 1
@@ -75,7 +83,7 @@ module LegacyPresentationCreditsXhtmlUtility =
         match document.Root with
         | credits when credits.Name.LocalName = "credits" ->
 
-            if credits |> isCreditsWithManyChildDivs &&
+            if credits |> isCreditsWithOneOrMoreChildDivs &&
                 credits.Elements("div").All(fun div ->
                     div |> elementContainsBrElements || div |> elementIsEmptyOrWhiteSpace) then
 
@@ -86,7 +94,7 @@ module LegacyPresentationCreditsXhtmlUtility =
                     .Select(getXText)
                     .Where(isXTextValid).ToArray()
 
-            else if credits |> isCreditsWithManyChildDivs &&
+            else if credits |> isCreditsWithOneOrMoreChildDivs &&
                 credits.Elements("div").First() |> elementContainsBrElements &&
                 credits.Elements("div").Last() |> elementContainsBrElements |> not &&
                 credits.Elements("div").Last() |> elementContainsStrongElements then
@@ -98,7 +106,7 @@ module LegacyPresentationCreditsXhtmlUtility =
                     .Select(getXText)
                     .Where(isXTextValid).ToArray()
 
-            else if credits |> isCreditsWithManyChildDivs &&
+            else if credits |> isCreditsWithOneOrMoreChildDivs &&
                 credits.Elements("div").First() |> elementContainsBrElements then
 
                 credits
@@ -109,7 +117,7 @@ module LegacyPresentationCreditsXhtmlUtility =
                     .Select(getXText)
                     .Where(isXTextValid).ToArray()
 
-            else if credits |> isCreditsWithManyChildDivs then
+            else if credits |> isCreditsWithOneOrMoreChildDivs then
                 credits
                     .Elements("div")
                     .Select(fun div ->
@@ -144,7 +152,7 @@ module LegacyPresentationCreditsXhtmlUtility =
     let extractNameXText (document: XDocument) =
         match document.Root with
         | credits when credits.Name.LocalName = "credits" ->
-            if credits |> isCreditsWithManyChildDivs then
+            if credits |> isCreditsWithOneOrMoreChildDivs then
                 credits
                     .Elements("div")
                     .SelectMany(fun div ->

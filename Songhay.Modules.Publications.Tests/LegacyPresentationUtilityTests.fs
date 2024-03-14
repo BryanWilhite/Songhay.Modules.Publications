@@ -34,7 +34,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData("2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
-    let ``Presentation.id test`` (expected: string) =
+    member this.``Presentation.id test`` (expected: string) =
         let result = presentationElementResult |> tryGetPresentationIdResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
@@ -45,7 +45,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData("Songhay Audio Presentation")>]
-    let ``Presentation.title test`` (expected: string) =
+    member this.``Presentation.title test`` (expected: string) =
         let result = presentationElementResult |> tryGetPresentationTitleResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
@@ -56,7 +56,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData("This InfoPath Form data is packaged with the audio presentation")>]
-    let ``Presentation.parts PresentationDescription test`` (expected: string) =
+    member this.``Presentation.parts PresentationDescription test`` (expected: string) =
         let result = presentationElementResult |> tryGetPresentationDescriptionResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
@@ -69,7 +69,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData("--rx-player-playlist-background-color", "#eaeaea")>]
-    let ``Presentation.cssVariables test``(expectedVarName: string) (expectedValue: string) =
+    member this.``Presentation.cssVariables test``(expectedVarName: string) (expectedValue: string) =
         let result = presentationElementResult |> tryGetLayoutMetadataResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
@@ -86,7 +86,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         |> (fun i -> i.toCssDeclaration |> outputHelper.WriteLine)
 
     [<Fact>]
-    let ``Presentation.parts Playlist test`` () =
+    member this.``Presentation.parts Playlist test`` () =
         let result = presentationElementResult |> tryGetPlaylistRootResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
@@ -96,7 +96,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData("default")>]
-    let ``tryGetPresentation test`` (presentationKey: string) =
+    member this.``tryGetPresentation test`` (presentationKey: string) =
 
         let options = JsonSerializerOptions()
         options.Converters.Add(JsonFSharpConverter())
@@ -136,16 +136,16 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
 
     [<Theory>]
-    [<InlineData("player-audio")>]
+    //[<InlineData("player-audio")>]
     [<InlineData("player-video")>]
-    let ``write Presentation JSON test``(containerName: string) =
+    member this.``write Presentation JSON test``(containerName: string) =
 
         let options = JsonSerializerOptions()
         options.WriteIndented <- true
         options.Converters.Add(JsonFSharpConverter())
 
         let inputPath =
-            "json/presentation-credits-set-output.json" 
+            $"json/{containerName}-presentation-credits-set-output.json" 
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
         let creditsSet =
