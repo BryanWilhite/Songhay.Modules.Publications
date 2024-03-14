@@ -18,7 +18,6 @@
         <Content Include="json\my-presentation.json" />
         <Content Include="json\player-audio-presentation-credits-xhtml-set-output.json" />
         <Content Include="json\player-video-presentation-credits-xhtml-set-output.json" />
-        <Content Include="json\player-video-presentation-credits-xhtml-set-exceptions.xml" />
         <Content Include="json\presentation-4318.json" />
         <Content Include="json\presentation-credits-set-output.json" />
         <Content Include="json\progressive-audio-default-output.json" />
@@ -28,6 +27,8 @@
         <Content Include="json\segment-4299.json" />
         <Content Include="json\segment-without-documents.json" />
         <Content Include="json\syndication-feed-test-data.json" />
+        <Content Include="xml\player-video-presentation-credits-xhtml-set-exceptions-1.xml" />
+        <Content Include="xml\player-video-presentation-credits-xhtml-set-exceptions-2.xml" />
     </ItemGroup>
 
     <ItemGroup>

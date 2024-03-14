@@ -362,8 +362,9 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
                 )
 
     [<Theory>]
-    [<InlineData("player-video", "blacktronic0,lintonkj0,mpire_dinner,popmusicvideo0,saundra_quarterman,theblues0")>]
-    member this.``credits processing (4): write RoleCredit exceptions for hand editing``(containerName: string) (exceptions: string) =
+    [<InlineData("player-video", "blacktronic0,lintonkj0,mpire_dinner,popmusicvideo0,saundra_quarterman,theblues0", 1)>]
+    [<InlineData("player-video", "dick_gregory0,reel_black00,sekou_sundiata0,sha_cage,shiva,tayari_jones0", 2)>]
+    member this.``credits processing (4): write RoleCredit exceptions for hand editing``(containerName: string) (exceptions: string) (editSessionNo: int) =
 
         let inputPath =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -386,7 +387,7 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
             )
 
         let outputPath =
-            $"json/{containerName}-presentation-credits-xhtml-set-exceptions.xml" 
+            $"xml/{containerName}-presentation-credits-xhtml-set-exceptions-{editSessionNo}.xml" 
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
         File.WriteAllText(outputPath, exceptionsDoc.ToString())
@@ -444,6 +445,9 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
                             else
                                 xText
                         )
+                | "daniel_pauly0" ->
+                    // one of the roles is empty
+                    roles |> Array.choose(fun role -> if role.Value.Length > 1 then Some role else None)
                 | _ -> roles
 
             let namesMapped =
@@ -452,6 +456,9 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
                     //the first name was captured in role data because `strong` tags are missing
                     names |> Array.insertAt 1 (XText "Bryan Wilhite")
                 | _ -> names
+
+            outputHelper.WriteLine($"zipping roles and names for `{key}`...")
+            Assert.Equal(rolesMapped.Length, namesMapped.Length)
 
             let credits =
                 Array.zip rolesMapped namesMapped
@@ -513,8 +520,11 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
                     let fileName = root.Split(Path.DirectorySeparatorChar).Last()
                     match tryGetCombinedPath root $"{fileName}_credits.json" with
                     | Ok path ->
-                        let json = exportDictionary[fileName]
-                        File.WriteAllText(path, json)
+                        if exportDictionary.ContainsKey fileName then
+                            let json = exportDictionary[fileName]
+                            File.WriteAllText(path, json)
+                        else
+                            outputHelper.WriteLine $"WARNING `{fileName}` was excluded from {nameof exportDictionary}."
 
                     | _ -> ()
             )
