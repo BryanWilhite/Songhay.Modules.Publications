@@ -393,8 +393,9 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
         File.WriteAllText(outputPath, exceptionsDoc.ToString())
 
     [<Theory>]
-    [<InlineData("player-video")>]
-    member this.``credits processing (5): write hand edits back to XHTML dictionary``(containerName: string) =
+    [<InlineData("player-video", 1)>]
+    [<InlineData("player-video", 2)>]
+    member this.``credits processing (5): write hand edits back to XHTML dictionary``(containerName: string) (editSessionNo: int) =
 
         let inputPathForDictionary =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -407,7 +408,7 @@ type LegacyPresentationUtilityCreditsXhtmlTests(outputHelper: ITestOutputHelper)
         Assert.NotNull dictionary
 
         let inputPathForExceptions =
-            $"json/{containerName}-presentation-credits-xhtml-set-exceptions.xml" 
+            $"xml/{containerName}-presentation-credits-xhtml-set-exceptions-{editSessionNo}.xml" 
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
 
