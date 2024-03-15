@@ -127,7 +127,7 @@ module LegacyPresentationUtility =
         elementResult
         |> toResultFromJsonElement
             (fun kind -> kind = JsonValueKind.Object)
-            (fun el -> el.EnumerateObject().ToArray())
+            (_.EnumerateObject().ToArray())
         |> Result.map
             (
                 fun jsonProperties ->
@@ -152,7 +152,7 @@ module LegacyPresentationUtility =
         elementResult
             |> toResultFromJsonElement
                 (fun kind -> kind = JsonValueKind.Array)
-                (fun el -> el.EnumerateArray().ToArray())
+                (_.EnumerateArray().ToArray())
             >>= fun a ->
                 a
                 |> List.ofSeq

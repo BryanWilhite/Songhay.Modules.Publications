@@ -122,7 +122,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         File.WriteAllText(outputPath, json)
 
         let outputPath =
-            $"json/progressive-audio-default-{presentationKey}.scss" 
+            $"json/progressive-audio-{presentationKey}-output.scss" 
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
 
@@ -131,7 +131,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             |> Result.valueOr raise
             |> fun presentation ->
                 presentation.cssVariables
-                |> List.map (fun v -> v.toCssDeclaration)
+                |> List.map (_.toCssDeclaration)
                 |> Array.ofList
         File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
 
