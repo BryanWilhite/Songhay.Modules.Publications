@@ -13,12 +13,9 @@
         <Content Include="json\player-audio-presentation-credits-set-output.json" />
         <Content Include="json\player-video-presentation-credits-set-output.json" />
         <Content Include="json\player-audio-presentation-credits-xhtml-set-output.json" />
+        <Content Include="json\player-audio-default-presentation-output.json" />
         <Content Include="json\player-video-presentation-credits-xhtml-set-output.json" />
         <Content Include="json\presentation-4318.json" />
-        <Content Include="json\presentation-credits-set-output.json" />
-        <Content Include="json\progressive-audio-default-output.json" />
-        <Content Include="json\progressive-audio-default-output.scss" />
-        <Content Include="json\progressive-audio-default.json" />
         <Content Include="json\publication-document-frontmatter.json" />
         <Content Include="json\segment-4299.json" />
         <Content Include="json\segment-without-documents.json" />

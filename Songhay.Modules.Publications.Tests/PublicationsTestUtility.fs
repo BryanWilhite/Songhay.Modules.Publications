@@ -14,8 +14,15 @@ open Songhay.Modules.ProgramFileUtility
 
 let directoryName (dir: string) = dir.Split(Path.DirectorySeparatorChar).Last()
 
+[<Literal>]
+let audioContainerName = "player-audio"
+
+[<Literal>]
+let videoContainerName = "player-video"
+
 let jsonSerializerOptions() =
     let options = JsonSerializerOptions()
+    options.WriteIndented <- true
     options.Converters.Add(JsonFSharpConverter())
     options
 
@@ -33,6 +40,15 @@ let getContainerDirectories(containerName: string) =
         let! path = tryGetCombinedPath root $"azure-storage-accounts/songhaystorage/{containerName}/"
 
         return Directory.EnumerateDirectories(path)
+    }
+    |> Result.valueOr raiseProgramFileError
+
+let getStorageMirrorPath(containerName: string) (pathFragment: string) =
+    result {
+        let root = projectDirectoryInfo.Parent.Parent.FullName
+        let! path = tryGetCombinedPath root $"azure-storage-accounts/songhaystorage/{containerName}/{pathFragment}"
+
+        return path
     }
     |> Result.valueOr raiseProgramFileError
 

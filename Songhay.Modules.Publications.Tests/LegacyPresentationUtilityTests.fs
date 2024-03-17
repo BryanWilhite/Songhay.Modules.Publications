@@ -4,7 +4,6 @@ open System
 open System.Collections.Generic
 open System.IO
 open System.Text.Json
-open System.Text.Json.Serialization
 
 open FsToolkit.ErrorHandling
 open FsUnit.CustomMatchers
@@ -23,19 +22,15 @@ open Songhay.Modules.Publications.Tests.PublicationsTestUtility
 
 type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
-    let audioJsonDocumentPath =
-        "./json/progressive-audio-default.json"
-        |> tryGetCombinedPath projectDirectoryInfo.FullName
-        |> Result.valueOr raiseProgramFileError
-
-    let presentationElementResult =
-        File.ReadAllText(audioJsonDocumentPath)
+    let getPresentationElementResult path =
+        File.ReadAllText(path)
         |> tryGetPresentationElementResult
 
     [<Theory>]
-    [<InlineData("2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
-    member this.``Presentation.id test`` (expected: string) =
-        let result = presentationElementResult |> tryGetPresentationIdResult
+    [<InlineData(audioContainerName, "default", "2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
+    member this.``Presentation.id test`` (containerName: string) (containerKey: string) (expected: string) =
+        let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
+        let result = path |> getPresentationElementResult |> tryGetPresentationIdResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let actual = result |> toResultFromStringElement (fun el -> el.GetString() |> Identifier.fromString |> Id)
@@ -44,9 +39,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         (actual |> Result.valueOr raise).Value.StringValue |> should equal expected
 
     [<Theory>]
-    [<InlineData("Songhay Audio Presentation")>]
-    member this.``Presentation.title test`` (expected: string) =
-        let result = presentationElementResult |> tryGetPresentationTitleResult
+    [<InlineData(audioContainerName, "default", "Songhay Audio Presentation")>]
+    member this.``Presentation.title test`` (containerName: string) (containerKey: string) (expected: string) =
+        let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
+        let result = path |> getPresentationElementResult |> tryGetPresentationTitleResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let actual = result |> toResultFromStringElement (fun el -> el.GetString() |> Title)
@@ -55,9 +51,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         match (actual |> Result.valueOr raise) with | Title t -> t |> should equal expected
 
     [<Theory>]
-    [<InlineData("This InfoPath Form data is packaged with the audio presentation")>]
-    member this.``Presentation.parts PresentationDescription test`` (expected: string) =
-        let result = presentationElementResult |> tryGetPresentationDescriptionResult
+    [<InlineData(audioContainerName, "default", "This InfoPath Form data is packaged with the audio presentation")>]
+    member this.``Presentation.parts PresentationDescription test`` (containerName: string) (containerKey: string) (expected: string) =
+        let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
+        let result = path |> getPresentationElementResult |> tryGetPresentationDescriptionResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let actual =
@@ -68,9 +65,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         (actual |> Result.valueOr raise).StringValue.Contains(expected) |> should be True
 
     [<Theory>]
-    [<InlineData("--rx-player-playlist-background-color", "#eaeaea")>]
-    member this.``Presentation.cssVariables test``(expectedVarName: string) (expectedValue: string) =
-        let result = presentationElementResult |> tryGetLayoutMetadataResult
+    [<InlineData(audioContainerName, "default", "--rx-player-playlist-background-color", "#eaeaea")>]
+    member this.``Presentation.cssVariables test`` (containerName: string) (containerKey: string) (expectedVarName: string) (expectedValue: string) =
+        let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
+        let result = path |> getPresentationElementResult |> tryGetLayoutMetadataResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let actual = result |> toPresentationCssVariablesResult
@@ -85,9 +83,11 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             )
         |> (fun i -> i.toCssDeclaration |> outputHelper.WriteLine)
 
-    [<Fact>]
-    member this.``Presentation.parts Playlist test`` () =
-        let result = presentationElementResult |> tryGetPlaylistRootResult
+    [<Theory>]
+    [<InlineData(audioContainerName, "default")>]
+    member this.``Presentation.parts Playlist test`` (containerName: string) (containerKey: string) =
+        let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
+        let result = path |> getPresentationElementResult |> tryGetPlaylistRootResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
 
         let actual = result |> toPresentationPlaylistResult
@@ -95,36 +95,30 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         actual |> should be (ofCase <@ Result<PresentationPart, JsonException>.Ok @>)
 
     [<Theory>]
-    [<InlineData("default")>]
-    member this.``tryGetPresentation test`` (presentationKey: string) =
+    [<InlineData(audioContainerName, "default")>]
+    member this.``tryGetPresentation test`` (containerName: string) (containerKey: string) =
 
-        let options = JsonSerializerOptions()
-        options.Converters.Add(JsonFSharpConverter())
-
-        let inputPath =
-            "json/presentation-credits-set-output.json" 
+        let inputPathForCredits =
+            $"json/{containerName}-presentation-credits-set-output.json" 
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
         let creditsSet =
             JsonSerializer
-                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPath), options)
+                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPathForCredits), jsonSerializerOptions())
 
-        let json = File.ReadAllText(audioJsonDocumentPath)
-        let actual = json |> tryGetPresentation (creditsSet[presentationKey] |> Result.mapError(fun ex -> JsonException $"{ex}"))
+        let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
+        let json = File.ReadAllText(path)
+        let actual = json |> tryGetPresentation (creditsSet[containerKey] |> Result.mapError(fun ex -> JsonException $"{ex}"))
         actual |> should be (ofCase <@ Result<Presentation, JsonException>.Ok @>)
 
         let outputPath =
-            $"json/progressive-audio-{presentationKey}-output.json" 
+            $"json/{containerName}-{containerKey}-presentation-output.json" 
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
 
-        let json = JsonSerializer.Serialize(actual, options)
+        outputHelper.WriteLine $"writing to `{outputPath}`..."
+        let json = JsonSerializer.Serialize(actual, jsonSerializerOptions())
         File.WriteAllText(outputPath, json)
-
-        let outputPath =
-            $"json/progressive-audio-{presentationKey}-output.scss" 
-            |> tryGetCombinedPath projectDirectoryInfo.FullName
-            |> Result.valueOr raiseProgramFileError
 
         let scssArray =
             actual
@@ -133,16 +127,13 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                 presentation.cssVariables
                 |> List.map (_.toCssDeclaration)
                 |> Array.ofList
-        File.WriteAllText(outputPath, String.Join(Environment.NewLine, scssArray))
+
+        outputHelper.WriteLine(String.Join(Environment.NewLine, scssArray))
 
     [<Theory>]
-    //[<InlineData("player-audio")>]
+    [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
-    member this.``write Presentation JSON test``(containerName: string) =
-
-        let options = JsonSerializerOptions()
-        options.WriteIndented <- true
-        options.Converters.Add(JsonFSharpConverter())
+    member this.``write Presentation JSON to storage mirror test``(containerName: string) =
 
         let inputPath =
             $"json/{containerName}-presentation-credits-set-output.json" 
@@ -150,7 +141,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             |> Result.valueOr raiseProgramFileError
         let creditsSet =
             JsonSerializer
-                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPath), options)
+                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPath), jsonSerializerOptions())
 
         containerName
         |> getContainerDirectories
@@ -168,7 +159,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                     presentationResult |> should be (ofCase <@ Result<Presentation, JsonException>.Ok @>)
 
                     let presentation = presentationResult |> Result.valueOr raise
-                    let json = JsonSerializer.Serialize(presentation, options)
+                    let json = JsonSerializer.Serialize(presentation, jsonSerializerOptions())
                     let outputPath =
                         tryGetCombinedPath directory $"{presentationKey}_presentation.json"
                         |> Result.valueOr raiseProgramFileError
