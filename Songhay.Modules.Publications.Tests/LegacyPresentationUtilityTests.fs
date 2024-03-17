@@ -28,7 +28,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default", "2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
-    [<InlineData(videoContainerName, "plath0", "2008-04-24-17-40-08-IDANAGQBIDAOAGQB-1")>]
+    [<InlineData(videoContainerName, "bowie0", "2008-10-28-22-48-06-IDANAYZBIDAOAYZB-1")>]
     member this.``Presentation.id test`` (containerName: string) (containerKey: string) (expected: string) =
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
@@ -43,7 +43,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default", "Songhay Audio Presentation")>]
-    [<InlineData(videoContainerName, "plath0", "Sylvia Plath Reads (YouTube.com)")>]
+    [<InlineData(videoContainerName, "bowie0", "the rasx() Bowie Collection (YouTube.com)")>]
     member this.``Presentation.title test`` (containerName: string) (containerKey: string) (expected: string) =
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
@@ -72,7 +72,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default", "--rx-player-playlist-background-color", "#eaeaea")>]
-    [<InlineData(videoContainerName, "plath0", "--rx-player-playlist-background-color", "#000")>]
+    [<InlineData(videoContainerName, "bowie0", "--rx-player-playlist-background-color", "#000")>]
     member this.``Presentation.cssVariables test`` (containerName: string) (containerKey: string) (expectedVarName: string) (expectedValue: string) =
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
@@ -94,7 +94,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default")>]
-    [<InlineData(videoContainerName, "plath0")>]
+    [<InlineData(videoContainerName, "bowie0")>]
     member this.``Presentation.parts Playlist test`` (containerName: string) (containerKey: string) =
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
@@ -108,7 +108,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default")>]
-    [<InlineData(videoContainerName, "plath0")>]
+    [<InlineData(videoContainerName, "bowie0")>]
     member this.``tryGetPresentation test`` (containerName: string) (containerKey: string) =
 
         let inputPathForCredits =
@@ -159,6 +159,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         containerName
         |> getContainerDirectories
         |> List.ofSeq
+        |> List.filter (fun path ->
+                let dir = path |> directoryName
+                [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
+            )
         |> List.iter
             (
                 fun directory ->
