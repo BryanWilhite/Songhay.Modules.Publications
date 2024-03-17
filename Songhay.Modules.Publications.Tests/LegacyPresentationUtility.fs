@@ -144,7 +144,7 @@ module LegacyPresentationUtility =
         let toPlaylistItem el =
             result {
                 let! title = el |> tryGetProperty "#text" |> toJsonStringValue
-                let! uri = el |> tryGetProperty "@Uri" |> toJsonUriValue UriKind.Relative
+                let! uri = el |> tryGetProperty "@Uri" |> toJsonUriValue UriKind.RelativeOrAbsolute
 
                 return (DisplayText title, uri)
             }

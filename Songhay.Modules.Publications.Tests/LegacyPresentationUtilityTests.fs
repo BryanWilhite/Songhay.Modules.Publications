@@ -28,7 +28,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default", "2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
+    [<InlineData(videoContainerName, "plath0", "2008-04-24-17-40-08-IDANAGQBIDAOAGQB-1")>]
     member this.``Presentation.id test`` (containerName: string) (containerKey: string) (expected: string) =
+        outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
+
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPresentationIdResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
@@ -40,7 +43,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default", "Songhay Audio Presentation")>]
+    [<InlineData(videoContainerName, "plath0", "Sylvia Plath Reads (YouTube.com)")>]
     member this.``Presentation.title test`` (containerName: string) (containerKey: string) (expected: string) =
+        outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
+
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPresentationTitleResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
@@ -66,7 +72,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default", "--rx-player-playlist-background-color", "#eaeaea")>]
+    [<InlineData(videoContainerName, "plath0", "--rx-player-playlist-background-color", "#000")>]
     member this.``Presentation.cssVariables test`` (containerName: string) (containerKey: string) (expectedVarName: string) (expectedValue: string) =
+        outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
+
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetLayoutMetadataResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
@@ -85,7 +94,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default")>]
+    [<InlineData(videoContainerName, "plath0")>]
     member this.``Presentation.parts Playlist test`` (containerName: string) (containerKey: string) =
+        outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
+
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPlaylistRootResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
@@ -96,6 +108,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
     [<Theory>]
     [<InlineData(audioContainerName, "default")>]
+    [<InlineData(videoContainerName, "plath0")>]
     member this.``tryGetPresentation test`` (containerName: string) (containerKey: string) =
 
         let inputPathForCredits =

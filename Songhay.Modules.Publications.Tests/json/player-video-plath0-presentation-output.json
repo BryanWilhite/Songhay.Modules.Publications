@@ -1,0 +1,128 @@
+{
+  "Case": "Ok",
+  "Fields": [
+    {
+      "id": {
+        "Case": "Alphanumeric",
+        "Fields": [
+          "2008-04-24-17-40-08-IDANAGQBIDAOAGQB-1"
+        ]
+      },
+      "title": "Sylvia Plath Reads (YouTube.com)",
+      "cssVariables": [
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-background-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-border-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-playlist-background-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-playlist-color",
+            "#fff"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-prose-background-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-prose-color",
+            "#fff"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-title-background-color",
+            "#767676"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-title-color",
+            "#fff"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-title-display",
+            "block"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "Case": "PresentationDescription",
+          "Fields": [
+            "\u003Cdiv\u003EIt was quite a surprise to discover the voice of \u003Ca href=\u0022http://en.wikipedia.org/wiki/Sylvia_Plath\u0022\u003ESylvia Plath\u003C/a\u003E\u00A0presented in digital motion pictures at YouTube.com. We present three of her re-rendered readings: \u201CDaddy,\u201D \u201CFever 103\u201D and \u201CLady Lazarus\u201D for your listening (and viewing)\u00A0exploration and (perhaps)\u00A0pleasure.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E\u003Cdiv\u003EThis rich media kit follows our more conservative text presentation, \u201C\u003Ca href=\u0022http://www.kintespace.com/p_plath0.html\u0022\u003ESylvia Plath: On the Decline of Oracles\u003C/a\u003E.\u201D\u003C/div\u003E"
+          ]
+        },
+        {
+          "Case": "Credits",
+          "Fields": [
+            [
+              {
+                "role": "Presentation Design and Research",
+                "name": "Bryan Wilhite"
+              }
+            ]
+          ]
+        },
+        {
+          "Case": "CopyRights",
+          "Fields": [
+            [
+              {
+                "year": 2008,
+                "name": "Sylvia Plath"
+              }
+            ]
+          ]
+        },
+        {
+          "Case": "Playlist",
+          "Fields": [
+            [
+              [
+                "Daddy",
+                "http://youtube.com/v/6hHjctqSBwM"
+              ],
+              [
+                "Fever 103",
+                "http://youtube.com/v/nfgtiDvvAR8"
+              ],
+              [
+                "Lady Lazarus",
+                "http://youtube.com/v/esBLxyTFDxE"
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
