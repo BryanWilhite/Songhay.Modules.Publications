@@ -14,7 +14,7 @@
         <summary>shared Publication types and functions for F# clients 🕸🖼</summary>
         <readme>README.md</readme>
         <releaseNotes>see https://github.com/users/BryanWilhite/projects/21</releaseNotes>
-        <copyright>(c) 2023 Bryan D. Wilhite</copyright>
+        <copyright>(c) 2024 Bryan D. Wilhite</copyright>
         <tags>FSharp;Songhay;Modules;Publications;RSS;Atom</tags>
         <repository type="git" url="https://github.com/BryanWilhite/Songhay.Modules.Publications"></repository>
         <dependencies>
