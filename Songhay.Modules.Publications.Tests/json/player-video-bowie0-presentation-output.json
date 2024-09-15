@@ -1,0 +1,140 @@
+{
+  "Case": "Ok",
+  "Fields": [
+    {
+      "id": {
+        "Case": "Alphanumeric",
+        "Fields": [
+          "2008-10-28-22-48-06-IDANAYZBIDAOAYZB-1"
+        ]
+      },
+      "title": "the rasx() Bowie Collection (YouTube.com)",
+      "cssVariables": [
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-background-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-border-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-playlist-background-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-playlist-color",
+            "#fff"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-prose-background-color",
+            "#000"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-prose-color",
+            "#fff"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-title-background-color",
+            "#767676"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-title-color",
+            "#fff"
+          ]
+        },
+        {
+          "Case": "CssCustomPropertyAndValue",
+          "Fields": [
+            "--rx-player-title-display",
+            "block"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "Case": "PresentationDescription",
+          "Fields": [
+            "\u003Cdiv\u003EI have been exposing my teenaged, virginal fascination with David Bowie on the Web since \u201C\u003Ca href=\u0022http://songhay7lxv/dev_kintespace/rasx05.html\u0022\u003EBlack Tie White Noise\u003C/a\u003E\u201D (1998). For legal reasons alone, I would have never imagined that the day would come when I could watch David Bowie music videos leisurely on demand at \u003Cem\u003Eany\u003C/em\u003E resolution for no additional cost. Even though my selections at YouTube.com can disappear at any moment, I have finally revised my imagination and present my long-time Bowie favorites.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E\u003Cdiv\u003ELegal machinations aside, my intentions are to share with you my favorite music video of all time, \u201CAshes to Ashes,\u201D why I call myself\u00A0\u201Cthe kint\u00E9 space oddity,\u201D some comedy from \u003Ca href=\u0022http://www.kintespace.com/rasx30.html\u0022\u003Ethe Seu Jorge\u00A0character\u003C/a\u003E and a possible glimpse at Luther Vandross (Bowie\u2019s vocal arranger for the \u003Ca title=\u0022Buy this product at Amazon.com\u0022 href=\u0022http://www.amazon.com/exec/obidos/ASIN/B000TEVFPQ/thekintespacec00A/\u0022\u003E\u003Cem\u003EYoung Americans\u003C/em\u003E\u003C/a\u003E project) on an old \u201970s Tee Vee show. Let\u2019s see what happens: It\u2019s too late to be hateful. The European Man is \u003Ca href=\u0022http://songhay7lxv/dev_kintespace/rasx15.html\u0022\u003Ehere\u003C/a\u003E.\u003C/div\u003E\u003Cdiv\u003E\u00A0\u003C/div\u003E"
+          ]
+        },
+        {
+          "Case": "Credits",
+          "Fields": [
+            [
+              {
+                "role": "Presentation Design and Research",
+                "name": "Bryan Wilhite"
+              }
+            ]
+          ]
+        },
+        {
+          "Case": "CopyRights",
+          "Fields": [
+            [
+              {
+                "year": 2008,
+                "name": "David Bowie"
+              }
+            ]
+          ]
+        },
+        {
+          "Case": "Playlist",
+          "Fields": [
+            [
+              [
+                "I\u2019m Afraid of Americans",
+                "http://youtube.com/v/4OMR4PE_Jfk"
+              ],
+              [
+                "Ashes to Ashes",
+                "http://youtube.com/v/HIl56jg3wSo"
+              ],
+              [
+                "David Bowie with Luther Vandross (?) on Dick Cavett (1974)",
+                "http://youtube.com/v/4Z-o5r47dDI"
+              ],
+              [
+                "Life on Mars?",
+                "http://youtube.com/v/nnNJVHNopuo"
+              ],
+              [
+                "Life On Mars (Seu Jorge)",
+                "http://youtube.com/v/w6l8zrsf4LY"
+              ],
+              [
+                "Space Oddity",
+                "http://youtube.com/v/tw07JpVaTlo"
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
