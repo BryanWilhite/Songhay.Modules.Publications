@@ -83,9 +83,9 @@ module DisplayItemModelUtility =
         result {
 
             let! id = (useCamelCase, element) ||> Id.fromInput itemType
-            and! name = (useCamelCase, element) ||> Name.fromInput itemType
-            and! displayText =  (useCamelCase, element) ||> displayTextGetter itemType
-            and! resourceIndicator =
+            let! name = (useCamelCase, element) ||> Name.fromInput itemType
+            let! displayText =  (useCamelCase, element) ||> displayTextGetter itemType
+            let! resourceIndicator =
                 match resourceIndicatorGetter with
                 | Some getter -> ((useCamelCase, element) ||> getter itemType)
                 | _ -> Ok None
