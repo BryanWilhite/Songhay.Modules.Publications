@@ -17,6 +17,9 @@ type Presentation =
         ///<summary>The Presentation title.</summary>
         title: Title
         ///<summary>The Presentation <see cref="CssCustomPropertyAndValue"/> collection.</summary>
+        cssCustomPropertiesAndValues: CssCustomPropertyAndValue list
+        ///<summary>The Presentation <see cref="CssCustomPropertyAndValue"/> collection.</summary>
+        [<Obsolete("Use `cssCustomPropertiesAndValues` instead.")>]
         cssVariables: CssCustomPropertyAndValue list
         ///<summary>The Presentation <see cref="PresentationPart"/> collection.</summary>
         parts: PresentationPart list
