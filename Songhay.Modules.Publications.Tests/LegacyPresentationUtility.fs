@@ -286,7 +286,6 @@ module LegacyPresentationUtility =
                     id = id
                     title = title
                     cssCustomPropertiesAndValues = cssVariableAndValues
-                    cssVariables = cssVariableAndValues
                     parts = [
                         description
                         Credits creditList

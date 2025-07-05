@@ -137,7 +137,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             actual
             |> Result.valueOr raise
             |> fun presentation ->
-                presentation.cssVariables
+                presentation.cssCustomPropertiesAndValues
                 |> List.map (_.toCssDeclaration)
                 |> Array.ofList
 
