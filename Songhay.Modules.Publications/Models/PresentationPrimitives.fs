@@ -30,6 +30,45 @@ type Description =
     override this.ToString() = match this with Description dt -> dt.Value
 
 /// <summary>
+/// Defines the Publication document concepts
+/// </summary>
+type PresentationDocument =
+    ///<summary>Identifies a <see cref="string" /> as CSV.</summary>
+    | Csv of string
+    ///<summary>Identifies a <see cref="string" /> as HTML.</summary>
+    | Html of string
+    ///<summary>Identifies a <see cref="string" /> as JSON.</summary>
+    | Json of string
+    ///<summary>Identifies a <see cref="string" /> as plain text demarcated by line breaks.</summary>
+    | Lines of string list
+    ///<summary>Identifies a <see cref="string" /> as Markdown.</summary>
+    | Markdown of string
+    ///<summary>Identifies a document with a conventional identifier (<see cref="Uri"/>).</summary>
+    | Permalink of Uri
+    ///<summary>Identifies a <see cref="string" /> as SVG.</summary>
+    | Svg of string
+    ///<summary>Identifies a <see cref="string" /> as TTML (Timed Text Markup Language).</summary>
+    | Ttml of string
+    ///<summary>Identifies a <see cref="string" /> as XHTML.</summary>
+    | Xhtml of string
+    ///<summary>Identifies a <see cref="string" /> as YAML.</summary>
+    | Yaml of string
+
+    ///<summary>Returns the <see cref="string" /> representation of this instance.</summary>
+    override this.ToString() =
+        match this with
+        | Csv csv -> csv
+        | Html html -> html
+        | Json json -> json
+        | Lines l -> l |> List.reduce (fun a i -> $"{a}{Environment.NewLine}{i}")
+        | Markdown md -> md
+        | Permalink uri -> uri.OriginalString
+        | Svg svg -> svg
+        | Ttml ttml -> ttml
+        | Xhtml xhtml -> xhtml
+        | Yaml yaml -> yaml
+
+/// <summary>
 /// Defines Publication credits
 /// </summary>
 type RoleCredit =
@@ -68,6 +107,8 @@ type PresentationPart =
     | Pages of string list
     ///<summary><see cref="Presentation"/> playlist.</summary>
     | Playlist of (DisplayText * Uri) list
+    ///<summary><see cref="Presentation"/> documents.</summary>
+    | PresentationDocuments of PresentationDocument
     ///<summary><see cref="Presentation"/> stream.</summary>
     | Stream of StreamSegment list
 
@@ -79,7 +120,8 @@ type PresentationPart =
     ///<summary>Returns the <see cref="string" /> collection representation of this instance.</summary>
     member this.StringValues =
         match this with
-        | CopyRights l -> l |> List.map (fun i -> i.ToString())
+        | CopyRights l -> l |> List.map _.ToString()
         | Pages l -> l
         | Playlist l -> l |> List.map (fun (dt, _) -> dt.Value)
         | _ -> [this.ToString()]
+    

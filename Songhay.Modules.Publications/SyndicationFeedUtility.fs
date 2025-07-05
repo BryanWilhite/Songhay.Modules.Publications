@@ -93,7 +93,7 @@ module SyndicationFeedUtility =
     let toSyndicationFeedItem (titleResult: Result<string,JsonException>, linkResult: Result<string,JsonException>) =
         result {
             let! title = titleResult
-            and! link = linkResult
+            let! link = linkResult
 
             return
                 {

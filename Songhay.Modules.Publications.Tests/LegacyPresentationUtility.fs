@@ -253,29 +253,29 @@ module LegacyPresentationUtility =
                 |> tryGetPresentationIdResult
                 |> toResultFromStringElement (fun el -> el.GetString() |> Identifier.fromString |> Id)
 
-            and! title =
+            let! title =
                 presentationElementResult
                 |> tryGetPresentationTitleResult
                 |> toResultFromStringElement (fun el -> el.GetString() |> Title)
 
-            and! cssVariableAndValues =
+            let! cssVariableAndValues =
                 presentationElementResult
                 |> tryGetLayoutMetadataResult
                 |> toPresentationCssVariablesResult
 
-            and! description =
+            let! description =
                 presentationElementResult
                 |> tryGetPresentationDescriptionResult
                 |> toResultFromStringElement (fun el -> el.GetString() |> PresentationDescription)
 
-            and! creditList = creditsResult
+            let! creditList = creditsResult
 
-            and! copyrights =
+            let! copyrights =
                 presentationElementResult
                 |> tryGetCopyrightResult
                 |> toPresentationCopyrights
 
-            and! playlist =
+            let! playlist =
                 presentationElementResult
                 |> tryGetPlaylistRootResult
                 |> toPresentationPlaylistResult
@@ -285,7 +285,7 @@ module LegacyPresentationUtility =
                 {
                     id = id
                     title = title
-                    cssVariables = cssVariableAndValues
+                    cssCustomPropertiesAndValues = cssVariableAndValues
                     parts = [
                         description
                         Credits creditList

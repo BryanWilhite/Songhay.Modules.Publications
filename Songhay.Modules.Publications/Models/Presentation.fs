@@ -17,10 +17,11 @@ type Presentation =
         ///<summary>The Presentation title.</summary>
         title: Title
         ///<summary>The Presentation <see cref="CssCustomPropertyAndValue"/> collection.</summary>
-        cssVariables: CssCustomPropertyAndValue list
+        cssCustomPropertiesAndValues: CssCustomPropertyAndValue list
         ///<summary>The Presentation <see cref="PresentationPart"/> collection.</summary>
         parts: PresentationPart list
     }
+
     static member internal getJsonOptions() =
         let options = JsonSerializerOptions()
         options.Converters.Add(JsonFSharpConverter())
