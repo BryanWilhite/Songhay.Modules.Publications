@@ -21,6 +21,7 @@ type Presentation =
         ///<summary>The Presentation <see cref="PresentationPart"/> collection.</summary>
         parts: PresentationPart list
     }
+
     static member internal getJsonOptions() =
         let options = JsonSerializerOptions()
         options.Converters.Add(JsonFSharpConverter())
