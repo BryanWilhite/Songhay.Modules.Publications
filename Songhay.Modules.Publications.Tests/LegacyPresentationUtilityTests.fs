@@ -22,14 +22,22 @@ open Songhay.Modules.Publications.Tests.PublicationsTestUtility
 
 type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
+    [<Literal>]
+    let SkipMassRun = true
+
+    [<Literal>]
+    let SkipReason = "This method should not run automatically for general test coverage."
+
     let getPresentationElementResult path =
         File.ReadAllText(path)
         |> tryGetPresentationElementResult
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "2005-12-10-22-19-14-IDAMAQDBIDANAQDB-1")>]
     [<InlineData(videoContainerName, "bowie0", "2008-10-28-22-48-06-IDANAYZBIDAOAYZB-1")>]
     member this.``Presentation.id test`` (containerName: string) (containerKey: string) (expected: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
@@ -41,10 +49,12 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         (actual |> Result.valueOr raise).Value.StringValue |> should equal expected
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "Songhay Audio Presentation")>]
     [<InlineData(videoContainerName, "bowie0", "the rasx() Bowie Collection (YouTube.com)")>]
     member this.``Presentation.title test`` (containerName: string) (containerKey: string) (expected: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
@@ -56,9 +66,11 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         match (actual |> Result.valueOr raise) with | Title t -> t |> should equal expected
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "This InfoPath Form data is packaged with the audio presentation")>]
     member this.``Presentation.parts PresentationDescription test`` (containerName: string) (containerKey: string) (expected: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPresentationDescriptionResult
         result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
@@ -70,10 +82,12 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         (actual |> Result.valueOr raise).StringValue.Contains(expected) |> should be True
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "--rx-player-playlist-background-color", "#eaeaea")>]
     [<InlineData(videoContainerName, "bowie0", "--rx-player-playlist-background-color", "#000")>]
     member this.``Presentation.cssVariables test`` (containerName: string) (containerKey: string) (expectedVarName: string) (expectedValue: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
@@ -92,10 +106,12 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             )
         |> (fun i -> i.toCssDeclaration |> outputHelper.WriteLine)
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData(audioContainerName, "default")>]
     [<InlineData(videoContainerName, "bowie0")>]
     member this.``Presentation.parts Playlist test`` (containerName: string) (containerKey: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         outputHelper.WriteLine $"checking `{containerKey}` in container {containerName}..."
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
@@ -106,10 +122,11 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         actual |> should be (ofCase <@ Result<PresentationPart, JsonException>.Ok @>)
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData(audioContainerName, "default")>]
     [<InlineData(videoContainerName, "bowie0")>]
     member this.``tryGetPresentation test`` (containerName: string) (containerKey: string) =
+        Skip.If(SkipMassRun, SkipReason)
 
         let inputPathForCredits =
             $"json/{containerName}-presentation-credits-set-output.json" 
@@ -138,15 +155,16 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             |> Result.valueOr raise
             |> fun presentation ->
                 presentation.cssCustomPropertiesAndValues
-                |> List.map (_.toCssDeclaration)
+                |> List.map _.toCssDeclaration
                 |> Array.ofList
 
         outputHelper.WriteLine(String.Join(Environment.NewLine, scssArray))
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
     member this.``write Presentation JSON to storage mirror test``(containerName: string) =
+        Skip.If(SkipMassRun, SkipReason)
 
         let inputPath =
             $"json/{containerName}-presentation-credits-set-output.json" 

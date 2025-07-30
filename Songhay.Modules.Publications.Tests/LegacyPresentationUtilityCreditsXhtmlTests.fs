@@ -32,10 +32,18 @@ open Songhay.Modules.Publications.Tests.PublicationsTestUtility
 ///</remarks>
 type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper) =
 
-    [<Theory>]
+    [<Literal>]
+    let SkipMassRun = true
+
+    [<Literal>]
+    let SkipReason = "This method should not run automatically for general test coverage."
+
+    [<SkippableTheory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
     member this.``credits processing (1): write XHTML dictionary`` (containerName: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         let creditsData = Dictionary()
 
         containerName
@@ -60,7 +68,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
                             presentationElementResult
                             >>= (tryGetProperty <| nameof(Credits))
                             >>= (tryGetProperty "#text")
-                            |> toResultFromStringElement (_.GetString())
+                            |> toResultFromStringElement _.GetString()
                             |> Result.valueOr raise
 
                         let xDoc = XDocument.Parse($"<credits>{xhtml}</credits>")
@@ -93,10 +101,11 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
     /// {/credits}
     /// </code>
     ///</remarks>
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
     member this.``credits processing (2): assert all root children are div elements``(containerName: string) =
+        Skip.If(SkipMassRun, SkipReason)
 
         let inputPath =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -121,7 +130,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
                     )
             )
             |> Array.ofSeq
-            |> Array.filter (_.IsSome)
+            |> Array.filter _.IsSome
 
     ///<remarks>
     /// To locate <see cref="RoleCredit"/> data
@@ -140,10 +149,11 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
     /// - the text content of any strong element maps to <see cref="RoleCredit.name"/>
     ///
     ///</remarks>
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
     member this.``credits processing (3): assert locations of RoleCredit data``(containerName: string) =
+        Skip.If(SkipMassRun, SkipReason)
 
         let inputPath =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -174,10 +184,11 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
                     outputHelper.WriteLine joinNames
                 )
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-video", "blacktronic0,lintonkj0,mpire_dinner,popmusicvideo0,saundra_quarterman,theblues0", 1)>]
     [<InlineData("player-video", "dick_gregory0,reel_black00,sekou_sundiata0,sha_cage,shiva,tayari_jones0", 2)>]
     member this.``credits processing (4): write RoleCredit exceptions for hand editing``(containerName: string) (exceptions: string) (editSessionNo: int) =
+        Skip.If(SkipMassRun, SkipReason)
 
         let inputPath =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -205,10 +216,12 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
             |> Result.valueOr raiseProgramFileError
         File.WriteAllText(outputPath, exceptionsDoc.ToString())
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-video", 1)>]
     [<InlineData("player-video", 2)>]
     member this.``credits processing (5): write hand edits back to XHTML dictionary``(containerName: string) (editSessionNo: int) =
+        Skip.If(SkipMassRun, SkipReason)
+
 
         let inputPathForDictionary =
             $"json/{containerName}-presentation-credits-xhtml-set-output.json" 
@@ -240,9 +253,11 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
         let json = JsonSerializer.Serialize(dictionary, jsonSerializerOptions())
         File.WriteAllText(inputPathForDictionary, json)
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-video")>]
     member this.``credits processing (6): write credits data to container mirror``(containerName: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
 
         let toRoleCreditJson (key: string, roles: XText array, names: XText array) =
             let rolesMapped =
@@ -343,10 +358,12 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
                     | _ -> ()
             )
 
-    [<Theory>]
+    [<SkippableTheory>]
     [<InlineData("player-audio")>]
     [<InlineData("player-video")>]
     member this.``presentationCreditsSet test`` (containerName: string) =
+        Skip.If(SkipMassRun, SkipReason)
+
         let boundSet = containerName |> presentationCreditsSet
 
         boundSet.ToArray()

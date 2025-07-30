@@ -46,6 +46,7 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Remove="FSharp.Core" />
+        <PackageReference Include="Xunit.SkippableFact" Version="1.5.23" />
     </ItemGroup>
 
     <ItemGroup>
