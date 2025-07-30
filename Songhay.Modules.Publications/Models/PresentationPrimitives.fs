@@ -108,7 +108,7 @@ type PresentationPart =
     ///<summary><see cref="Presentation"/> playlist.</summary>
     | Playlist of (DisplayText * Uri) list
     ///<summary><see cref="Presentation"/> documents.</summary>
-    | PresentationDocuments of PresentationDocument
+    | PresentationDocuments of PresentationDocument list
     ///<summary><see cref="Presentation"/> stream.</summary>
     | Stream of StreamSegment list
 
@@ -124,4 +124,3 @@ type PresentationPart =
         | Pages l -> l
         | Playlist l -> l |> List.map (fun (dt, _) -> dt.Value)
         | _ -> [this.ToString()]
-    
