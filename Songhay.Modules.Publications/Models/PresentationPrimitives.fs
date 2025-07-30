@@ -123,4 +123,5 @@ type PresentationPart =
         | CopyRights l -> l |> List.map _.ToString()
         | Pages l -> l
         | Playlist l -> l |> List.map (fun (dt, _) -> dt.Value)
+        | PresentationDocuments docs -> docs |> List.map _.ToString()
         | _ -> [this.ToString()]
