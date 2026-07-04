@@ -12,4 +12,4 @@ The original intent of this project is the support of data access on the “clie
 
 This project supports the generation of these types from JSON ‘shapes’ based on the [abstractions](https://github.com/BryanWilhite/Songhay.Publications/tree/master/Songhay.Publications/Abstractions) defined in `Songhay.Publications`.
 
-@[BryanWilhite](https://twitter.com/BryanWilhite)
+[Bryan Wilhite is on LinkedIn](https://www.linkedin.com/in/wilhite)🇺🇸💼
