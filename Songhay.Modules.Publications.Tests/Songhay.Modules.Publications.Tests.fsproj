@@ -5,6 +5,7 @@
 
         <IsPackable>false</IsPackable>
         <GenerateProgramFile>false</GenerateProgramFile>
+        <OutputType>Library</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,11 +31,9 @@
         <Compile Include="LegacyPresentationUtilityTests.fs" />
         <Compile Include="LegacyPresentationUtilityCreditsXhtmlTests.fs" />
         <Compile Include="SyndicationFeedUtilityTests.fs" />
-        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FsUnit.xUnit" Version="6.0.1" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
         <PackageReference Include="xunit" Version="2.9.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">

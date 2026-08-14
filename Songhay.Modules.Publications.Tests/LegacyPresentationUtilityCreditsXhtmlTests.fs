@@ -9,8 +9,6 @@ open System.Xml.Linq
 
 open FsToolkit.ErrorHandling
 open FsToolkit.ErrorHandling.Operator.Result
-open FsUnit.CustomMatchers
-open FsUnit.Xunit
 open Xunit
 open Xunit.Abstractions
 
@@ -371,7 +369,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
             (
                 fun pair ->
                     outputHelper.WriteLine $"testing `{pair.Key}`..."
-                    pair.Value |> should be (ofCase <@ Result<RoleCredit list,ProgramFileError>.Ok @>)
+                    pair.Value.IsOk |> Assert.True
             )
 
         let outputPath =

@@ -1,14 +1,9 @@
 namespace Songhay.Modules.Publications.Tests
 
-open System.Text.Json
-
 open Xunit
 
-open FsUnit.Xunit
-open FsUnit.CustomMatchers
 open FsToolkit.ErrorHandling
 
-open Songhay.Modules.Models
 open Songhay.Modules.Publications.Models
 open Songhay.Modules.Publications.DisplayItemModelUtility
 
@@ -29,4 +24,4 @@ module DisplayItemModelUtilityTests =
             (shouldUseCamelCase, jsonDocument.RootElement)
             ||> tryGetDisplayItemModel displayTextGetter None itemType
 
-        result |> should be (ofCase <@ Result<DisplayItemModel, JsonException>.Ok @>)
+        result.IsOk |> Assert.True

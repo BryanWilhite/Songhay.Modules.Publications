@@ -6,8 +6,6 @@ open System.IO
 open System.Text.Json
 
 open FsToolkit.ErrorHandling
-open FsUnit.CustomMatchers
-open FsUnit.Xunit
 open Xunit
 open Xunit.Abstractions
 
@@ -42,12 +40,12 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPresentationIdResult
-        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
+        result.IsOk |> Assert.True
 
         let actual = result |> toResultFromStringElement (fun el -> el.GetString() |> Identifier.fromString |> Id)
-        actual |> should be (ofCase <@ Result<Id, JsonException>.Ok @>)
+        actual.IsOk |> Assert.True
 
-        (actual |> Result.valueOr raise).Value.StringValue |> should equal expected
+        Assert.Equal(expected, (actual |> Result.valueOr raise).Value.StringValue)
 
     [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "Songhay Audio Presentation")>]
@@ -59,12 +57,12 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPresentationTitleResult
-        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
+        result.IsOk |> Assert.True
 
         let actual = result |> toResultFromStringElement (fun el -> el.GetString() |> Title)
-        actual |> should be (ofCase <@ Result<Title, JsonException>.Ok @>)
+        actual.IsOk |> Assert.True
 
-        match (actual |> Result.valueOr raise) with | Title t -> t |> should equal expected
+        match (actual |> Result.valueOr raise) with | Title t -> Assert.Equal(expected, t)
 
     [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "This InfoPath Form data is packaged with the audio presentation")>]
@@ -73,14 +71,14 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPresentationDescriptionResult
-        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
+        result.IsOk |> Assert.True
 
         let actual =
             result
             |> toResultFromStringElement (fun el -> el.GetString() |> PresentationDescription)
-        actual |> should be (ofCase <@ Result<PresentationPart, JsonException>.Ok @>)
+        actual.IsOk |> Assert.True
 
-        (actual |> Result.valueOr raise).StringValue.Contains(expected) |> should be True
+        (actual |> Result.valueOr raise).StringValue.Contains(expected) |> Assert.True
 
     [<SkippableTheory>]
     [<InlineData(audioContainerName, "default", "--rx-player-playlist-background-color", "#eaeaea")>]
@@ -92,10 +90,10 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetLayoutMetadataResult
-        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
+        result.IsOk |> Assert.True
 
         let actual = result |> toPresentationCssVariablesResult
-        actual |> should be (ofCase <@ Result<CssCustomPropertyAndValue list, JsonException>.Ok @>)
+        actual.IsOk |> Assert.True
         (actual |> Result.valueOr raise)
         |> List.find
             (
@@ -116,11 +114,11 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let result = path |> getPresentationElementResult |> tryGetPlaylistRootResult
-        result |> should be (ofCase <@ Result<JsonElement, JsonException>.Ok @>)
+        result.IsOk |> Assert.True
 
         let actual = result |> toPresentationPlaylistResult
 
-        actual |> should be (ofCase <@ Result<PresentationPart, JsonException>.Ok @>)
+        actual.IsOk |> Assert.True
 
     [<SkippableTheory>]
     [<InlineData(audioContainerName, "default")>]
@@ -139,7 +137,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let json = File.ReadAllText(path)
         let actual = json |> tryGetPresentation (creditsSet[containerKey] |> Result.mapError(fun ex -> JsonException $"{ex}"))
-        actual |> should be (ofCase <@ Result<Presentation, JsonException>.Ok @>)
+        actual.IsOk |> Assert.True
 
         let outputPath =
             $"json/{containerName}-{containerKey}-presentation-output.json" 
@@ -191,7 +189,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                         |> Result.valueOr raiseProgramFileError
                     let presentationJson = File.ReadAllText(inputPath)
                     let presentationResult = presentationJson |> tryGetPresentation (creditsSet[presentationKey] |> Result.mapError(fun ex -> JsonException $"{ex}"))
-                    presentationResult |> should be (ofCase <@ Result<Presentation, JsonException>.Ok @>)
+                    presentationResult.IsOk |> Assert.True
 
                     let presentation = presentationResult |> Result.valueOr raise
                     let json = JsonSerializer.Serialize(presentation, jsonSerializerOptions())
