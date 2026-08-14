@@ -12,7 +12,7 @@ open FsToolkit.ErrorHandling
 open Songhay.Modules.Publications.Models
 open Songhay.Modules.ProgramFileUtility
 
-open Songhay.Modules.Publications.Tests.PublicationsTestUtility
+open Songhay.Modules.Publications.Tests.TestUtility
 
 module LegacyPresentationCreditsXhtmlUtility =
 
@@ -20,12 +20,12 @@ module LegacyPresentationCreditsXhtmlUtility =
 
         let credits (dir: string) =
             result {
-                let fileName = dir |> directoryName
+                let fileName = dir |> getDirectoryName
                 let! path = tryGetCombinedPath dir $"{fileName}_credits.json"
 
                 let json = File.ReadAllText(path)
 
-                return JsonSerializer.Deserialize<RoleCredit list>(json, jsonSerializerOptions())
+                return JsonSerializer.Deserialize<RoleCredit list>(json, getJsonSerializerOptions())
             }
 
         (
@@ -33,10 +33,10 @@ module LegacyPresentationCreditsXhtmlUtility =
             |> getContainerDirectories
             |> List.ofSeq
             |> List.filter (fun path ->
-                    let dir = path |> directoryName
+                    let dir = path |> getDirectoryName
                     [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
                 )
-        ).ToDictionary(directoryName, credits)
+        ).ToDictionary(getDirectoryName, credits)
     let elementContainsBrElements (element: XElement) =
         element.Elements("br").Any()
 

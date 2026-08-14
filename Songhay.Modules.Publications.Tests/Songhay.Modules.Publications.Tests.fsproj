@@ -24,7 +24,8 @@
         <Content Include="json\syndication-feed-test-data.json" />
         <Content Include="xml\player-video-presentation-credits-xhtml-set-exceptions-1.xml" />
         <Content Include="xml\player-video-presentation-credits-xhtml-set-exceptions-2.xml" />
-        <Compile Include="PublicationsTestUtility.fs" />
+        <Compile Include="TestUtility.fs" />
+        <Compile Include="Models\PresentationTests.fs" />
         <Compile Include="DisplayItemModelUtilityTests.fs" />
         <Compile Include="LegacyPresentationUtility.fs" />
         <Compile Include="LegacyPresentationCreditsXhtmlUtility.fs" />
@@ -34,7 +35,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
         <PackageReference Include="xunit" Version="2.9.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

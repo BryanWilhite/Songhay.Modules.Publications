@@ -6,23 +6,23 @@
     ]
   },
   "title": "this is the title, man",
-  "cssVariables": [
+  "cssCustomPropertiesAndValues": [
     {
-      "Case": "CssVariableAndValue",
+      "Case": "CssCustomPropertyAndValue",
       "Fields": [
         "--my-css-var-one",
         "var-one-value"
       ]
     },
     {
-      "Case": "CssVariableAndValue",
+      "Case": "CssCustomPropertyAndValue",
       "Fields": [
         "--my-css-var-two",
         "var-two-value"
       ]
     },
     {
-      "Case": "CssVariableAndValue",
+      "Case": "CssCustomPropertyAndValue",
       "Fields": [
         "--my-css-var-three",
         "var-three-value"
@@ -90,11 +90,15 @@
           ],
           [
             "track two",
-            "track-two.mp3"
+            "./track-two.mp3"
           ],
           [
             "track three",
-            "track-three.mp3"
+            "/track-three.mp3"
+          ],
+          [
+            "track four",
+            "http://localhost:8080/one/track-three.mp3"
           ]
         ]
       ]

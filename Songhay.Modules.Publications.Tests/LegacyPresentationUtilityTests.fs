@@ -16,7 +16,7 @@ open Songhay.Modules.ProgramFileUtility
 
 open Songhay.Modules.Publications.LegacyPresentationUtility
 
-open Songhay.Modules.Publications.Tests.PublicationsTestUtility
+open Songhay.Modules.Publications.Tests.TestUtility
 
 type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
 
@@ -132,7 +132,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             |> Result.valueOr raiseProgramFileError
         let creditsSet =
             JsonSerializer
-                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPathForCredits), jsonSerializerOptions())
+                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPathForCredits), getJsonSerializerOptions())
 
         let path = getStorageMirrorPath containerName $"{containerKey}/{containerKey}.json"
         let json = File.ReadAllText(path)
@@ -145,7 +145,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             |> Result.valueOr raiseProgramFileError
 
         outputHelper.WriteLine $"writing to `{outputPath}`..."
-        let json = JsonSerializer.Serialize(actual, jsonSerializerOptions())
+        let json = JsonSerializer.Serialize(actual, getJsonSerializerOptions())
         File.WriteAllText(outputPath, json)
 
         let scssArray =
@@ -170,19 +170,19 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
             |> Result.valueOr raiseProgramFileError
         let creditsSet =
             JsonSerializer
-                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPath), jsonSerializerOptions())
+                .Deserialize<Dictionary<string,Result<RoleCredit list,ProgramFileError>>>(File.ReadAllText(inputPath), getJsonSerializerOptions())
 
         containerName
         |> getContainerDirectories
         |> List.ofSeq
         |> List.filter (fun path ->
-                let dir = path |> directoryName
+                let dir = path |> getDirectoryName
                 [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
             )
         |> List.iter
             (
                 fun directory ->
-                    let presentationKey = directory |> directoryName
+                    let presentationKey = directory |> getDirectoryName
                     outputHelper.WriteLine $"processing `{presentationKey}`..."
                     let inputPath =
                         tryGetCombinedPath directory $"{presentationKey}.json"
@@ -192,7 +192,7 @@ type LegacyPresentationUtilityTests(outputHelper: ITestOutputHelper) =
                     presentationResult.IsOk |> Assert.True
 
                     let presentation = presentationResult |> Result.valueOr raise
-                    let json = JsonSerializer.Serialize(presentation, jsonSerializerOptions())
+                    let json = JsonSerializer.Serialize(presentation, getJsonSerializerOptions())
                     let outputPath =
                         tryGetCombinedPath directory $"{presentationKey}_presentation.json"
                         |> Result.valueOr raiseProgramFileError

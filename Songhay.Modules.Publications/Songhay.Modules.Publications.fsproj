@@ -16,7 +16,7 @@
     <ItemGroup>
       <PackageReference Include="FSharp.SystemTextJson" Version="1.4.36" />
       <PackageReference Include="FsToolkit.ErrorHandling" Version="5.2.0" />
-      <PackageReference Include="Songhay.Modules" Version="10.0.0" />
+      <PackageReference Include="Songhay.Modules" Version="10.1.0" />
       <PackageReference Remove="FSharp.Core" />
     </ItemGroup>
 

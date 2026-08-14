@@ -19,8 +19,6 @@ open Songhay.Modules.Publications.Models
 open Songhay.Modules.Publications.LegacyPresentationUtility
 open Songhay.Modules.Publications.LegacyPresentationCreditsXhtmlUtility
 
-open Songhay.Modules.Publications.Tests.PublicationsTestUtility
-
 ///<remarks>
 /// The historical discussion in https://github.com/BryanWilhite/jupyter-central/blob/master/funkykb/fsharp/json/songhay-presentation-credits-xml.ipynb
 /// has been extended to include `player-video` data as well as the `player-audio` data explored previously.
@@ -48,7 +46,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
         |> getContainerDirectories
         |> List.ofSeq
         |> List.filter (fun path ->
-                let dir = path |> directoryName
+                let dir = path |> getDirectoryName
                 [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
             )
         |> List.sort
@@ -83,7 +81,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
 
         outputHelper.WriteLine($"writing `{outputPath}`...")
 
-        let json = JsonSerializer.Serialize(creditsData, jsonSerializerOptions())
+        let json = JsonSerializer.Serialize(creditsData, getJsonSerializerOptions())
         File.WriteAllText(outputPath, json)
 
     ///<remarks>
@@ -248,7 +246,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
             )
 
         outputHelper.WriteLine($"writing `{inputPathForDictionary}`...")
-        let json = JsonSerializer.Serialize(dictionary, jsonSerializerOptions())
+        let json = JsonSerializer.Serialize(dictionary, getJsonSerializerOptions())
         File.WriteAllText(inputPathForDictionary, json)
 
     [<SkippableTheory>]
@@ -339,7 +337,7 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
         |> getContainerDirectories
         |> List.ofSeq
         |> List.filter (fun path ->
-                let dir = path |> directoryName
+                let dir = path |> getDirectoryName
                 [ "css"; "youtube-channels"; "youtube-uploads" ] |> List.contains dir |> not
             )
         |> List.iter (
@@ -377,5 +375,5 @@ type LegacyPresentationCreditsXhtmlUtilityTests(outputHelper: ITestOutputHelper)
             |> tryGetCombinedPath projectDirectoryInfo.FullName
             |> Result.valueOr raiseProgramFileError
 
-        let json = JsonSerializer.Serialize(boundSet, jsonSerializerOptions())
+        let json = JsonSerializer.Serialize(boundSet, getJsonSerializerOptions())
         File.WriteAllText(outputPath, json)

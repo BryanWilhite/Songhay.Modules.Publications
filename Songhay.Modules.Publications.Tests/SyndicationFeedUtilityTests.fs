@@ -1,27 +1,19 @@
 namespace Songhay.Modules.Publications.Tests
 
-open System.IO
 open System.Text.Json
 open Xunit
 
 open FsToolkit.ErrorHandling
 open FsToolkit.ErrorHandling.Operator.Result
 
-open Songhay.Modules.ProgramFileUtility
 open Songhay.Modules.JsonDocumentUtility
 open Songhay.Modules.Publications.SyndicationFeedUtility
-
-open Songhay.Modules.Publications.Tests.PublicationsTestUtility
 
 module SyndicationFeedUtilityTests =
 
     let getSyndicationElements() =
-        let jsonPath =
-            $"./json/syndication-feed-test-data.json"
-            |> tryGetCombinedPath projectDirectoryInfo.FullName
-            |> Result.valueOr raiseProgramFileError
 
-        let jsonRootElementResult = tryGetRootElement <| File.ReadAllText jsonPath
+        let jsonRootElementResult = tryGetRootElement <| getProjectJsonStringFromFileName "syndication-feed-test-data.json"
 
         let rssRootElement = jsonRootElementResult |> Result.bind (tryGetProperty RssFeedPropertyName) |> Result.valueOr raise
         let atomRootElement = jsonRootElementResult |> Result.bind (tryGetProperty AtomFeedPropertyName) |> Result.valueOr raise

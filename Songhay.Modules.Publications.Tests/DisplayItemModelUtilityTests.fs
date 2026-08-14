@@ -7,7 +7,7 @@ open FsToolkit.ErrorHandling
 open Songhay.Modules.Publications.Models
 open Songhay.Modules.Publications.DisplayItemModelUtility
 
-open Songhay.Modules.Publications.Tests.PublicationsTestUtility
+open Songhay.Modules.Publications.Tests.TestUtility
 
 module DisplayItemModelUtilityTests =
 
@@ -16,7 +16,7 @@ module DisplayItemModelUtilityTests =
     [<InlineData("Document", true, null,"publication-document-frontmatter.json")>]
     let ``tryGetDisplayItemModel test``
         ( itemTypeString: string, shouldUseCamelCase: bool, fragmentElementName: string, fileName: string ) =
-        let jsonDocument = fileName |> getJsonDocument
+        let jsonDocument = fileName |> getProjectJsonDocument
         let itemType = (itemTypeString |> PublicationItem.fromString |> Result.valueOr raise)
         let fragmentElementNameOption = Option.ofObj(fragmentElementName)
         let displayTextGetter = defaultDisplayTextGetter fragmentElementNameOption

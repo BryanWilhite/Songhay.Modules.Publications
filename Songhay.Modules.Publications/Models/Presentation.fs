@@ -56,10 +56,30 @@ type Presentation =
             |> Presentation.toOption
 
     ///<summary>Reduces <see cref="Presentation.parts" /> to the tuple of <see cref="Playlist"/>.</summary>
-    member this.playList =
+    member this.playlist =
         this.parts
             |> List.choose (function | PresentationPart.Playlist pl -> pl |> Some | _ -> None)
             |> Presentation.toOption
+
+    member this.toPlaylistWithApiBase (pathOption: string option) (apiBase: ApiBase) =
+        let trimSet = [|' '; '.'; '/'|]
+
+        this.playlist
+        |> Option.map(fun list ->
+            list |> List.map(fun (displayText, uri) ->
+                    let builder = apiBase.Value |> UriBuilder
+                    let buildPath (uriSegments: string) =
+                        if pathOption.IsSome then
+                            builder.Path <- $"{pathOption.Value.Trim(trimSet)}/{uriSegments.Trim(trimSet)}"
+                        else
+                            builder.Path <- uriSegments.Trim(trimSet)
+
+                    if uri.IsAbsoluteUri then uri.LocalPath |> buildPath
+                    else uri.OriginalString |> buildPath
+
+                    (displayText, builder.Uri)
+                )
+            )
 
     ///<summary>Serializes this instance of <see cref="Presentation"/> to JSON.</summary>
     member this.toJson (writeIndented: bool) =
