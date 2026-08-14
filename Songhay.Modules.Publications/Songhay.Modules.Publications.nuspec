@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>Songhay.Modules.Publications</id>
-        <version>10.0.0</version>
+        <version>10.1.0</version>
         <description>shared Publication types and functions for F# clients 🕸🖼</description>
         <authors>Bryan D. Wilhite</authors>
         <title>Songhay Modules, Publications</title>
@@ -13,7 +13,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <summary>shared Publication types and functions for F# clients 🕸🖼</summary>
         <readme>README.md</readme>
-        <releaseNotes> update of dependencies  📦🔝</releaseNotes>
+        <releaseNotes>see https://github.com/BryanWilhite/Songhay.Modules.Publications/issues/16 📓</releaseNotes>
         <copyright>(c) 2026 Bryan D. Wilhite</copyright>
         <tags>FSharp;Songhay;Modules;Publications;RSS;Atom</tags>
         <repository type="git" url="https://github.com/BryanWilhite/Songhay.Modules.Publications"></repository>
@@ -21,7 +21,7 @@
             <group targetFramework=".net10.0">
                 <dependency id="FSharp.SystemTextJson" version="1.4.36" />
                 <dependency id="FsToolkit.ErrorHandling" version="5.2.0" />
-                <dependency id="Songhay.Modules" version="10.0.0" />
+                <dependency id="Songhay.Modules" version="10.1.0" />
             </group>
         </dependencies>
     </metadata>
