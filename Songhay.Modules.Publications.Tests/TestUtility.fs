@@ -1,3 +1,4 @@
+[<AutoOpen>]
 module Songhay.Modules.Publications.Tests.PublicationsTestUtility
 
 open System
